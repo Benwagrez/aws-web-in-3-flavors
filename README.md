@@ -1,1 +1,1 @@
-# super-octo-adventure
+# super-octo-adventures

@@ -1,0 +1,83 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color:#001F3F;
+}
+.content-wrapper {
+  background-image: url('catbanner.jpg'); /* Background image */
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0; /* Padding top and bottom */
+}
+.header {
+  background-color: white; /* White background for header */
+  padding: 10px;
+}
+.footer {
+  background-color: white; /* White background for footer */
+  color: #001F3F; /* Dark Blue text color */
+  text-align: center;
+  padding: 20px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #E5E5E5; /* Light Gray */
+}
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.menu-item {
+  margin: 0 10px;
+  color: #E5E5E5; /* Light Gray */
+  position: relative;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #FF851B; /* Light Orange */
+  padding: 10px;
+}
+.menu-item:hover .dropdown {
+  display: block;
+}
+.content {
+  flex: 1; /* Fill available space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.scrolling-images {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: scrollImages 30s linear infinite;
+}
+.scrolling-images img {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 0 10px; /* Equal spacing between images */
+  vertical-align: top;
+}
+@keyframes scrollImages {
+  0% {
+    transform: translateX(100%); /* Start from the right */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left */
+  }
+}
