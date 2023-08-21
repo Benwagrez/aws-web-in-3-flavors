@@ -10,5 +10,5 @@ sudo aws s3 cp s3://octovmwebsitearm/deployment.zip deployment.zip
 
 
 sudo unzip deployment.zip
-sudo cp frontend/* /var/www/html/
+sudo cp -r frontend/* /var/www/html/
 

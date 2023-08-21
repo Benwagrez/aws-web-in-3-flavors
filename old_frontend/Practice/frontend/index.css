@@ -1,0 +1,123 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #001F3F;
+  padding: 10px;
+  color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo img {
+  max-width: 80px; /* Adjust as needed */
+  height: auto;
+}
+
+.header-menu ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header-menu li {
+  position: relative; /* Set submenus to be positioned relative to their parent */
+  margin-right: 50px; /* Adjust spacing between menu items */
+}
+
+.header-menu a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.header-dropdown .header-submenu {
+  display: none;
+  position: absolute;
+  color: white;
+  background-color: lightgray;
+  padding: 10px;
+  list-style: none;
+  z-index: 1;
+  top: 100%; /* Position the submenu below the parent item */
+  left: 0;
+  margin: 5px 0; /* Add vertical spacing between submenu items */
+  
+}
+
+.header-dropdown:hover .header-submenu {
+  display: block;
+}
+
+.content-wrapper {
+  background-image: url('catbanner.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer {
+  background-color: #001F3F;
+  color: whitesmoke;
+  text-align: center;
+  padding: 20px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+#scrolling-images-container {
+  height: 200px;
+  width: 100vw;
+  position: relative; 
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* #scrolling-images-container:hover {
+  overflow: auto;
+} */
+
+#scrolling-images-container:hover .scrolling-images-banner {
+  animation-play-state: paused;
+}
+
+.scrolling-images-banner {
+  position:absolute; 
+  top:0px; 
+  left:0px; 
+  overflow:hidden; 
+  white-space: nowrap;
+  animation: bannermove 15s linear infinite;
+}
+
+.scrolling-images-banner img {    
+  width: 30vw;
+  height: 200px;
+  /* object-fit: cover; */
+  margin: 0 1.5vw 
+}
+
+@keyframes bannermove {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(-50%, 0);
+  }
+}
