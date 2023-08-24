@@ -1,3 +1,13 @@
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 2.7.0"
+    }
+  }
+}
+
 resource "aws_vpc" "main" {
   cidr_block       = "10.0.0.0/16"
   instance_tenancy = "default"
@@ -154,60 +164,4 @@ resource "aws_s3_bucket_public_access_block" "some_bucket_access" {
   block_public_acls   = true
   block_public_policy = true
   ignore_public_acls  = true
-}
-
-# EC2 role and bucket policy
-
-resource "aws_iam_policy" "bucket_policy" {
-  name        = "web-bucket-policy"
-  path        = "/"
-  description = "Allow "
-
-  policy = jsonencode({
-    "Version" : "2012-10-17",
-    "Statement" : [
-      {
-        "Sid" : "AllowDeployBucket",
-        "Effect" : "Allow",
-        "Action" : [
-          "s3:PutObject",
-          "s3:GetObject",
-          "s3:ListBucket",
-          "s3:DeleteObject"
-        ],
-        "Resource" : [
-          "${aws_s3_bucket.static.arn}/*",
-          "${aws_s3_bucket.static.arn}"
-        ]
-      }
-    ]
-  })
-}
-
-resource "aws_iam_role" "ec2_web_role" {
-  name = "ec2_web_role"
-
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Sid    = ""
-        Principal = {
-          Service = "ec2.amazonaws.com"
-        }
-      },
-    ]
-  })
-}
-
-resource "aws_iam_role_policy_attachment" "bucket_policy_role_attachment" {
-  role       = aws_iam_role.ec2_web_role.name
-  policy_arn = aws_iam_policy.bucket_policy.arn
-}
-
-resource "aws_iam_instance_profile" "ec2_web_profile" {
-  name = "ec2-web-profile"
-  role = aws_iam_role.ec2_web_role.name
 }
