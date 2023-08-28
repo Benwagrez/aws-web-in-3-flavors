@@ -32,3 +32,17 @@
 		});
 
 })(jQuery);
+
+var z = 0;
+function changeOpacity() {
+	if (z == 0){
+		x = document.getElementById('floater');
+		x.style.opacity = 0.9;
+		z = 1;
+	}
+	else {
+		x = document.getElementById('floater');
+		x.style.opacity = 0;
+		z = 0;
+	}
+}
