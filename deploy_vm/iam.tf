@@ -1,5 +1,8 @@
-# EC2 role and bucket policy
+# ========================= #
+# ====== IAM details ====== #
+# ========================= #
 
+# IAM policy giving EC2 instance SSM Get rights for SSL certs
 resource "aws_iam_policy" "ssm_policy" {
   name        = "ssm-policy"
   path        = "/"
@@ -18,6 +21,7 @@ resource "aws_iam_policy" "ssm_policy" {
   })  
 }
 
+# IAM policy for EC2 instance to run Put, Get, List, and Delete on created S3 buckets
 resource "aws_iam_policy" "bucket_policy" {
   name        = "web-bucket-policy"
   path        = "/"
@@ -36,14 +40,15 @@ resource "aws_iam_policy" "bucket_policy" {
           "s3:DeleteObject"
         ],
         "Resource" : [
-          "${aws_s3_bucket.static.arn}/*",
-          "${aws_s3_bucket.static.arn}"
+          "${aws_s3_bucket.s3_vm_bucket.arn}/*",
+          "${aws_s3_bucket.s3_vm_bucket.arn}"
         ]
       }
     ]
   })
 }
 
+# IAM role for EC2 instance to assume role
 resource "aws_iam_role" "ec2_web_role" {
   name = "ec2_web_role"
 
@@ -62,6 +67,8 @@ resource "aws_iam_role" "ec2_web_role" {
   })
 }
 
+
+# Attaching policies to role and role an EC2 instance profile
 resource "aws_iam_role_policy_attachment" "bucket_policy_role_attachment" {
   role       = aws_iam_role.ec2_web_role.name
   policy_arn = aws_iam_policy.bucket_policy.arn
