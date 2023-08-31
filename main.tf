@@ -1,6 +1,13 @@
 # ========================= #
-# ==== local variable ===== #
+# ===== Main Executor ===== #
 # ========================= #
+# Purpose
+# Manage all instantiated modules and providers
+#
+# Notes
+# This module manager gives a holistic view on the environment being deployed through IAC. It provides documentation,
+# clear and concise variables, and is easy to read for the purposes of understanding the code in the repo.
+
 locals {
   common_tags = {
     Infra = var.deployvm ? "deploy_Vm" : var.deploycontainer ? "deploy_container" : var.deployS3 ? "deploy_s3" : ""
@@ -8,9 +15,9 @@ locals {
   }
 }
 
-# ========================= #
-# ==== Provider Config ==== #
-# ========================= #
+#############################
+###### Provider Config ######
+#############################
 terraform {
   required_providers {
     aws = {
@@ -51,9 +58,9 @@ provider "random" {
 }
 
 
-# ========================= #
-# ==== Module Manager ===== #
-# ========================= #
+#############################
+###### Module Manager #######
+#############################
 # Below module dependencies are listed #
 # ------------------------------------ #
 # SSL_certification_deployment | Required for all deployments
@@ -109,7 +116,7 @@ module "vm_website_deployment" {
   count = var.deployvm ? 1 : 0
   source = "./deploy_vm"
 
-  acm_cert = module.SSL_certification_deployment.acm_cert_arn
+  acm_cert = module.SSL_certification_deployment.acm_alb_cert_arn
   AWS_ACCOUNT_ID = data.aws_caller_identity.current.account_id
   VM_KEY_ID = var.VM_KEY_ID
   common_tags = local.common_tags

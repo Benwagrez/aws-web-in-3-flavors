@@ -1,6 +1,9 @@
 # ========================= #
 # ====== Networking ======= #
 # ========================= #
+# Purpose
+# Create networking to support EC2 and application load balancer
+# Including network hardening resources for security
 
 # AWS VPC 
 resource "aws_vpc" "main" {

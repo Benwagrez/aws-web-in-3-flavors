@@ -1,4 +1,10 @@
-# Cloudfront distribution for main s3 site.
+# ========================= #
+# == CloudFront details === #
+# ========================= #
+# Purpose
+# Deploy two CloudFront Distributions for the two S3 buckets
+
+# Cloudfront distribution for main www s3 site
 resource "aws_cloudfront_distribution" "www_s3_distribution" {
   origin {
     domain_name = aws_s3_bucket_website_configuration.www_bucket_config.website_endpoint
@@ -65,7 +71,7 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
   )}" 
 }
 
-# Cloudfront S3 for redirect to www.
+# Cloudfront S3 for redirect to www
 resource "aws_cloudfront_distribution" "root_s3_distribution" {
   origin {
     domain_name = aws_s3_bucket_website_configuration.root_bucket_config.website_endpoint

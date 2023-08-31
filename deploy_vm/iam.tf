@@ -1,6 +1,9 @@
 # ========================= #
 # ====== IAM details ====== #
 # ========================= #
+# Purpose
+# Giving the EC2 instance IAM permissions for:
+# SSM params, S3 bucket, STS Assume Role
 
 # IAM policy giving EC2 instance SSM Get rights for SSL certs
 resource "aws_iam_policy" "ssm_policy" {

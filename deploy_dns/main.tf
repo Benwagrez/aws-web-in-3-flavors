@@ -1,3 +1,9 @@
+# ========================= #
+# ======= DNS Module ====== #
+# ========================= #
+# Purpose
+# Create DNS records as needed for all three deployment types
+
 
 terraform {
   required_providers {

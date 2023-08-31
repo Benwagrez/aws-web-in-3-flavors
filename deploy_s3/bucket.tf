@@ -1,8 +1,16 @@
 # ========================= #
 # === S3 Bucket details === #
 # ========================= #
+# Purpose
+# Deploy two S3 website buckets for root and www domains
+# Deploy frontend to the www bucket
+#
+# Notes
+# You're going to hate S3 buckets in Terraform after reading this code
 
-# S3 bucket for website
+############################################
+########## S3 bucket for website ##########
+############################################
 resource "aws_s3_bucket" "www_bucket" {
   bucket = "www.${var.domain_name}"
 
@@ -31,6 +39,7 @@ resource "aws_s3_bucket_public_access_block" "www_bucket_access" {
 resource "aws_s3_bucket_policy" "www_bucket_S3_public_read_only" {
   bucket = aws_s3_bucket.www_bucket.id
   policy = templatefile("${path.module}/policy/s3-public-read-policy.json", { bucket = "www.${var.domain_name}" })
+  depends_on = [aws_s3_bucket_ownership_controls.www_bucket_acl_ownership]
 }
 
 resource "aws_s3_bucket_cors_configuration" "www_bucket_cors_configuration" {
@@ -62,9 +71,11 @@ resource "aws_s3_bucket_website_configuration" "www_bucket_config" {
     key = "error.html"
   }
 }
-  
 
-# S3 bucket for redirecting non-www to www
+  
+############################################
+# S3 bucket for redirecting non-www to www #
+############################################
 resource "aws_s3_bucket" "root_bucket" {
   bucket = var.domain_name
 
@@ -93,6 +104,7 @@ resource "aws_s3_bucket_public_access_block" "root_bucket_access" {
 resource "aws_s3_bucket_policy" "root_bucket_S3_public_read_only" {
   bucket = aws_s3_bucket.root_bucket.id
   policy = templatefile("${path.module}/policy/s3-public-read-policy.json", { bucket = var.domain_name })
+  depends_on = [aws_s3_bucket_ownership_controls.root_bucket_acl_ownership]
 }
 
 resource "aws_s3_bucket_acl" "root_bucket_acl" {
@@ -110,12 +122,30 @@ resource "aws_s3_bucket_website_configuration" "root_bucket_config" {
   }
 }
 
-# S3 Object - This is used to deploy code to the S3 bucket
+
+############################################
+########### Frontend Deployment ############
+############################################
+# Module to ingest frontend files and append content attributes to the files
+# This is necessary for the S3 object upload so S3 can receive the content type
+# OTherwise instread of displaying your lovely webpage it will download it
+module "content_attached_files" {
+  source = "hashicorp/dir/template"
+
+  base_dir = "${path.module}/../frontend/"
+
+}
+
+# S3 Object - This is used to deploy the website to the S3 bucket
+# It runs a loop through every file in the frontend/ folder and uploads 
+# the file with metadata derived from the content_attached_file module
 resource "aws_s3_object" "s3_assets" {
-  for_each = fileset("${path.module}/../frontend/", "*")
+  for_each = module.content_attached_files.files 
 
   bucket = aws_s3_bucket.www_bucket.id
-  key = each.value
-  source = "${path.module}/../frontend/${each.value}"
-  etag = filemd5("${path.module}/../frontend/${each.value}")
+  key          = each.key
+  content_type = each.value.content_type
+  source  = each.value.source_path
+  content = each.value.content
+  etag = each.value.digests.md5
 }

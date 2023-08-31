@@ -1,6 +1,8 @@
 # ========================= #
 # ==== EC2 Web Server ===== #
 # ========================= #
+# Purpose
+# Creating Auto Scaling Group with Linux VM for the webserver
 
 # Setting terraform providers
 terraform {
