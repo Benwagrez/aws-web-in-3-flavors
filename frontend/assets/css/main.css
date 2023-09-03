@@ -127,7 +127,7 @@ body {
 	}
 
 	header {
-		margin: 0 0 3em 0;
+		margin: 0 0 1.5em 0;
 	}
 
 		header > p {
@@ -288,6 +288,7 @@ body {
 
 		.row > .col-12 {
 			width: 100%;
+			padding: 0 0 0 0 
 		}
 
 		.row {
@@ -1364,7 +1365,7 @@ body {
 			}
 
 			header {
-				margin: 0 0 4em 0;
+				margin: 0 0 1.5em 0;
 			}
 
 		/* Wrappers */
@@ -1437,7 +1438,7 @@ body {
 			}
 
 			header {
-				margin: 0 0 2em 0;
+				margin: 0 0 1.5em 0;
 			}
 
 				header > p {
@@ -1633,15 +1634,15 @@ body {
 		margin-top: 6em;
 	}
 	div.profile section.photo {
-		height: calc(0.33*(70VH - 4em)); /*125px;*/
+		height: calc(0.38*(70VH - 4em)); /*125px;*/
 	}
 	div.profile section.photo img {
-		height: 125px; 
+		height: 100%; 
 		border-radius: 50%;
-		width: 125px;
+		/* width: 125px; */
 	}
 	div.profile section.info {
-		height: calc(0.28*(70VH - 4em)); /*115px;*/
+		height: calc(0.26*(70VH - 4em)); /*115px;*/
 	}
 	div.profile section.info h1 {
 		font-size: 34px;
@@ -1656,7 +1657,7 @@ body {
 		line-height: 30px;
 	}
 	div.profile section.links {
-		height: calc(0.35*(70VH - 4em)); /*100px;*/
+		height: calc(0.32*(70VH - 4em)); /*100px;*/
 		padding-top: 3vh;
 		padding-bottom: 1vh;
 		box-sizing: border-box;
@@ -1767,7 +1768,7 @@ body {
 	}
 
 	.col-12 > .col-16 {
-		padding: 0 5em 5em 5em;
+		padding: 0 5em 0em 5em;
 	}
 
 	.row {
@@ -1858,8 +1859,8 @@ body {
 	}
 
 	header.major {
-		border-bottom: solid 1px #dbdbdb;
-		margin: 0 0 3em 0;
+		/* border-bottom: solid 1px #dbdbdb; */
+		margin: 0 0 1.5em 0;
 	}
 
 		header.major:after {
@@ -1874,7 +1875,7 @@ body {
 		}
 
 		header.major p {
-			margin: 0 0 1.5em 0;
+			/* margin: 0 0 1.5em 0; */
 			position: relative;
 			top: -1em;
 		}
@@ -1906,11 +1907,12 @@ body {
 	}
 
 		#aboutme header {
-			margin-bottom: 3em;
+			margin-bottom: 1.5em;
 		}
 
 			#aboutme header.first h2 {
 				font-size: 2.5em;
+				padding-top: 0.75em;
 			}
 
 			#aboutme header.first p {
@@ -1945,6 +1947,7 @@ body {
 
 	#hobbies header.first h2 {
 		font-size: 2.5em;
+		padding-top: 0.75em;
 	}
 
 	#hobbies header.first p {
@@ -1956,11 +1959,12 @@ body {
 	}
 
 		#projects header {
-			margin-bottom: 3em;
+			margin-bottom: 1.5em;
 		}
 
 			#projects header.first h2 {
 				font-size: 2.5em;
+				padding-top: 0.75em;
 			}
 
 			#projects header.first p {
@@ -2004,8 +2008,24 @@ body {
 			background-color: #fff;
 			background-image: url("images/bg03.png"), url("images/bg04.png"), url("images/bg02.png");
 			background-repeat: no-repeat, no-repeat, repeat;
-			background-size: 100% 15em, 100% 15em, auto auto;
+			background-size: 100% 5em, 100% 5em, auto auto;
 			background-position: top center, bottom center, top left;
 			color: #7b818c;
+		}
+
+		.box.style2 {
+			color: #7b818c;
+		}
+
+		.square {
+			padding: 0 5vw 0em 5vw;
+			width: 100%;
+			text-align: left;
+		}
+
+		.square-big {
+			padding: 0 15vw 0em 15vw;
+			width: 100%;
+			text-align: left;
 		}
 

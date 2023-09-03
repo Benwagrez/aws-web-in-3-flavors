@@ -27,7 +27,7 @@ resource "aws_subnet" "compute_zonea" {
   tags = "${merge(
     var.common_tags,
     tomap({
-      "Name" = "Compute Subnet",
+      "Name" = "Compute Subnet A",
     })
   )}"  
 }
@@ -40,7 +40,7 @@ resource "aws_subnet" "compute_zoneb" {
   tags = "${merge(
     var.common_tags,
     tomap({
-      "Name" = "Compute Subnet",
+      "Name" = "Compute Subnet B",
     })
   )}"  
 }
@@ -54,7 +54,7 @@ resource "aws_subnet" "lb_zonea" {
   tags = "${merge(
     var.common_tags,
     tomap({
-      "Name" = "Compute Subnet",
+      "Name" = "Loadbalancer Subnet A",
     })
   )}"  
 }
@@ -67,7 +67,29 @@ resource "aws_subnet" "lb_zoneb" {
   tags = "${merge(
     var.common_tags,
     tomap({
-      "Name" = "Compute Subnet",
+      "Name" = "Loadbalancer Subnet B",
+    })
+  )}"  
+}
+
+# Route Table for internet gateway default route
+resource "aws_route_table" "lb_rt" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block = aws_vpc.main.cidr_block
+    gateway_id = "local"
+  }
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.gw.id
+  }
+
+  tags = "${merge(
+    var.common_tags,
+    tomap({
+      "Name" = "Loadbalancer route table",
     })
   )}"  
 }
@@ -81,6 +103,7 @@ resource "aws_route_table" "compute_rt" {
     gateway_id = "local"
   }
 
+  # Ideally would not have internet, but don't want to pay for private link or S3 gateway
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.gw.id
@@ -100,7 +123,7 @@ resource "aws_lb" "alb" {
   load_balancer_type = "application"
   security_groups    = [ aws_security_group.app-gw-sg.id ]
   subnets            = [ aws_subnet.lb_zonea.id, aws_subnet.lb_zoneb.id ]
-
+  enable_http2       = true
 
   # access_logs {
   #   bucket  = aws_s3_bucket.static.id
@@ -127,6 +150,13 @@ resource "aws_lb_listener" "web_front_end" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.web_servers.arn
   }
+
+  tags = "${merge(
+    var.common_tags,
+    tomap({
+      "Name" = "web_listener",
+    })
+  )}"
 }
 
 resource "aws_lb_target_group" "web_servers" {
@@ -144,12 +174,12 @@ resource "aws_autoscaling_attachment" "web_servers_attachment" {
 # Attaching route table to subnet
 resource "aws_route_table_association" "route_table_assoc" {
   subnet_id      = aws_subnet.lb_zonea.id
-  route_table_id = aws_route_table.compute_rt.id
+  route_table_id = aws_route_table.lb_rt.id
 }
 
 resource "aws_route_table_association" "route_table_assoc2" {
   subnet_id      = aws_subnet.lb_zoneb.id
-  route_table_id = aws_route_table.compute_rt.id
+  route_table_id = aws_route_table.lb_rt.id
 }
 
 resource "aws_route_table_association" "route_table_assoc3" {

@@ -1,5 +1,11 @@
 # super-octo-adventures
+Hey everyone! Welcome to my super octo adventure. This repository holds three different deployment strategies for a website on AWS. Let me give a brief overview of these strategies.
 
+## S3 Bucket Deployment
+
+## Virtual Machine Deployment
+
+## Containerized Deployment
 
 # Scripts
 The following scripts are made for ease of management: reset.sh, vmdeploy.sh, s3deploy.sh, containerdeploy.sh
@@ -14,3 +20,5 @@ vmdeploy.sh - deploys deploy_vm module including the following resources: networ
 s3deploy.sh - deploys deploy_s3 module including the following resources: 2x CloudFront distributions and 2x S3 buckets
 
 containerdeploy.sh - deploys deploy_container module including the following resources: TBD
+
+Note: switching between these deployments quickly can run into DNS caching issues locally and at the name server or isp level. This may remove your ability to connect to the website until that records TTL dies.

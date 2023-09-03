@@ -46,3 +46,36 @@ function changeOpacity() {
 		z = 0;
 	}
 }
+
+function getRandomColor() {
+	// Generate a random hex color code
+	return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+
+let isDiscoModeEnabled = false;
+
+function discoMode() {
+	const textElements = document.querySelectorAll('[id=gegertaes]');
+
+	if (!isDiscoModeEnabled) {
+
+		isDiscoModeEnabled = true;
+		discoInterval = setInterval(function() {
+			textElements.forEach(function(element) {
+			// Change the text color to a random color
+			element.style.color = getRandomColor();
+			element.style.fill = getRandomColor();
+			});
+		}, 500); // Change colors every 500 milliseconds (adjust as needed)
+	} else {
+		isDiscoModeEnabled = false;
+
+		clearInterval(discoInterval);
+
+		textElements.forEach(function(element) {
+		// Change the text color to a random color
+		element.style.color = '#7b818c';
+		element.style.fill = '#c8cccf';
+		});
+	}
+}

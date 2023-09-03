@@ -51,7 +51,37 @@ resource "aws_iam_policy" "bucket_policy" {
   })
 }
 
-# IAM role for EC2 instance to assume role
+# IAM policy for SSM manager to allow Systems Manager to manage your node
+resource "aws_iam_policy" "ssm_manage_policy" {
+  name        = "ssm-manage-policy"
+  path        = "/"
+  description = "Allow "
+
+  policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+          "Effect": "Allow",
+          "Action": [
+              "ssmmessages:CreateControlChannel",
+              "ssmmessages:CreateDataChannel",
+              "ssmmessages:OpenControlChannel",
+              "ssmmessages:OpenDataChannel"
+          ],
+          "Resource": "*"
+      },
+      {
+          "Effect": "Allow",
+          "Action": [
+              "s3:GetEncryptionConfiguration"
+          ],
+          "Resource": "*"
+      }
+    ]
+  })
+}
+
+# IAM role for EC2 instance that allows it to communicate with the STS service to assume role
 resource "aws_iam_role" "ec2_web_role" {
   name = "ec2_web_role"
 
@@ -75,6 +105,11 @@ resource "aws_iam_role" "ec2_web_role" {
 resource "aws_iam_role_policy_attachment" "bucket_policy_role_attachment" {
   role       = aws_iam_role.ec2_web_role.name
   policy_arn = aws_iam_policy.bucket_policy.arn
+}
+
+resource "aws_iam_role_policy_attachment" "ssm_manage_policy_role_attachment" {
+  role       = aws_iam_role.ec2_web_role.name
+  policy_arn = aws_iam_policy.ssm_manage_policy.arn
 }
 
 resource "aws_iam_role_policy_attachment" "ssm_policy_role_attachment" {

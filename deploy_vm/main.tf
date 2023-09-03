@@ -30,6 +30,7 @@ resource "aws_launch_template" "webserver_launch_configuration" {
   image_id = data.aws_ssm_parameter.amzn2-ami-latest.value
   instance_type = "t2.micro"
   user_data = base64encode(file("${path.module}/ec2_user_data.tpl"))
+  key_name = data.aws_key_pair.ec2_key.key_name
 
   iam_instance_profile {
     arn  = aws_iam_instance_profile.ec2_web_profile.arn

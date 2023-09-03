@@ -6,3 +6,6 @@
 
 # Running Terraform apply
 terraform apply -var-file="terraform.tfvars" -var="deployvm=true"
+
+# Cleaning up deployment package
+rm ./deployment.zip
