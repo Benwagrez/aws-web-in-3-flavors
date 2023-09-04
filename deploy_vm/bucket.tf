@@ -5,7 +5,7 @@
 # Deploy S3 bucket and frontend contents as zipped into S3 bucket
 # for retrieval on the EC2 instance
 
-# S3 bucket for zip contents
+# S3 bucket for zip contents and ALB access logs
 resource "aws_s3_bucket" "s3_vm_bucket" {
   bucket = "octovmwebsitearm"
   tags = "${merge(
@@ -14,6 +14,30 @@ resource "aws_s3_bucket" "s3_vm_bucket" {
       "Name" = "octovmwebsitearm",
     })
   )}"
+}
+
+# Granting alb access to S3 bucket
+resource "aws_s3_bucket_policy" "allow_access_from_alb" {
+  bucket = aws_s3_bucket.s3_vm_bucket.id
+  policy = data.aws_iam_policy_document.allow_access_for_alb.json
+}
+
+# Generating bucket policy for alb access 
+data "aws_iam_policy_document" "allow_access_for_alb" {
+  statement {
+    principals {
+      type        = "AWS"
+      identifiers = ["033677994240"]
+    }
+
+    actions = [
+      "s3:PutObject",
+    ]
+
+    resources = [
+      "${aws_s3_bucket.s3_vm_bucket.arn}/alb/AWSLogs/*",
+    ]
+  }
 }
 
 # Configuring a storage lifecycle policy to save $$$

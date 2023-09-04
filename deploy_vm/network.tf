@@ -117,6 +117,7 @@ resource "aws_route_table" "compute_rt" {
   )}"  
 }
 
+# Application load balancer for frontend traffic
 resource "aws_lb" "alb" {
   name               = "octoappbalancer"
   internal           = false
@@ -125,11 +126,13 @@ resource "aws_lb" "alb" {
   subnets            = [ aws_subnet.lb_zonea.id, aws_subnet.lb_zoneb.id ]
   enable_http2       = true
 
-  # access_logs {
-  #   bucket  = aws_s3_bucket.static.id
-  #   prefix  = "alb"
-  #   enabled = true
-  # }
+  access_logs {
+    bucket  = aws_s3_bucket.s3_vm_bucket.id
+    prefix  = "alb"
+    enabled = true
+  }
+
+  depends_on = [ aws_s3_bucket_policy.allow_access_from_alb ]
 
   tags = "${merge(
     var.common_tags,
@@ -139,6 +142,24 @@ resource "aws_lb" "alb" {
   )}" 
 }
 
+# Adding an HTTP listener to the alb to redirect to HTTPS
+resource "aws_lb_listener" "web_front_end_no_ssl" {
+  load_balancer_arn = aws_lb.alb.arn
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    type = "redirect"
+
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
+  }
+}
+
+# Adding an HTTPS listener that will forward to target group of the web Auto Scaling Group
 resource "aws_lb_listener" "web_front_end" {
   load_balancer_arn = aws_lb.alb.arn
   port              = "443"
@@ -159,6 +180,7 @@ resource "aws_lb_listener" "web_front_end" {
   )}"
 }
 
+# Creating the target group for the web auto scaling group
 resource "aws_lb_target_group" "web_servers" {
   name     = "web-server-tg"
   port     = 443
@@ -166,12 +188,13 @@ resource "aws_lb_target_group" "web_servers" {
   vpc_id   = aws_vpc.main.id
 }
 
+# Attaching the web Auto Scaling Group with the ALB target group
 resource "aws_autoscaling_attachment" "web_servers_attachment" {
   autoscaling_group_name = aws_autoscaling_group.web_server_asg.id
   lb_target_group_arn   = aws_lb_target_group.web_servers.arn
 }
 
-# Attaching route table to subnet
+# Attaching route table to subnets
 resource "aws_route_table_association" "route_table_assoc" {
   subnet_id      = aws_subnet.lb_zonea.id
   route_table_id = aws_route_table.lb_rt.id

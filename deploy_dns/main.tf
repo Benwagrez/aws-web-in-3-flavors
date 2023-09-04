@@ -46,7 +46,7 @@ resource "aws_route53_record" "www-a" {
   }
 }
 
-resource "aws_route53_record" "cname_route53_record" {
+resource "aws_route53_record" "alias_alb_route53_record" {
   count = var.deployvm ? 1 : 0
 
   zone_id = data.aws_route53_zone.benwagrez-public-zone.zone_id # Replace with your zone ID
@@ -58,4 +58,14 @@ resource "aws_route53_record" "cname_route53_record" {
     zone_id                = var.record_zone
     evaluate_target_health = true
   }
+}
+
+resource "aws_route53_record" "cname_alb_route53_record" {
+  count = var.deployvm ? 1 : 0
+
+  zone_id = data.aws_route53_zone.benwagrez-public-zone.zone_id # Replace with your zone ID
+  name    = "www.${var.domain_name}" # Replace with your subdomain, Note: not valid with "apex" domains, e.g. example.com
+  type    = "CNAME"
+  ttl     = 300
+  records = [ var.record ]
 }

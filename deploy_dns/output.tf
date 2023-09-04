@@ -3,5 +3,5 @@ output "hosted_zone_id" {
 }
 
 output "DNS_record" {
-    value = aws_route53_record.cname_route53_record != [] ? aws_route53_record.cname_route53_record[0].fqdn : null
+    value = aws_route53_record.alias_alb_route53_record != [] ? aws_route53_record.alias_alb_route53_record[0].fqdn : null
 }
