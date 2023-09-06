@@ -132,7 +132,7 @@ body {
 
 		header > p {
 			font-size: 1.25em;
-			margin: 0;
+			margin: 0 50px 0 50px;
 		}
 
 	footer {
@@ -1856,6 +1856,18 @@ body {
 					padding: 10px 0 0 10px;
 				}
 
+				.square-big {
+					padding: 0 10vw 0em 10vw;
+					width: 100%;
+					text-align: left;
+				}
+
+				.image img {
+					/* display: block; */
+					width: 100%; 
+					border-radius: 8px;
+				}
+
 	}
 
 	header.major {
@@ -1888,8 +1900,8 @@ body {
 }
 
 	.image img {
-		/* display: block;
-		width: 100%; */
+		/* display: block; */
+		/* width: 100%;  */
 		border-radius: 8px;
 	}
 
