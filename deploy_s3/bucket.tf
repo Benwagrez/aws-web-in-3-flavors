@@ -32,13 +32,15 @@ resource "aws_s3_bucket_ownership_controls" "www_bucket_acl_ownership" {
 resource "aws_s3_bucket_public_access_block" "www_bucket_access" {
   bucket = aws_s3_bucket.www_bucket.id
 
-  block_public_acls   = false
-  block_public_policy = false
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
 
 resource "aws_s3_bucket_policy" "www_bucket_S3_public_read_only" {
   bucket = aws_s3_bucket.www_bucket.id
-  policy = templatefile("${path.module}/policy/s3-public-read-policy.json", { bucket = "www.${var.domain_name}" })
+  policy = templatefile("${path.module}/policy/s3-private-read-policy.json", { bucket = "www.${var.domain_name}", cloudfront = aws_cloudfront_origin_access_identity.www_cloud_identity.iam_arn, AWSTERRAFORMSPN = var.TerraformSPNArn })
   depends_on = [aws_s3_bucket_ownership_controls.www_bucket_acl_ownership]
 }
 
@@ -97,13 +99,15 @@ resource "aws_s3_bucket_ownership_controls" "root_bucket_acl_ownership" {
 resource "aws_s3_bucket_public_access_block" "root_bucket_access" {
   bucket = aws_s3_bucket.root_bucket.id
 
-  block_public_acls   = false
-  block_public_policy = false
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
 
 resource "aws_s3_bucket_policy" "root_bucket_S3_public_read_only" {
   bucket = aws_s3_bucket.root_bucket.id
-  policy = templatefile("${path.module}/policy/s3-public-read-policy.json", { bucket = var.domain_name })
+  policy = templatefile("${path.module}/policy/s3-private-read-policy.json", { bucket = var.domain_name, cloudfront = aws_cloudfront_origin_access_identity.www_cloud_identity.iam_arn, AWSTERRAFORMSPN = var.TerraformSPNArn  })
   depends_on = [aws_s3_bucket_ownership_controls.root_bucket_acl_ownership]
 }
 
@@ -118,7 +122,8 @@ resource "aws_s3_bucket_website_configuration" "root_bucket_config" {
   bucket = aws_s3_bucket.root_bucket.id
 
   redirect_all_requests_to {
-    host_name = "https://www.${var.domain_name}"
+    host_name = "www.${var.domain_name}"
+    protocol  = "https"
   }
 }
 
@@ -128,7 +133,7 @@ resource "aws_s3_bucket_website_configuration" "root_bucket_config" {
 ############################################
 # Module to ingest frontend files and append content attributes to the files
 # This is necessary for the S3 object upload so S3 can receive the content type
-# OTherwise instread of displaying your lovely webpage it will download it
+# OTherwise instead of displaying your lovely webpage it will download it
 module "content_attached_files" {
   source = "hashicorp/dir/template"
 
@@ -140,12 +145,12 @@ module "content_attached_files" {
 # It runs a loop through every file in the frontend/ folder and uploads 
 # the file with metadata derived from the content_attached_file module
 resource "aws_s3_object" "s3_assets" {
-  for_each = module.content_attached_files.files 
+  for_each     = module.content_attached_files.files 
 
-  bucket = aws_s3_bucket.www_bucket.id
+  bucket       = aws_s3_bucket.www_bucket.id
   key          = each.key
   content_type = each.value.content_type
-  source  = each.value.source_path
-  content = each.value.content
-  etag = each.value.digests.md5
+  source       = each.value.source_path
+  content      = each.value.content
+  etag         = each.value.digests.md5
 }

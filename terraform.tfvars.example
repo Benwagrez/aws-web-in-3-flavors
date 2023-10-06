@@ -1,0 +1,32 @@
+
+TerraformSPNArn = "<insert-account-arn>"
+AWS_ACCESS_KEY  = "<insert-access-key>"
+AWS_SECRET_KEY  = "<insert-secret-key>"
+
+VM_KEY_ID      = "<insert-vm-key>"
+
+domain_name    = "example.com"
+email_address  = "<insert-email-address>"
+
+region         = "us-east-2"
+
+certificates = [
+    {
+      common_name = "example.com",
+      subject_alternative_names = [ "www.example.com" ],
+      key_type = "4096",
+      must_staple = null,
+      min_days_remaining = null,
+      certificate_p12_password = null
+    },
+    {
+      common_name = "example.com",
+      subject_alternative_names = [ "www.example.com" ],
+      key_type = "2048",
+      must_staple = null,
+      min_days_remaining = null,
+      certificate_p12_password = null
+    }
+]
+
+hosted_zone_id = "<hosted-zone-id>"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Zipping website content into deploy_vm
+# Zipping website content
 7z a -tzip ./deployment.zip ./frontend
 
 

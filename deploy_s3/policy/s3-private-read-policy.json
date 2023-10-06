@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "CloudFrontGetObject",
+        "Effect": "Allow",
+        "Principal": {
+            "AWS": "${cloudfront}"
+        },
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::${bucket}/*"
+      },
+      {
+        "Sid": "AWSTerraformSPNAllAccess",
+        "Effect": "Allow",
+        "Principal": {
+            "AWS": "${AWSTERRAFORMSPN}"
+        },
+        "Action": "s3*",
+        "Resource": "arn:aws:s3:::${bucket}/*"
+      }
+    ]
+  }
