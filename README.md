@@ -70,7 +70,7 @@ module.container_website_deployment
 </table>
 The architecture diagram for this diagram is displayed below:
 
-![VM Deployment Diagram](VMWebDiagram.drawio.png)
+![VM Deployment Diagram](assets/VMWebDiagram.drawio.png)
 
 Terraform Module:
 module.vm_website_deployment
