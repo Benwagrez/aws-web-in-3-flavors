@@ -6,7 +6,7 @@
 # Deploy frontend to the www bucket
 #
 # Notes
-# You're going to hate S3 buckets in Terraform after reading this code
+# You're going to hate S3 buckets in Terraform after reading this code, so many different resources
 
 ############################################
 ########## S3 bucket for website ##########
@@ -32,15 +32,15 @@ resource "aws_s3_bucket_ownership_controls" "www_bucket_acl_ownership" {
 resource "aws_s3_bucket_public_access_block" "www_bucket_access" {
   bucket = aws_s3_bucket.www_bucket.id
 
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
+  block_public_acls       = false 
+  block_public_policy     = false # true
+  ignore_public_acls      = true # true
+  restrict_public_buckets = true 
 }
 
-resource "aws_s3_bucket_policy" "www_bucket_S3_public_read_only" {
+resource "aws_s3_bucket_policy" "www_bucket_S3_private_read_only" {
   bucket = aws_s3_bucket.www_bucket.id
-  policy = templatefile("${path.module}/policy/s3-private-read-policy.json", { bucket = "www.${var.domain_name}", cloudfront = aws_cloudfront_origin_access_identity.www_cloud_identity.iam_arn, AWSTERRAFORMSPN = var.TerraformSPNArn })
+  policy = templatefile("${path.module}/policy/s3-private-read-policy.json", { bucket = "www.${var.domain_name}", AWSTERRAFORMSPN = var.TerraformSPNArn })
   depends_on = [aws_s3_bucket_ownership_controls.www_bucket_acl_ownership]
 }
 
@@ -50,7 +50,7 @@ resource "aws_s3_bucket_cors_configuration" "www_bucket_cors_configuration" {
   cors_rule {
     allowed_headers = ["Authorization", "Content-Length"]
     allowed_methods = ["GET", "POST"]
-    allowed_origins = ["https://www.${var.domain_name}"]
+    allowed_origins = ["https://www.${var.domain_name}","https://${var.domain_name}"]
     max_age_seconds = 3000
   }
 }
@@ -99,15 +99,15 @@ resource "aws_s3_bucket_ownership_controls" "root_bucket_acl_ownership" {
 resource "aws_s3_bucket_public_access_block" "root_bucket_access" {
   bucket = aws_s3_bucket.root_bucket.id
 
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
+  block_public_acls       = false 
+  block_public_policy     = false # true
+  ignore_public_acls      = true # true
+  restrict_public_buckets = true 
 }
 
-resource "aws_s3_bucket_policy" "root_bucket_S3_public_read_only" {
+resource "aws_s3_bucket_policy" "root_bucket_S3_private_read_only" {
   bucket = aws_s3_bucket.root_bucket.id
-  policy = templatefile("${path.module}/policy/s3-private-read-policy.json", { bucket = var.domain_name, cloudfront = aws_cloudfront_origin_access_identity.www_cloud_identity.iam_arn, AWSTERRAFORMSPN = var.TerraformSPNArn  })
+  policy = templatefile("${path.module}/policy/s3-private-read-policy.json", { bucket = var.domain_name, AWSTERRAFORMSPN = var.TerraformSPNArn  })
   depends_on = [aws_s3_bucket_ownership_controls.root_bucket_acl_ownership]
 }
 

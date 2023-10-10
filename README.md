@@ -32,7 +32,7 @@ These deployment strategies will be broken down below. Details will be shared ar
         <th>Status</th><th>Deployment Cost</th>
     </tr>
     <tr>
-        <td>Complete</td><td>Minor S3 storage costs / CloudFront Dist costs</td>
+        <td>Complete</td><td>Free-Tier eligible / $1> S3 storage costs / CloudFront Dist costs</td>
     </tr>
 </table>
 The architecture diagram for this diagram is displayed below:
@@ -42,6 +42,7 @@ The architecture diagram for this diagram is displayed below:
 Terraform Module:
 module.S3_website_deployment
 
+### Free-tier Eligible
 Cloud-Front is free-tier eligible if you stay under 10,000,000 requests per month. Leaving only very minor S3 bucket costs to support this deployment.
 
 ## Container Deployment
@@ -50,11 +51,12 @@ Cloud-Front is free-tier eligible if you stay under 10,000,000 requests per mont
         <th>Status</th><th>Deployment Cost</th>
     </tr>
     <tr>
-        <td>Not Started</td><td>TBD</td>
+        <td>Not Started</td><td>$X> EC2 infra costs / $1> S3 storage costs</td>
     </tr>
 </table>
 The architecture diagram for this diagram is displayed below:
-WIP
+
+![Alt text](assets/ContainerDiagram.drawio.png)
 
 Terraform Module:
 module.container_website_deployment
@@ -65,7 +67,7 @@ module.container_website_deployment
         <th>Status</th><th>Deployment Cost</th>
     </tr>
     <tr>
-        <td>Complete</td><td>Free-Tier eligible / Minor S3 storage costs</td>
+        <td>Complete</td><td>Free-Tier eligible / $30> EC2 infra costs / $1> S3 storage costs</td>
     </tr>
 </table>
 The architecture diagram for this diagram is displayed below:
@@ -75,7 +77,8 @@ The architecture diagram for this diagram is displayed below:
 Terraform Module:
 module.vm_website_deployment
 
-To make this deployment entirely free-tier eligible, disable logging on the Application Load Balancer and empty the S3 bucket after the deployment is complete.
+### Free-tier Eligible
+To make this deployment free-tier eligible, disable logging on the Application Load Balancer and empty the S3 bucket after the deployment is complete. The EC2 instance and application load balancer will be covered under free-tier.
 > **_NOTE:_**  free-tier for EC2 application load balancers and EC2 instances is only available for the first 12 months of the account opening
 
 ## Scripts
