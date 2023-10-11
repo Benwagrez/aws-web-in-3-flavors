@@ -1,5 +1,5 @@
 # super-octo-adventures
-Hey everyone! Welcome to my super octo adventure. This repository holds three different deployment strategies for a website on AWS. Let dive into it.
+Hey everyone! Welcome to my AWS Website Deployer. This repository holds three different deployment strategies for a website on AWS. Let dive into it.
 
 ## Prerequisites
 The following items are prerequisites for this deployment.
@@ -18,7 +18,7 @@ The following items are prerequisites for this deployment.
 In all the deployment strategies described below DNS and certificates are generated to support the deployments. Certificate generation depends on the ACME provider and generates a certificate against a domain name that you list. You must own this particular domain and supply the trust DNS servers for validation.
 
 ### Website Deployment Strategies
-There are three deployment strategies inside this repository. All three of these deployments deploy an AWS hosted website. This website code is hosted in the frontend folder, everything in that folder will be deployed to the corresponding ifnrastructure of the deployment strategy. The three deployment strategies are as follows:
+There are three deployment strategies inside this repository. All three of these deployments deploy an AWS hosted website. This website code is hosted in the frontend folder, everything in that folder will be deployed to the corresponding infrastructure of the deployment strategy. The three deployment strategies are as follows:
 <ol>
     <li>S3 Bucket Deployment</li>
     <li>Containerized Deployment</li>
