@@ -40,7 +40,7 @@ resource "aws_s3_bucket_public_access_block" "www_bucket_access" {
 
 resource "aws_s3_bucket_policy" "www_bucket_S3_private_read_only" {
   bucket = aws_s3_bucket.www_bucket.id
-  policy = templatefile("${path.module}/policy/s3-private-read-policy.json", { bucket = "www.${var.domain_name}", AWSTERRAFORMSPN = var.TerraformSPNArn })
+  policy = templatefile("${path.module}/bucket_policy/s3-private-read-policy.json", { bucket = "www.${var.domain_name}", AWSTERRAFORMSPN = var.TerraformSPNArn })
   depends_on = [aws_s3_bucket_ownership_controls.www_bucket_acl_ownership]
 }
 
@@ -107,7 +107,7 @@ resource "aws_s3_bucket_public_access_block" "root_bucket_access" {
 
 resource "aws_s3_bucket_policy" "root_bucket_S3_private_read_only" {
   bucket = aws_s3_bucket.root_bucket.id
-  policy = templatefile("${path.module}/policy/s3-private-read-policy.json", { bucket = var.domain_name, AWSTERRAFORMSPN = var.TerraformSPNArn  })
+  policy = templatefile("${path.module}/bucket_policy/s3-private-read-policy.json", { bucket = var.domain_name, AWSTERRAFORMSPN = var.TerraformSPNArn  })
   depends_on = [aws_s3_bucket_ownership_controls.root_bucket_acl_ownership]
 }
 

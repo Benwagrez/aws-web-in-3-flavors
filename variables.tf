@@ -13,11 +13,6 @@ variable "deploycontainer" {
     default = false
 }
 
-variable "TerraformSPNArn" {
-  type = string
-  description = "Arn of the service principal deploying the Terraform code (user owner of access key)."
-}
-
 variable "AWS_ACCESS_KEY" {
     type = string
 }

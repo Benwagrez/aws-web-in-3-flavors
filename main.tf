@@ -10,7 +10,7 @@
 
 locals {
   common_tags = {
-    Infra = var.deployvm ? "deploy_Vm" : var.deploycontainer ? "deploy_container" : var.deployS3 ? "deploy_s3" : ""
+    Infra = var.deployvm ? "deploy_vm" : var.deploycontainer ? "deploy_container" : var.deployS3 ? "deploy_s3" : ""
     Owner = "benwagrez@gmail.com"
   }
 }
@@ -110,7 +110,7 @@ module "S3_website_deployment" {
   acm_cert        = module.SSL_certification_deployment.acm_east_cert_arn
   domain_name     = var.domain_name
   common_tags     = local.common_tags
-  TerraformSPNArn = var.TerraformSPNArn
+  TerraformSPNArn = data.aws_caller_identity.current.arn
 } 
 
 module "vm_website_deployment" {
@@ -126,4 +126,6 @@ module "vm_website_deployment" {
 module "container_website_deployment" {
   count  = var.deploycontainer ? 1 : 0
   source = "./deploy_container"
+
+  common_tags = local.common_tags
 }
