@@ -16,10 +16,10 @@ terraform {
 
 # Data reference for existing public key
 data "aws_key_pair" "ec2_key" {
-  key_pair_id           = var.VM_KEY_ID
+  key_pair_id = var.VM_KEY_ID
 }
 
-# Data reference for SSM parameter ppointing to latest Amazon AMI image
+# Data reference for SSM parameter pointing to latest Amazon AMI image
 data "aws_ssm_parameter" "amzn2-ami-latest" {
   name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
 }
@@ -48,7 +48,7 @@ resource "aws_placement_group" "placement_spread" {
 
 resource "random_id" "dynamic" {
   keepers = {
-    # Generate a new id each time we switch to a new AMI id
+    # Generate a new id each time we change the deployment package
     code_hash = filemd5("${path.module}/../deployment.zip")
   }
 

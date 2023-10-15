@@ -1,4 +1,4 @@
-# super-octo-adventures
+# AWS Website Deployer
 Hey everyone! Welcome to my AWS Website Deployer. This repository holds three different deployment strategies for a website on AWS. Let dive into it.
 
 ## Prerequisites
