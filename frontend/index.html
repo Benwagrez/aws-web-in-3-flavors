@@ -68,7 +68,7 @@
 							<div class="square-big" id="gegertaes">
 								<h3>The Purpose of this Site</h3>
 
-								Hey there! The purpose of this site is to tell a different story than what a resume or cover-letter would. Because of this I wont be focusing on my work, but instead, aspects of my life I'd like to share. Feel free to contact me <a alt="Contact Me" href="mailto:benwagrez@gmail.com">benwagrez@gmail.com</a> for any questions or suggestions!
+								Hey there! The purpose of this site is to tell a different story than what a resume or cover-letter would. Because of this I'll be sharing some of my personal projects I've enjoyed, and parts of my life I believe are worth sharing. Feel free to contact me <a style="color: #467599 !important; text-decoration: underline !important;" alt="Contact Me" href="mailto:benwagrez@gmail.com">benwagrez@gmail.com</a> for any questions or suggestions!
 
 								<h3>Born in Chicago, Brought the Cloud Everywhere</h3>
 
@@ -96,8 +96,82 @@
 				</div>
 			</div>
 		</article>
-		<article id="hobbies" class="article style3">
+		<article id="projects" class="article style3">
 			<div class="box style2">
+				<div class="row">
+					<div class="col-12">
+						<header class="first major" id="gegertaes"> <!-- Did you know gegertaes, when rearranged, spells easteregg? -->
+							<h2>Personal Projects</h2>
+							<p>Some fun projects I've either done or plan on doing!</p>
+						</header>
+					</div>
+					<div class="col-6 col-12-medium">
+						<section>
+							<header class="major" id="gegertaes">
+								<a class="image featured"><img style="width: 95% !important; padding-left: 5px;" alt="Web Deployment Diagram" src="assets/css/images/S3WebDiagram-min.png" alt="s3 Web Architecture Diagram" /></a>
+								<h2>Web Development</h2>
+								<p>I'm no designer, but I've been around the block</p>
+								<!-- It's a fun hobby, but man can it takes time to make anything look half decent -->
+							</header>
+							<p class="square" id="gegertaes">
+								What if I told you that by flick of a button this website could be deployed in any of three ways? Thats the power of Infrastructure as Code (IaC). Checkout out my <a style="color: #467599 !important; text-decoration: underline !important;" href="https://github.com/Benwagrez/aws-web-in-3-flavors" >github repo</a> for the code for the website you see here and the underlying AWS infrastructure. The current deployment is shown in the architecture diagram above!
+							
+								I don't get paid to make websites, but I used to do it all the time in highschool for hackathons and coding competitions. Building this website out is a sort of guilty pleasure, back to simpler times.
+								<br><br>
+								The other two deployments explore VMs and containers and each hold their own as a realistic solution for website hosting. They are dramatically more complex and fun to build, with end to end encryption capabilities and CI/CD for code deployment. But I can host an S3 static website with world-wide CDN delivery for free, can't beat that.
+							</p>
+						</section>
+					</div>
+					<div class="col-6 col-12-medium">
+						<section>
+							<header class="major" id="gegertaes">
+								<a class="image featured"><img style="width: 95% !important; padding-right: 5px;" alt="ETL Deployment Diagram" src="assets/css/images/VMETLDiagram-min.jpg" alt="ETL Pipeline Architecture Diagram" /></a>
+								<h2>ETL Pipeline</h2>
+								<p>Data is like oil, easier to manage when there's a pipeline</p>
+							</header>
+							<p class="square" id="gegertaes">
+								Above is one of my deployments. But the best solutions come in threes! Check out my <a style="color: #467599 !important; text-decoration: underline !important;" href="https://github.com/Benwagrez/scaling-aws-etl-pipeline" >code</a>. I'm always looking to find and build multiple solutions for a single problem. The clouds flexibility and wide range of services can sometimes give us too much artistic liberty in our solution architecting.
+								
+								By working three solutions it helps me understand which solution is the best measured by the complexity for the client, architectural management considerations, and total operating cost. 
+								<br><br>
+								In this case this solution came out of a business use-case from a buddy of mine, he wanted to move his architecture to the cloud to increase the resiliency and scalability of his offering. Since then he's adopted the architecture described in the image above. P.S Not my favorite solution but certainly the easiest to understand/manage
+							</p>
+						</section>
+					</div>
+					<div class="col-6 col-12-medium">
+						<section>
+							<header class="major" id="gegertaes">
+								<h2>Homelab</h2>
+								<p>
+									A ragtag team of old equipment I've gathered over the years
+								</p>
+							</header>
+							<p class="square" id="gegertaes">
+								(fake picture in case it gets sent to a shittyhomelabs subreddit) Before I took my homelab down for my move to Tampa, my homelab consisted of two Raspberry Pis and one Win 10 box running 3 Ubuntu Virtual Machines. I created a K8s cluster of the two Pis and 3 VMs over my home wifi network and toyed with initially hosting this website on that cluster. 
+								I quickly learned that Raspberry Pi 2 did not like modern security requirements for WIFI, you can hardcode some of the attributes required but if the NIC goes to sleep or shuts off, it will refuse to negotiate with the router. 
+								<br><br>
+							  Now I'm looking to shift gears with my homelab.	When I find a more permanent place to settle I'm hoping to splurge on some upgrades and mess around with IOT in my home! Let's hope I don't turn my house into a giant CTF competition of exploits and vulnerabilities.
+							</p>
+						</section>
+					</div>
+					<div class="col-6 col-12-medium">
+						<section>
+							<header class="major" id="gegertaes">
+								<h2>Visitor Notification System</h2>
+								<p>Whose been stalking your website?</p>
+							</header>
+							<p class="square" id="gegertaes">
+								Nobody likes a guessing game, that's why logging is critical to any architecture. That's why I built out a <a style="color: #467599 !important; text-decoration: underline !important;" href="https://github.com/Benwagrez/web-visitor-notification-lambda" >lambda deployment</a> that tracks all the users that visit my website. Spoiler alert! I'm super popular with users in China and Russia.
+								<br><br>
+								Don't worry I've turned this off so you're getting off scott free. There is only so much data you can get from HTTP packets and most of the traffic came from web crawlers from AWS, Google, and potentially malicious 3rd parties. Doesn't make for the most interesting read... 
+							</p>
+						</section>
+					</div>
+				</div>
+			</div>
+		</article>
+		<article id="hobbies" class="article style4">
+			<div class="box style1">
 				<div class="row">
 					<div class="col-12">
 						<header class="first major" id="gegertaes">
@@ -166,73 +240,11 @@
 				</div>
 			</div>
 		</article>
-		<article id="projects" class="article style4">
-			<div class="box style1">
-				<div class="row">
-					<div class="col-12">
-						<header class="first major" id="gegertaes"> <!-- Did you know gegertaes, when rearranged, spells easteregg? -->
-							<h2>Personal Projects</h2>
-							<p>Some fun projects I've either done or plan on doing!</p>
-						</header>
-					</div>
-					<div class="col-6 col-12-medium">
-						<section>
-							<header class="major" id="gegertaes">
-								<h2>Web Development</h2>
-								<p>I'm no designer, but I've been around the block</p>
-								<!-- It's a fun hobby, but man can it soak time -->
-							</header>
-							<p class="square" id="gegertaes">
-								What if I told you that by flick of a button this website could be deployed in any of three ways? Thats the power of Infrastructure as Code (IaC). Checkout out my <a href="https://github.com/Benwagrez/super-octo-adventure" >github repo</a> for the code for the website you see here and the underlying AWS infrastructure.
-							
-								I don't get paid to make websites, but I used to do it all the time in highschool for hackathons and coding competitions. Building this website out is a sort of guilty pleasure, back to simpler times in my engineering career.
-							</p>
-						</section>
-					</div>
-					<div class="col-6 col-12-medium">
-						<section>
-							<header class="major" id="gegertaes">
-								<h2>Homelab</h2>
-								<p>
-									A ragtag team of old equipment I've gathered over the years
-								</p>
-							</header>
-							<p class="square" id="gegertaes">
-								Before I took my homelab down for my move to Tampa, my homelab consisted of two Raspberry Pis and one Win 10 box running 3 Ubuntu Virtual Machines. I created a K8s cluster of the two Pis and 3 VMs over my home wifi network and toyed with initially hosting this website on that cluster. 
-								I quickly learned that Raspberry Pi 2 did not like modern security requirements on WIFI, you can hardcode some of the attributes required but if the NIC goes to sleep or shuts off, it will refuse to negotiate with the router. Hopefully upgrades and a cooler project is coming soon!
-							</p>
-						</section>
-					</div>
-					<div class="col-6 col-12-medium">
-						<section>
-							<header class="major" id="gegertaes">
-								<h2>TBD</h2>
-								<p>TBD</p>
-							</header>
-							<p class="square" id="gegertaes">
-								TBD - Sent me any ideas! My previous projects used the venmo and linkedin apis to give you your top 10 connections and top 10 venmos, but both of their APIs are now deprecated.
-							</p>
-						</section>
-					</div>
-					<div class="col-6 col-12-medium">
-						<section>
-							<header class="major" id="gegertaes">
-								<h2>TBD</h2>
-								<p>TBD <!--Whose you're most popular connection?--></p>
-							</header>
-							<p class="square" id="gegertaes">
-								TBD
-							</p>
-						</section>
-					</div>
-				</div>
-			</div>
-		</article>
 		<div class="footer">
 			<footer>
 				<ul id="copyright">
 					<!-- Feel free to steal all my code you pirate -->
-					<li>&copy; 2023 Benjamin Wagrez. MIT License Free Use. Contact <a alt="Contact Me" href="mailto:benwagrez@gmail.com">benwagrez@gmail.com</a></li>
+					<li>&copy; 2023 Benjamin Wagrez. MIT License Free Use. Contact <a style="color: #8ba2b4 !important; text-decoration: underline !important;" alt="Contact Me" href="mailto:benwagrez@gmail.com">benwagrez@gmail.com</a></li>
 				</ul>
 			</footer>
 		</div>

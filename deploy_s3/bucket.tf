@@ -35,7 +35,7 @@ resource "aws_s3_bucket_public_access_block" "www_bucket_access" {
   block_public_acls       = false 
   block_public_policy     = false # true
   ignore_public_acls      = true # true
-  restrict_public_buckets = true 
+  restrict_public_buckets = false 
 }
 
 resource "aws_s3_bucket_policy" "www_bucket_S3_private_read_only" {
@@ -102,7 +102,7 @@ resource "aws_s3_bucket_public_access_block" "root_bucket_access" {
   block_public_acls       = false 
   block_public_policy     = false # true
   ignore_public_acls      = true # true
-  restrict_public_buckets = false 
+  restrict_public_buckets = true 
 }
 
 resource "aws_s3_bucket_policy" "root_bucket_S3_private_read_only" {
