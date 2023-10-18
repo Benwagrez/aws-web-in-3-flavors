@@ -100,7 +100,8 @@ deploys deploy_vm module including the following resources: networking (1x VPC, 
 deploys deploy_s3 module including the following resources: 2x CloudFront distributions and 2x S3 buckets
 
 ### containerdeploy.sh
-deploys deploy_container module including the following resources: TBD
+deploys deploy_container module including the following resources: networking (1x VPC, 4x subnets, 
+1x route table, 1x internet gateway), 1x application loadbalancer, 1x elastic container registry, 1x docker image, 1x ECS cluster
 To make this script more efficient, it should be executed through a Terraform null resource so that it can place a dependency on the ECR cluster and the container can depend on the null resource. I'm leaving this to an interested party to integrate as it is not my primary solution.
 
 > **_NOTE:_**  switching between these deployments quickly can run into DNS caching issues locally and at the name server or isp level. This may remove your ability to connect to the website until that records TTL dies.
