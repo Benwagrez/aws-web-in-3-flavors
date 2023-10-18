@@ -47,7 +47,7 @@ resource "aws_route53_record" "www-a" {
 }
 
 resource "aws_route53_record" "alias_alb_route53_record" {
-  count = var.deployvm ? 1 : 0
+  count = var.deployvm ? 1 : var.deploycontainer ? 1 : 0
 
   zone_id = data.aws_route53_zone.benwagrez-public-zone.zone_id # Replace with your zone ID
   name    = var.domain_name # Replace with your subdomain, Note: not valid with "apex" domains, e.g. example.com
@@ -61,7 +61,7 @@ resource "aws_route53_record" "alias_alb_route53_record" {
 }
 
 resource "aws_route53_record" "cname_alb_route53_record" {
-  count = var.deployvm ? 1 : 0
+  count = var.deployvm ? 1 : var.deploycontainer ? 1 : 0
 
   zone_id = data.aws_route53_zone.benwagrez-public-zone.zone_id # Replace with your zone ID
   name    = "www.${var.domain_name}" # Replace with your subdomain, Note: not valid with "apex" domains, e.g. example.com

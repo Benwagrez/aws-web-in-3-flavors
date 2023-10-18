@@ -174,10 +174,11 @@ resource "aws_lb_listener" "web_front_end" {
 
 # Creating the target group for the web auto scaling group
 resource "aws_lb_target_group" "web_servers" {
-  name     = "web-server-tg"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.main.id
+  name        = "web-server-tg"
+  target_type = "ip"
+  port        = 80
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.main.id
 }
 
 # Attaching route table to subnets
@@ -208,14 +209,14 @@ resource "aws_internet_gateway" "gw" {
   tags = "${merge(
     var.common_tags,
     tomap({
-      "Name" = "Web Internet Gateway",
+      "Name" = "ECS Web Internet Gateway",
     })
   )}"  
 }
 
 # Creating security group to restrict traffic to SSH and HTTPS
 resource "aws_security_group" "app-gw-sg" {
-  name   = "Web-security-group"
+  name   = "ECS-Web-security-group"
   vpc_id = aws_vpc.main.id
   ingress = [
     {
@@ -253,8 +254,8 @@ resource "aws_security_group" "app-gw-sg" {
 }
 
 # Creating security group to restrict traffic to SSH and HTTPS
-resource "aws_security_group" "ec2-sg" {
-  name   = "Compute-security-group"
+resource "aws_security_group" "ecs-sg" {
+  name   = "ECS-security-group"
   vpc_id = aws_vpc.main.id
   ingress = [
     {

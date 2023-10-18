@@ -32,7 +32,7 @@ These deployment strategies will be broken down below. Details will be shared ar
         <th>Status</th><th>Deployment Cost</th>
     </tr>
     <tr>
-        <td>Complete</td><td>Free-Tier eligible / $1> S3 storage costs / CloudFront Dist costs</td>
+        <td>Complete</td><td>Free-Tier guaranteed / $1> S3 storage costs / CloudFront Dist costs</td>
     </tr>
 </table>
 The architecture diagram for this diagram is displayed below:
@@ -51,7 +51,7 @@ Cloud-Front is free-tier eligible if you stay under 10,000,000 requests per mont
         <th>Status</th><th>Deployment Cost</th>
     </tr>
     <tr>
-        <td>WIP</td><td>$X> EC2 infra costs / $1> S3 storage costs</td>
+        <td>Complete</td><td>Free-Tier eligible / $20> EC2 infra costs / $10> ECS infra costs</td>
     </tr>
 </table>
 The architecture diagram for this diagram is displayed below:
@@ -60,6 +60,10 @@ The architecture diagram for this diagram is displayed below:
 
 Terraform Module:
 module.container_website_deployment
+
+### Free-tier Eligible
+To make this deployment free-tier eligible, disable logging on the Application Load Balancer and apply for an ECS free-trial. The ECS cluster and application load balancer will be covered under free-tier.
+> **_NOTE:_**  free-tier for EC2 application load balancers is only available for the first 12 months of the account opening. Further once the free trial for ECS expires you will start being charged.
 
 ## Virtual Machine Deployment
 <table>
@@ -97,8 +101,13 @@ deploys deploy_s3 module including the following resources: 2x CloudFront distri
 
 ### containerdeploy.sh
 deploys deploy_container module including the following resources: TBD
+To make this script more efficient, it should be executed through a Terraform null resource so that it can place a dependency on the ECR cluster and the container can depend on the null resource. I'm leaving this to an interested party to integrate as it is not my primary solution.
 
 > **_NOTE:_**  switching between these deployments quickly can run into DNS caching issues locally and at the name server or isp level. This may remove your ability to connect to the website until that records TTL dies.
+
+## Licensing
+
+Everything is licensed under the MIT license, feel free to repurpose my code for whatever you'd like.
 
 ## Contact
 

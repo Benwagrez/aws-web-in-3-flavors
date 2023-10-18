@@ -88,8 +88,8 @@ module "DNS_deployment" {
   source = "./deploy_dns"
 
   domain_name     = var.domain_name
-  record          = var.deployS3 ? null : var.deployvm ? module.vm_website_deployment[0].app_gw_dns : var.deploycontainer ? null : null
-  record_zone     = var.deployvm ? module.vm_website_deployment[0].app_gw_zone_id : null
+  record          = var.deployS3 ? null : var.deployvm ? module.vm_website_deployment[0].app_gw_dns : var.deploycontainer ? module.container_website_deployment[0].app_gw_dns : null
+  record_zone     = var.deployvm ? module.vm_website_deployment[0].app_gw_zone_id : var.deploycontainer ? module.container_website_deployment[0].app_gw_zone_id : null
   zone_id         = var.hosted_zone_id
   deployvm        = var.deployvm
   
@@ -128,6 +128,6 @@ module "container_website_deployment" {
   source = "./deploy_container"
 
   ecr_repo_name = var.ecr_repo_name
-  acm_cert      = module.SSL_certification_deployment.acm_east_cert_arn
+  acm_cert      = module.SSL_certification_deployment.acm_alb_cert_arn
   common_tags   = local.common_tags
 }
