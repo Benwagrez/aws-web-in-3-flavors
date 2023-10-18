@@ -51,7 +51,7 @@ Cloud-Front is free-tier eligible if you stay under 10,000,000 requests per mont
         <th>Status</th><th>Deployment Cost</th>
     </tr>
     <tr>
-        <td>Not Started</td><td>$X> EC2 infra costs / $1> S3 storage costs</td>
+        <td>WIP</td><td>$X> EC2 infra costs / $1> S3 storage costs</td>
     </tr>
 </table>
 The architecture diagram for this diagram is displayed below:

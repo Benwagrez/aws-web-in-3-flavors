@@ -6,3 +6,12 @@ variable "common_tags" {
       Owner = "benwagrez@gmail.com"
   }
 }
+
+variable "acm_cert" {
+  type = string
+  description = "Certificate for ALB that verifies domain name"
+}
+
+variable "ecr_repo_name" {
+  type = string
+}

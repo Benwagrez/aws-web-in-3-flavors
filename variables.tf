@@ -13,6 +13,10 @@ variable "deploycontainer" {
     default = false
 }
 
+variable "ecr_repo_name" {
+  type = string
+}
+
 variable "AWS_ACCESS_KEY" {
     type = string
 }

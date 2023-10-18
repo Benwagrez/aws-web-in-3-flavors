@@ -127,5 +127,7 @@ module "container_website_deployment" {
   count  = var.deploycontainer ? 1 : 0
   source = "./deploy_container"
 
-  common_tags = local.common_tags
+  ecr_repo_name = var.ecr_repo_name
+  acm_cert      = module.SSL_certification_deployment.acm_east_cert_arn
+  common_tags   = local.common_tags
 }
