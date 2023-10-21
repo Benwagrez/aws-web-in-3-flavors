@@ -46,6 +46,7 @@ provider "aws" {
   secret_key = var.AWS_SECRET_KEY
 }
 
+# AWS Provider for us-east-1
 provider "aws" {
   alias      = "east"
   region     = "us-east-1"

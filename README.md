@@ -10,6 +10,7 @@ The following items are prerequisites for this deployment.
         <li>Add the necessary records to the hosted zone to register the domain with AWS</li>
     </ul>
     <li>Create IAM credentials with correct permissions for Terraform to assume when building resources</li>
+    <li>The following software/tools installed: Terraform, AWS CLI, Docker</li>
 </ul>
 
 ## Deployment Overview
@@ -32,7 +33,7 @@ These deployment strategies will be broken down below. Details will be shared ar
         <th>Status</th><th>Deployment Cost</th>
     </tr>
     <tr>
-        <td>Complete</td><td>Free-Tier guaranteed / $1> S3 storage costs / CloudFront Dist costs</td>
+        <td>Complete</td><td>Free-Tier guaranteed / $1> S3 storage costs / CloudFront dist costs</td>
     </tr>
 </table>
 The architecture diagram for this diagram is displayed below:

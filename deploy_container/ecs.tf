@@ -1,3 +1,10 @@
+# ======================== #
+# ====== ECS Cluster ===== #
+# ======================== #
+# Purpose
+# Creates an ECS cluster and task for web hosting
+
+# ECS Task definition with the container definition
 resource "aws_ecs_task_definition" "taskDefinition" {
   cpu                      = 1024
   memory                   = 2048
@@ -24,7 +31,7 @@ resource "aws_ecs_task_definition" "taskDefinition" {
   ])
 }
 
-
+# ECS cluster 
 resource "aws_ecs_cluster" "cluster" {
   name = "ecs-web-cluster"
 
@@ -34,12 +41,12 @@ resource "aws_ecs_cluster" "cluster" {
   }
 }
 
+# ECS service to manage ECS tasks and desired container state
 resource "aws_ecs_service" "ecsService" {
   name            = "ecs-web-service"
   cluster         = aws_ecs_cluster.cluster.id
   launch_type     = "FARGATE"
   task_definition = aws_ecs_task_definition.taskDefinition.arn
-  # iam_role        = aws_iam_role.ecsServiceRole.arn
 
   desired_count                      = 1
   deployment_minimum_healthy_percent = 50

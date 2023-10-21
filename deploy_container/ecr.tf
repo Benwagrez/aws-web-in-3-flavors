@@ -1,3 +1,10 @@
+# ======================== #
+# ==== EC respository ==== #
+# ======================== #
+# Purpose
+# Creates an elastic container repository to host Docker images
+
+# ECR
 resource "aws_ecr_repository" "repository" {
   name                 = var.ecr_repo_name
   image_tag_mutability = "IMMUTABLE"
@@ -7,6 +14,7 @@ resource "aws_ecr_repository" "repository" {
   }
 }
 
+# Lifecycle to clean up old images
 resource "aws_ecr_lifecycle_policy" "repositoryPolicy" {
   repository = aws_ecr_repository.repository.name
 
