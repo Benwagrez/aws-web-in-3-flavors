@@ -1619,6 +1619,12 @@ body {
 						margin-top: 0;
 					}
 
+			/* First Page */
+
+			.col-12 > .col-16 {
+				padding: 0 3em 0em 3em !important;
+			}
+
 	}
 
 	div.profile {
@@ -1857,7 +1863,7 @@ body {
 				}
 
 				.square-big {
-					padding: 0 10vw 0em 10vw;
+					padding: 0 5vw 0em 5vw !important;
 					width: 100%;
 					text-align: left;
 				}
