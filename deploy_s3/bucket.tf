@@ -32,15 +32,15 @@ resource "aws_s3_bucket_ownership_controls" "www_bucket_acl_ownership" {
 resource "aws_s3_bucket_public_access_block" "www_bucket_access" {
   bucket = aws_s3_bucket.www_bucket.id
 
-  block_public_acls       = false 
-  block_public_policy     = false # true
+  block_public_acls       = true 
+  block_public_policy     = true # true
   ignore_public_acls      = true # true
-  restrict_public_buckets = false 
+  restrict_public_buckets = true 
 }
 
 resource "aws_s3_bucket_policy" "www_bucket_S3_private_read_only" {
   bucket = aws_s3_bucket.www_bucket.id
-  policy = templatefile("${path.module}/bucket_policy/s3-private-read-policy.json", { bucket = "www.${var.domain_name}", AWSTERRAFORMSPN = var.TerraformSPNArn })
+  policy = templatefile("${path.module}/bucket_policy/s3-private-read-policy-OAC.json", { bucket = "www.${var.domain_name}", AWSTERRAFORMSPN = var.TerraformSPNArn, cloudfront = aws_cloudfront_distribution.www_s3_distribution.arn})
   depends_on = [aws_s3_bucket_ownership_controls.www_bucket_acl_ownership]
 }
 
@@ -62,17 +62,17 @@ resource "aws_s3_bucket_acl" "www_bucket_acl" {
   depends_on = [aws_s3_bucket_ownership_controls.www_bucket_acl_ownership]
 }
 
-resource "aws_s3_bucket_website_configuration" "www_bucket_config" {
-  bucket = aws_s3_bucket.www_bucket.id
+# resource "aws_s3_bucket_website_configuration" "www_bucket_config" {
+#   bucket = aws_s3_bucket.www_bucket.id
 
-  index_document {
-    suffix = "index.html"
-  }
+#   index_document {
+#     suffix = "index.html"
+#   }
 
-  error_document {
-    key = "error.html"
-  }
-}
+#   error_document {
+#     key = "error.html"
+#   }
+# }
 
   
 ############################################
@@ -99,15 +99,15 @@ resource "aws_s3_bucket_ownership_controls" "root_bucket_acl_ownership" {
 resource "aws_s3_bucket_public_access_block" "root_bucket_access" {
   bucket = aws_s3_bucket.root_bucket.id
 
-  block_public_acls       = false 
-  block_public_policy     = false # true
+  block_public_acls       = true 
+  block_public_policy     = true # true
   ignore_public_acls      = true # true
   restrict_public_buckets = true 
 }
 
 resource "aws_s3_bucket_policy" "root_bucket_S3_private_read_only" {
   bucket = aws_s3_bucket.root_bucket.id
-  policy = templatefile("${path.module}/bucket_policy/s3-private-read-policy.json", { bucket = var.domain_name, AWSTERRAFORMSPN = var.TerraformSPNArn  })
+  policy = templatefile("${path.module}/bucket_policy/s3-private-read-policy-OAC.json", { bucket = var.domain_name, AWSTERRAFORMSPN = var.TerraformSPNArn, cloudfront = aws_cloudfront_distribution.www_s3_distribution.arn})
   depends_on = [aws_s3_bucket_ownership_controls.root_bucket_acl_ownership]
 }
 
@@ -118,14 +118,14 @@ resource "aws_s3_bucket_acl" "root_bucket_acl" {
   depends_on = [aws_s3_bucket_ownership_controls.root_bucket_acl_ownership]
 }
 
-resource "aws_s3_bucket_website_configuration" "root_bucket_config" {
-  bucket = aws_s3_bucket.root_bucket.id
+# resource "aws_s3_bucket_website_configuration" "root_bucket_config" {
+#   bucket = aws_s3_bucket.root_bucket.id
 
-  redirect_all_requests_to {
-    host_name = "www.${var.domain_name}"
-    protocol  = "https"
-  }
-}
+#   redirect_all_requests_to {
+#     host_name = "www.${var.domain_name}"
+#     protocol  = "https"
+#   }
+# }
 
 
 ############################################

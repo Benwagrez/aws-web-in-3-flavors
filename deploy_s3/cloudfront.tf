@@ -3,20 +3,31 @@
 # ========================= #
 # Purpose
 # Deploy two CloudFront Distributions for the two S3 buckets
+# Deploy OAC
+
+
+# OAC for CF
+resource "aws_cloudfront_origin_access_control" "s3_oac" {
+  name                              = "S3_OAC"
+  description                       = "Origin Access Control policy for S3"
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
+}
 
 # Cloudfront distribution for main www s3 site
 resource "aws_cloudfront_distribution" "www_s3_distribution" {
   origin {
-    domain_name = aws_s3_bucket_website_configuration.www_bucket_config.website_endpoint # aws_s3_bucket.www_bucket.bucket_regional_domain_name
-    # origin_access_control_id = aws_cloudfront_origin_access_control.CDN_Origin_Access.id
+    domain_name = aws_s3_bucket.www_bucket.bucket_domain_name # aws_s3_bucket.www_bucket.bucket_regional_domain_name
+    origin_access_control_id = aws_cloudfront_origin_access_control.s3_oac.id
     origin_id   = "S3-www.${var.domain_name}"
 
-    custom_origin_config {
-      http_port              = 80
-      https_port             = 443
-      origin_protocol_policy = "http-only"
-      origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
-    }
+    # custom_origin_config {
+    #   http_port              = 80
+    #   https_port             = 443
+    #   origin_protocol_policy = "http-only"
+    #   origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
+    # }
   }
 
   enabled             = true
@@ -83,16 +94,16 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
 # Cloudfront S3 for redirect to www
 resource "aws_cloudfront_distribution" "root_s3_distribution" {
   origin {
-    domain_name = aws_s3_bucket_website_configuration.root_bucket_config.website_endpoint # aws_s3_bucket.root_bucket.bucket_regional_domain_name 
-    # origin_access_control_id = aws_cloudfront_origin_access_control.CDN_Origin_Access.id
+    domain_name = aws_s3_bucket.root_bucket.bucket_domain_name # aws_s3_bucket.root_bucket.bucket_regional_domain_name 
+    origin_access_control_id = aws_cloudfront_origin_access_control.s3_oac.id
     origin_id   = "S3-${var.domain_name}"
 
-    custom_origin_config {
-      http_port              = 80
-      https_port             = 443
-      origin_protocol_policy = "http-only"
-      origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
-    }
+    # custom_origin_config {
+    #   http_port              = 80
+    #   https_port             = 443
+    #   origin_protocol_policy = "http-only"
+    #   origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
+    # }
   }
 
   enabled         = true
