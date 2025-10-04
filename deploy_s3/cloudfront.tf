@@ -62,17 +62,19 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
     max_ttl                = 31536000
     compress               = true
   }
+  price_class = "PriceClass_100"
 
   restrictions {
     geo_restriction {
-      restriction_type = "none"
+      restriction_type = "blacklist"
+      locations        = ["AL", "BA", "BG", "HR", "GR", "ME", "MK", "RO", "RS", "SI", "RU", "CN", "HK", "MO", "TW", "KP", "BY", "IR", "SY", "CU", "VE", "SD", "LY", "IQ", "AF", "YE"]
     }
   }
 
   viewer_certificate {
     acm_certificate_arn      = var.acm_cert
     ssl_support_method       = "sni-only"
-    minimum_protocol_version = "TLSv1.1_2016"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   tags = "${merge(
@@ -131,17 +133,19 @@ resource "aws_cloudfront_distribution" "root_s3_distribution" {
     default_ttl            = 86400
     max_ttl                = 31536000
   }
+  price_class = "PriceClass_100"
 
   restrictions {
     geo_restriction {
-      restriction_type = "none"
+      restriction_type = "blacklist"
+      locations        = ["AL", "BA", "BG", "HR", "GR", "ME", "MK", "RO", "RS", "SI", "RU", "CN", "HK", "MO", "TW", "KP", "BY", "IR", "SY", "CU", "VE", "SD", "LY", "IQ", "AF", "YE"]
     }
   }
 
   viewer_certificate {
     acm_certificate_arn      = var.acm_cert
     ssl_support_method       = "sni-only"
-    minimum_protocol_version = "TLSv1.1_2016"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   tags = var.common_tags
