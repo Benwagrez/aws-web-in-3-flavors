@@ -107,7 +107,7 @@ resource "aws_s3_bucket_public_access_block" "root_bucket_access" {
 
 resource "aws_s3_bucket_policy" "root_bucket_S3_private_read_only" {
   bucket = aws_s3_bucket.root_bucket.id
-  policy = templatefile("${path.module}/bucket_policy/s3-private-read-policy-OAC.json", { bucket = var.domain_name, AWSTERRAFORMSPN = var.TerraformSPNArn, cloudfront = aws_cloudfront_distribution.www_s3_distribution.arn})
+  policy = templatefile("${path.module}/bucket_policy/s3-private-read-policy-OAC.json", { bucket = var.domain_name, AWSTERRAFORMSPN = var.TerraformSPNArn, cloudfront = aws_cloudfront_distribution.root_s3_distribution.arn})
   depends_on = [aws_s3_bucket_ownership_controls.root_bucket_acl_ownership]
 }
 
@@ -118,14 +118,14 @@ resource "aws_s3_bucket_acl" "root_bucket_acl" {
   depends_on = [aws_s3_bucket_ownership_controls.root_bucket_acl_ownership]
 }
 
-# resource "aws_s3_bucket_website_configuration" "root_bucket_config" {
-#   bucket = aws_s3_bucket.root_bucket.id
+resource "aws_s3_bucket_website_configuration" "root_bucket_config" {
+  bucket = aws_s3_bucket.root_bucket.id
 
-#   redirect_all_requests_to {
-#     host_name = "www.${var.domain_name}"
-#     protocol  = "https"
-#   }
-# }
+  redirect_all_requests_to {
+    host_name = "www.${var.domain_name}"
+    protocol  = "https"
+  }
+}
 
 
 ############################################
