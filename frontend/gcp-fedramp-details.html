@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>GCP FedRAMP SaaS Platform - Ben Wagrez Portfolio</title>
+  <meta content="FedRAMP-compliant GCP SaaS platform architecture featuring multi-region Kubernetes workloads, AI/ML integration, and high availability infrastructure across multiple regions." name="description">
+  <meta content="GCP, FedRAMP, Kubernetes, GKE, SaaS, Compliance, Multi-Region, AI/ML, High Availability, FIPS, CMMC" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/favicon.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    .key-metric {
+      background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .key-metric h4 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .key-metric p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    .challenge-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #dc3545;
+      margin-bottom: 30px;
+    }
+
+    .solution-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #28a745;
+      margin-bottom: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .feature-card h4 {
+      color: #4285f4;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .feature-card .icon {
+      font-size: 2.5rem;
+      color: #4285f4;
+      margin-bottom: 15px;
+    }
+
+    .tech-stack-item {
+      display: inline-block;
+      background: #4285f4;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+
+    .lesson-item {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      border-left: 4px solid #4285f4;
+    }
+
+    .lesson-item h5 {
+      color: #4285f4;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .compliance-badge {
+      display: inline-block;
+      background: #ea4335;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin: 3px;
+    }
+
+    .compliance-section {
+      background: #f0f7ff;
+      padding: 25px;
+      border-radius: 8px;
+      border: 2px solid #4285f4;
+      margin-bottom: 20px;
+    }
+
+    .region-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      border-left: 4px solid #34a853;
+    }
+
+    .region-card h5 {
+      color: #34a853;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <!-- <h1 class="logo"><a href="index.html">DevFolio</a></h1> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="logo"><img src="assets/img/bw-logo.png" alt="" class="img-fluid"></a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/index.html#hero">Home</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <li><a class="nav-link scrollto" href="/index.html#about">About Me</a></li>
+          <li><a class="nav-link scrollto " href="/index.html#portfolio">My Work</a></li>
+          <li><a class="nav-link scrollto" href="/index.html#contact">Contact Me</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <div class="hero hero-single route bg-image" style="background-image: url(assets/img/background-metrics-min.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="hero-title mb-4">GCP FedRAMP SaaS Platform</h2>
+          <ol class="breadcrumb d-flex justify-content-center">
+            <li class="breadcrumb-item">
+              <a href="index.html#portfolio">Home</a>
+            </li>
+            <li class="breadcrumb-item active">GCP FedRAMP Details</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <!-- Project Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h2 class="mb-4">Multi-Region FedRAMP-Compliant SaaS Platform on GCP</h2>
+            <p class="lead">
+              Architected highly-regulated GCP deployment of enterprise SaaS offering featuring heavy Kubernetes workloads, AI/ML integration, and supporting infrastructure services deployed across multiple regions for high availability and FedRAMP compliance.
+            </p>
+            <p>
+              Federal agencies and government contractors require cloud services to meet FedRAMP authorization standards, which mandate strict security controls, continuous monitoring, and data residency requirements. This project delivered a production-ready GCP environment that extends the company's existing SaaS platform to serve government customers while maintaining feature parity with commercial offerings and meeting rigorous compliance standards.
+            </p>
+          </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="row mb-5">
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>Multi-Region</h4>
+              <p>High Availability Architecture</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>FedRAMP</h4>
+              <p>Moderate Impact Level</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>15 Months</h4>
+              <p>Design to Production Deployment</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="challenge-box">
+              <h3><i class="bi bi-exclamation-triangle"></i> The Challenge</h3>
+              <p>
+                Expanding the company's SaaS platform to serve federal government customers required building an entirely new GCP environment that met FedRAMP compliance while maintaining operational parity with existing AWS infrastructure:
+              </p>
+              <ul>
+                <li><strong>FedRAMP Moderate Compliance:</strong> Meet 325+ security controls from NIST SP 800-53 including encryption, access controls, audit logging, vulnerability scanning, and incident response across all infrastructure and application layers</li>
+                <li><strong>Multi-Region High Availability:</strong> Deploy across multiple GCP regions with automated failover to achieve 99.99% SLA, ensuring government services remain available during region outages</li>
+                <li><strong>Heavy Kubernetes Workloads:</strong> Support containerized microservices architecture with hundreds of pods across multiple GKE clusters, requiring robust networking, service mesh, and autoscaling capabilities</li>
+                <li><strong>AI/ML Integration:</strong> Integrate Vertex AI for machine learning workloads while ensuring model training data and inference remain within FedRAMP boundary with appropriate access controls</li>
+                <li><strong>Data Residency Requirements:</strong> Ensure all customer data, including logs, backups, and replicas, remain within authorized GCP regions and never transit outside the US</li>
+                <li><strong>Network Segmentation:</strong> Isolate government workloads from commercial infrastructure while enabling shared services and minimizing operational overhead of managing parallel environments</li>
+                <li><strong>Continuous Monitoring:</strong> Implement comprehensive security monitoring, log aggregation, and automated compliance reporting required for FedRAMP continuous authorization to operate (ATO)</li>
+                <li><strong>Infrastructure as Code:</strong> Deploy entire environment via Terraform to ensure consistency, enable disaster recovery, and support rapid environment replication for testing and DR scenarios</li>
+              </ul>
+              <p>
+                The project required balancing strict regulatory requirements with operational efficiency, cost control, and feature parity with the commercial SaaS offering running on AWS.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="solution-box">
+              <h3><i class="bi bi-check-circle"></i> Solution: Multi-Region GCP Platform with Kubernetes-Native Architecture</h3>
+              <p>
+                Designed and deployed production GCP environment spanning multiple regions with GKE clusters, managed databases, AI/ML services, and comprehensive security controls meeting FedRAMP Moderate requirements.
+              </p>
+
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-bezier2"></i> Multi-Region Kubernetes Deployment</h5>
+                  <p>
+                    GKE clusters deployed across <strong>3 GCP regions</strong> with global load balancing, automated pod scheduling, and cross-region service mesh for resilience. Achieved 99.99% uptime SLA with automatic failover.
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="bi bi-robot"></i> Integrated AI/ML Platform</h5>
+                  <p>
+                    <strong>Vertex AI</strong> integrated for ML model training and inference within FedRAMP boundary. Custom pipelines for automated model deployment, monitoring, and rollback across GKE clusters.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-shield-lock"></i> FedRAMP Security Controls</h5>
+                  <p>
+                    Implemented <strong>325+ NIST controls</strong> including encryption at rest/transit, FIPS 140-2 validated crypto, VPC Service Controls, Cloud Armor, private GKE clusters, and continuous compliance monitoring.
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="bi bi-code-square"></i> Infrastructure as Code</h5>
+                  <p>
+                    <strong>100% Terraform-managed</strong> infrastructure enabling reproducible deployments, disaster recovery, and environment parity between dev/staging/production with git-based change management.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FedRAMP Compliance -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">FedRAMP Compliance Controls</h3>
+
+            <div class="compliance-section">
+              <h5><i class="bi bi-file-earmark-lock"></i> NIST SP 800-53 Control Implementation</h5>
+              <p>
+                Implemented comprehensive security controls across 18 control families required for FedRAMP Moderate authorization:
+              </p>
+
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h6>Technical Controls</h6>
+                  <ul>
+                    <li><strong>Encryption at Rest:</strong> AES-256 with FIPS 140-2 validated Cloud KMS for all data storage</li>
+                    <li><strong>Encryption in Transit:</strong> TLS 1.2+ with FIPS-approved ciphers for all network traffic</li>
+                    <li><strong>Access Control:</strong> Least-privilege IAM with MFA and context-aware access for all human users</li>
+                    <li><strong>Boundary Protection:</strong> VPC Service Controls enforce network perimeter, blocking data exfiltration</li>
+                    <li><strong>Vulnerability Scanning:</strong> Container scanning, OS patching, and automated remediation workflows</li>
+                  </ul>
+                  <div class="mt-2">
+                    <span class="compliance-badge">SC-8: Crypto</span>
+                    <span class="compliance-badge">AC-2: Access</span>
+                    <span class="compliance-badge">RA-5: Scanning</span>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <h6>Operational Controls</h6>
+                  <ul>
+                    <li><strong>Audit Logging:</strong> Cloud Logging with 1-year retention, SIEM integration, tamper-evident storage</li>
+                    <li><strong>Monitoring:</strong> Cloud Monitoring dashboards, alerting, and automated incident response</li>
+                    <li><strong>Backup & Recovery:</strong> Automated daily backups with 90-day retention and quarterly DR testing</li>
+                    <li><strong>Configuration Management:</strong> GitOps with automated drift detection and remediation</li>
+                    <li><strong>Incident Response:</strong> Documented procedures with 15-minute detection, 1-hour initial response SLA</li>
+                  </ul>
+                  <div class="mt-2">
+                    <span class="compliance-badge">AU-2: Audit</span>
+                    <span class="compliance-badge">CP-9: Backup</span>
+                    <span class="compliance-badge">IR-4: Incident</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div class="row mb-5">
+          <div class="col-lg-8">
+            <h3 class="mb-4">Kubernetes & Infrastructure Architecture</h3>
+
+            <div class="feature-card mb-4">
+              <h4><i class="bi bi-grid-3x3"></i> GKE Clusters</h4>
+              <p>
+                Leveraged GKE for fully-managed Kubernetes with built-in security hardening and compliance:
+              </p>
+              <ul class="mb-0">
+                <li><strong>Private clusters:</strong> No public IPs, all nodes isolated in private subnets with authorized networks</li>
+                <li><strong>Workload Identity:</strong> Pod-level GCP service account binding eliminating node credential exposure</li>
+                <li><strong>Binary Authorization:</strong> Only signed, approved container images can run in production clusters</li>
+                <li><strong>Pod Security Standards:</strong> Enforced restricted PSS policies blocking privileged containers</li>
+                <li><strong>Network Policy:</strong> Calico network policies enforcing microsegmentation between namespaces</li>
+              </ul>
+            </div>
+
+            <div class="feature-card mb-4">
+              <h4><i class="bi bi-cloud-arrow-up"></i> Supporting Infrastructure Services</h4>
+              <p>
+                Deployed managed GCP services to support application workloads with FedRAMP compliance:
+              </p>
+              <ul class="mb-0">
+                <li><strong>Cloud SQL:</strong> PostgreSQL with HA configuration, automated backups, and private IP only</li>
+                <li><strong>Cloud Memorystore:</strong> Managed Redis for session storage and application caching</li>
+                <li><strong>Cloud Storage:</strong> Object storage with versioning, lifecycle policies, and CMEK encryption</li>
+                <li><strong>Vertex AI:</strong> ML platform for model training, deployment, and inference</li>
+                <li><strong>Cloud Load Balancing:</strong> Global HTTPS load balancer with Cloud Armor WAF</li>
+                <li><strong>Cloud NAT:</strong> Managed NAT for outbound internet access without exposing nodes</li>
+              </ul>
+            </div>
+
+            <div class="mt-4">
+              <h5>Technology Stack</h5>
+              <span class="tech-stack-item">GKE Autopilot</span>
+              <span class="tech-stack-item">Terraform</span>
+              <span class="tech-stack-item">Cloud SQL</span>
+              <span class="tech-stack-item">Vertex AI</span>
+              <span class="tech-stack-item">Cloud Storage</span>
+              <span class="tech-stack-item">Memorystore</span>
+              <span class="tech-stack-item">VPC Service Controls</span>
+              <span class="tech-stack-item">Cloud Armor</span>
+              <span class="tech-stack-item">Cloud Logging</span>
+              <span class="tech-stack-item">Cloud Monitoring</span>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Company</strong>: ReliaQuest</li>
+                <li><strong>Project Date</strong>: March 2024</li>
+                <li><strong>Duration</strong>: 15 months</li>
+                <li><strong>Status</strong>: Production</li>
+                <li><strong>Role</strong>: Cloud Architect</li>
+              </ul>
+            </div>
+
+            <div class="portfolio-description mt-4">
+              <h4>Deployment Model</h4>
+              <p>
+                The platform follows a hub-and-spoke network topology:
+              </p>
+              <ul>
+                <li><strong>Host Project:</strong> Shared VPC, networking, and security services</li>
+                <li><strong>Service Projects:</strong> Isolated workloads with project-level IAM boundaries</li>
+                <li><strong>GitOps:</strong> All changes deployed via Cloud Build CI/CD pipelines</li>
+                <li><strong>DR Testing:</strong> Quarterly failover exercises validating RTO/RPO</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Results & Business Impact</h3>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="feature-card h-100">
+              <div class="icon"><i class="bi bi-patch-check-fill"></i></div>
+              <h4>FedRAMP Authorization</h4>
+              <p>
+                Achieved <strong>FedRAMP Moderate ATO</strong> enabling sales to federal agencies and government contractors. Platform passed 3PAO security assessment with zero high-severity findings.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="feature-card h-100">
+              <div class="icon"><i class="bi bi-graph-up"></i></div>
+              <h4>99.99% Uptime</h4>
+              <p>
+                Multi-region architecture delivered <strong>99.99% availability</strong> across first 12 months in production. Automated failover completed successfully during us-central1 maintenance window with zero customer impact.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="feature-card h-100">
+              <div class="icon"><i class="bi bi-speedometer2"></i></div>
+              <h4>Rapid Feature Parity</h4>
+              <p>
+                Achieved <strong>95% feature parity</strong> with AWS commercial offering within 6 months of production deployment. Government customers receive same capabilities as commercial users.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Key Takeaways</h3>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> GKE Simplifies FedRAMP Compliance</h5>
+              <p>
+                Autopilot's opinionated, hardened-by-default configuration significantly reduced security control implementation effort. Google manages node security, patching, and upgrades - reducing our compliance burden compared to managing standard GKE clusters.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> VPC Service Controls Are Essential for Data Residency</h5>
+              <p>
+                Service perimeters provided strong guarantee that data cannot leave authorized GCP resources, even with compromised credentials. This control was critical for FedRAMP assessors' confidence in data residency enforcement.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Multi-Region Adds Complexity But Is Worth It</h5>
+              <p>
+                Operating across three regions increased infrastructure complexity and cost by 40%, but eliminated single points of failure and enabled sub-50ms latency for 95% of US users. Government customers demand this level of resilience.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Infrastructure as Code Is Non-Negotiable for FedRAMP</h5>
+              <p>
+                Manual changes create audit findings and configuration drift. 100% Terraform-managed infrastructure with CI/CD gates ensured every change was reviewed, tested, and documented - critical for passing continuous monitoring requirements.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Start FedRAMP Compliance Early in Architecture Phase</h5>
+              <p>
+                Attempting to retrofit FedRAMP controls onto existing architecture is exponentially harder than designing for compliance from day one. We architected with NIST controls in mind from the start, avoiding costly rework. Key decisions like VPC Service Controls, private GKE, and CMEK encryption must be baked into initial design.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="copyright-box">
+            <p class="copyright">&copy; MIT License @ <strong>benwagrez.com</strong>. Free-Use Permitted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

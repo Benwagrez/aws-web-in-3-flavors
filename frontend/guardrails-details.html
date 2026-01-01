@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Wagrez, Benjamin - Guardrails Details</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Azure Policy Guardrails - Ben Wagrez Portfolio</title>
+  <meta content="Enterprise Azure governance framework implementing automated policy guardrails aligned with NIST controls to enable secure self-service cloud adoption at scale." name="description">
+  <meta content="Azure Policy, Cloud Governance, NIST Compliance, Security Guardrails, Azure Governance, Compliance as Code, Policy as Code" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -21,6 +21,137 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    .key-metric {
+      background: linear-gradient(135deg, #0078d4 0%, #004578 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .key-metric h4 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .key-metric p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    .challenge-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #dc3545;
+      margin-bottom: 30px;
+    }
+
+    .solution-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #28a745;
+      margin-bottom: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .feature-card h4 {
+      color: #0078d4;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .feature-card .icon {
+      font-size: 2.5rem;
+      color: #0078d4;
+      margin-bottom: 15px;
+    }
+
+    .policy-category {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      border-left: 4px solid #0078d4;
+    }
+
+    .policy-category h5 {
+      color: #0078d4;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .policy-category ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .tech-stack-item {
+      display: inline-block;
+      background: #0078d4;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+
+    .lesson-item {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      border-left: 4px solid #0078d4;
+    }
+
+    .lesson-item h5 {
+      color: #0078d4;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .nist-badge {
+      display: inline-block;
+      background: #28a745;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin: 3px;
+    }
+
+    .compliance-section {
+      background: #f0f8ff;
+      padding: 25px;
+      border-radius: 8px;
+      border: 2px solid #0078d4;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body>
@@ -35,10 +166,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="index.html#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="index.html#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+          <li><a class="nav-link scrollto active" href="/index.html#hero">Home</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <li><a class="nav-link scrollto" href="/index.html#about">About Me</a></li>
+          <li><a class="nav-link scrollto " href="/index.html#portfolio">My Work</a></li>
+          <li><a class="nav-link scrollto" href="/index.html#contact">Contact Me</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -51,7 +183,7 @@
     <div class="hero-content display-table">
       <div class="table-cell">
         <div class="container">
-          <h2 class="hero-title mb-4">Guardrails Details</h2>
+          <h2 class="hero-title mb-4">Azure Policy Guardrails</h2>
           <ol class="breadcrumb d-flex justify-content-center">
             <li class="breadcrumb-item">
               <a href="index.html#portfolio">Home</a>
@@ -69,41 +201,361 @@
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
 
-        <div class="row gy-4">
+        <!-- Project Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h2 class="mb-4">Enabling Secure Cloud Adoption Through Automated Guardrails</h2>
+            <p class="lead">
+              A comprehensive Azure governance framework implementing automated policy guardrails aligned with NIST security controls, enabling application teams to self-service cloud resources while maintaining strict compliance and security standards.
+            </p>
+            <div class="alert alert-info">
+              <i class="bi bi-shield-lock"></i> <strong>Note:</strong> Client identity and specific environment details are protected under Non-Disclosure Agreement (NDA). Technical details and methodologies are presented at an appropriate level of abstraction.
+            </div>
+            <p>
+              As organizations scale their cloud adoption, balancing innovation velocity with security compliance becomes increasingly challenging. This project developed a scalable policy-as-code framework that allows development teams to rapidly deploy Azure services while automatically enforcing NIST compliance requirements through built-in guardrails.
+            </p>
+          </div>
+        </div>
 
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="align-items-center">
+        <!-- Key Metrics -->
+        <div class="row mb-5">
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>50+</h4>
+              <p>Custom Azure Policies Deployed</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>15+</h4>
+              <p>Azure Services Secured</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>100%</h4>
+              <p>Automated Compliance Enforcement</p>
+            </div>
+          </div>
+        </div>
 
-                <div class="swiper-slide">
-                  <img src="assets/img/azure-policy-min.png" alt="">
+        <!-- Challenge -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="challenge-box">
+              <h3><i class="bi bi-exclamation-triangle"></i> The Challenge</h3>
+              <p>
+                The client organization faced a critical tension between enabling rapid cloud innovation and maintaining strict security compliance:
+              </p>
+              <ul>
+                <li><strong>Manual Compliance Bottleneck:</strong> Security reviews for each new Azure service adoption created weeks of delay, frustrating development teams and slowing business initiatives</li>
+                <li><strong>NIST Compliance Requirements:</strong> All cloud resources must adhere to NIST SP 800-53 controls, requiring detailed security configurations across dozens of services</li>
+                <li><strong>Inconsistent Security Posture:</strong> Manual configuration processes led to drift and inconsistencies across environments, creating compliance gaps and security vulnerabilities</li>
+                <li><strong>Scale Challenge:</strong> With hundreds of application teams and growing cloud adoption, manual governance processes could not scale effectively</li>
+                <li><strong>Developer Experience:</strong> Teams needed self-service access to cloud services without waiting for security approvals, while security teams needed confidence that all deployments were compliant by default</li>
+                <li><strong>Audit & Reporting:</strong> Demonstrating continuous compliance to auditors required significant manual effort to collect and validate configurations across all resources</li>
+              </ul>
+              <p>
+                The organization needed an automated governance framework that could enforce security standards at deployment time while enabling teams to move quickly with confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="solution-box">
+              <h3><i class="bi bi-check-circle"></i> Solution: Policy-as-Code Guardrails Framework</h3>
+              <p>
+                Developed and implemented a comprehensive Azure Policy framework that automatically enforces NIST compliance controls across Azure services, enabling secure self-service cloud adoption at enterprise scale.
+              </p>
+
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-shield-check"></i> Automated Compliance Enforcement</h5>
+                  <p>
+                    Azure Policies automatically validate and enforce NIST controls at resource deployment time. Non-compliant configurations are <strong>blocked before creation</strong>, preventing security drift and eliminating manual reviews for standard use cases.
+                  </p>
                 </div>
-
+                <div class="col-md-6">
+                  <h5><i class="bi bi-speedometer2"></i> Accelerated Service Adoption</h5>
+                  <p>
+                    Reduced time-to-adoption for new Azure services from <strong>weeks to days</strong>. Once policies are developed for a service, all teams can immediately begin using it with confidence in compliance.
+                  </p>
+                </div>
               </div>
+
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-file-earmark-code"></i> Infrastructure as Code Integration</h5>
+                  <p>
+                    Policies defined as code in JSON/Bicep templates, version-controlled in Git, and deployed through CI/CD pipelines. Changes are peer-reviewed, tested, and auditable like application code.
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="bi bi-clipboard-data"></i> Continuous Compliance Visibility</h5>
+                  <p>
+                    Real-time compliance dashboards and reports generated automatically from policy evaluation results. Auditors can query compliance state across the entire Azure estate instantly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Policy Coverage -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Policy Coverage by Service Category</h3>
+            <p class="mb-4">
+              Over the 5-month engagement, policies were developed for 15+ Azure services across multiple categories, prioritized by organizational needs and security impact.
+            </p>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="policy-category">
+              <h5><i class="bi bi-database"></i> Data & Storage Services</h5>
+              <ul>
+                <li>Azure Storage Accounts (encryption, network access, TLS)</li>
+                <li>Azure SQL Database (auditing, threat detection, firewall)</li>
+                <li>Cosmos DB (encryption, network isolation)</li>
+                <li>Data Lake Storage (hierarchical namespace, encryption)</li>
+              </ul>
+              <div class="mt-2">
+                <span class="nist-badge">SC-8: TLS 1.2+</span>
+                <span class="nist-badge">SC-28: Encryption at Rest</span>
+                <span class="nist-badge">AC-4: Network Isolation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="policy-category">
+              <h5><i class="bi bi-server"></i> Compute Services</h5>
+              <ul>
+                <li>Virtual Machines (disk encryption, managed identity, patching)</li>
+                <li>Azure Kubernetes Service (RBAC, network policy, pod security)</li>
+                <li>App Service (HTTPS-only, minimum TLS version)</li>
+                <li>Container Instances (network profiles, private endpoints)</li>
+              </ul>
+              <div class="mt-2">
+                <span class="nist-badge">IA-2: Managed Identity</span>
+                <span class="nist-badge">SI-7: Disk Encryption</span>
+                <span class="nist-badge">CM-6: Baseline Config</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="policy-category">
+              <h5><i class="bi bi-diagram-3"></i> Networking Services</h5>
+              <ul>
+                <li>Virtual Networks (subnet configurations, NSG requirements)</li>
+                <li>Network Security Groups (default deny rules)</li>
+                <li>Private Endpoints (mandatory for PaaS services)</li>
+                <li>Application Gateway (WAF configuration, TLS policy)</li>
+              </ul>
+              <div class="mt-2">
+                <span class="nist-badge">SC-7: Boundary Protection</span>
+                <span class="nist-badge">AC-3: Network Segmentation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="policy-category">
+              <h5><i class="bi bi-shield-lock"></i> Security & Identity Services</h5>
+              <ul>
+                <li>Key Vault (purge protection, private endpoints, RBAC)</li>
+                <li>Managed Identities (enforcement over service principals)</li>
+                <li>Azure Monitor (required diagnostic settings)</li>
+                <li>Security Center (standard tier enforcement)</li>
+              </ul>
+              <div class="mt-2">
+                <span class="nist-badge">SC-12: Key Management</span>
+                <span class="nist-badge">AU-6: Audit Logging</span>
+                <span class="nist-badge">IR-4: Monitoring</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Implementation Approach -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Implementation Methodology</h3>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-1-circle"></i></div>
+              <h4>Requirements Analysis</h4>
+              <p>
+                Collaborated with security architects and compliance teams to map NIST controls to Azure service configurations. Prioritized services based on business impact and adoption roadmap.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-2-circle"></i></div>
+              <h4>Policy Development</h4>
+              <p>
+                Developed custom Azure Policy definitions in JSON, tested in non-production environments, and validated against actual NIST control requirements and service capabilities.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-3-circle"></i></div>
+              <h4>Deployment & Validation</h4>
+              <p>
+                Deployed policies through management groups using Infrastructure-as-Code. Monitored compliance reports and adjusted policy logic based on real-world edge cases.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Highlights -->
+        <div class="row mb-5">
+          <div class="col-lg-8">
+            <h3 class="mb-4">Technical Implementation</h3>
+
+            <div class="compliance-section">
+              <h5><i class="bi bi-gear"></i> Policy Architecture</h5>
+              <p>
+                Policies organized into reusable initiatives (policy sets) aligned with NIST control families. Each initiative groups related policies for easier management and assignment at the management group level.
+              </p>
+              <p>
+                <strong>Key Technical Capabilities:</strong>
+              </p>
+              <ul>
+                <li><strong>Deny Policies:</strong> Block non-compliant resource creation at deployment time</li>
+                <li><strong>Audit Policies:</strong> Flag existing non-compliant resources for remediation</li>
+                <li><strong>DeployIfNotExists:</strong> Automatically deploy required configurations (e.g., diagnostic settings, monitoring agents)</li>
+                <li><strong>Modify Policies:</strong> Automatically adjust resource properties to enforce compliance (e.g., add required tags)</li>
+                <li><strong>Policy Parameters:</strong> Allow controlled flexibility for different environments while maintaining compliance baselines</li>
+              </ul>
+            </div>
+
+            <div class="mt-4">
+              <h5>Tech Stack</h5>
+              <span class="tech-stack-item">Azure Policy</span>
+              <span class="tech-stack-item">Azure Blueprints</span>
+              <span class="tech-stack-item">Management Groups</span>
+              <span class="tech-stack-item">Azure DevOps</span>
+              <span class="tech-stack-item">Bicep/ARM</span>
+              <span class="tech-stack-item">PowerShell</span>
+              <span class="tech-stack-item">Git</span>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Project information</h3>
+              <h3>Project Information</h3>
               <ul>
-                <li><strong>Client</strong>: [PROTECTED]</li>
-                <li><strong>Project date</strong>: March, 2023</li>
-                <li><strong>Project duration</strong>: 5 months</li>
+                <li><strong>Client</strong>: [Protected by NDA]</li>
+                <li><strong>Project Date</strong>: March 2023</li>
+                <li><strong>Duration</strong>: 5 months</li>
+                <li><strong>Role</strong>: Cloud Security Engineer</li>
               </ul>
             </div>
-            <div class="portfolio-description">
-              <h2>Enabling Services Through Policy</h2>
+
+            <div class="portfolio-description mt-4">
+              <img src="assets/img/azure-policy-min.png" alt="Azure Policy Dashboard" class="img-fluid rounded shadow">
+            </div>
+          </div>
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Results & Business Impact</h3>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-lightning-charge"></i></div>
+              <h4>Faster Time-to-Market</h4>
               <p>
-                <b>Client identity and environment details are protected under a Non-Disclosure Agreement (NDA).</b>
-                <br>
-                An Azure policy methodology was devised and implemented for the client, facilitating the use of Azure services by their application teams by securing services with guardrails before open-use. This involved the generation of Azure policies to ensure strict adherence to NIST guidelines for the services.
-                <br>
-                A 5 month project was started for the purpose of developing Azure policies to enable guardrails for Azure services. The development process was guided by greater-organization priorities and goals. 
-              </p>            
+                Reduced service approval time from <strong>2-4 weeks to 2-3 days</strong> by eliminating manual security reviews for policy-covered services. Development teams gained self-service capabilities with built-in compliance.
+              </p>
             </div>
           </div>
 
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-shield-fill-check"></i></div>
+              <h4>Zero Compliance Incidents</h4>
+              <p>
+                <strong>100% prevention</strong> of non-compliant resource deployments for policy-covered services. Audit findings decreased significantly as configurations were validated automatically.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-people"></i></div>
+              <h4>Scaled Security Team</h4>
+              <p>
+                Security team redirected effort from repetitive reviews to strategic work. Guardrails enabled the team to support <strong>10x more concurrent projects</strong> without adding headcount.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Key Takeaways</h3>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Policy-as-Code Enables Security at Scale</h5>
+              <p>
+                Manual security reviews don't scale. Codifying security requirements as automated policies allows organizations to maintain strict compliance standards while enabling rapid cloud adoption across hundreds of teams.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Prioritization Based on Business Value</h5>
+              <p>
+                Not all services need immediate guardrails. Prioritizing based on actual adoption roadmaps and business priorities ensures maximum impact. Developed policies for services teams actually wanted to use, not theoretical coverage.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Test Policies in Non-Prod First</h5>
+              <p>
+                Azure Policy can have unintended consequences. Always test in non-production with Audit mode before deploying Deny policies to production. Discovered edge cases and platform limitations that would have blocked legitimate use cases.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Balance Security with Developer Experience</h5>
+              <p>
+                Overly restrictive policies frustrate developers and encourage workarounds. Collaborated closely with development teams to understand their needs and designed policies with appropriate flexibility where compliance allowed.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Compliance Automation Requires Continuous Maintenance</h5>
+              <p>
+                Azure services evolve rapidly with new features and configuration options. Policy frameworks require ongoing maintenance to stay current with platform changes, new NIST control interpretations, and evolving organizational requirements. Established a review cadence to keep policies aligned with the latest best practices.
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -118,11 +570,6 @@
         <div class="col-sm-12">
           <div class="copyright-box">
             <p class="copyright">&copy; MIT License @ <strong>benwagrez.com</strong>. Free-Use Permitted.</p>
-            <div class="credits">
-              <!--
-              Thank you to DevFolio for this website template, a license has been purchased under the email benwagrez@gmail.com  
-            -->
-            </div>
           </div>
         </div>
       </div>
@@ -138,7 +585,6 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

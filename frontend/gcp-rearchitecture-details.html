@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>GCP Network Re-architecture - Benjamin Wagrez</title>
+  <meta content="Greenfield GCP environment with Network Connectivity Center, zero-trust networking, and intrusion detection" name="description">
+  <meta content="GCP, Network Connectivity Center, Zero Trust, Intrusion Detection, Cloud Networking, Security Architecture, IAM, Multi-Region" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    .project-header {
+      background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+      color: white;
+      padding: 60px 0;
+      margin-bottom: 40px;
+    }
+    .project-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .project-meta {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+    .section-title {
+      color: #4285f4;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #34a853;
+    }
+    .metric-card {
+      background: #f8f9fa;
+      border-left: 4px solid #4285f4;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+    }
+    .metric-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .metric-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #4285f4;
+      margin-bottom: 5px;
+    }
+    .metric-label {
+      font-size: 0.9rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .tech-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+      color: white;
+      padding: 5px 15px;
+      margin: 5px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .challenge-box, .solution-box, .result-box {
+      background: #fff;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+    .challenge-box {
+      border-left: 5px solid #ea4335;
+    }
+    .solution-box {
+      border-left: 5px solid #34a853;
+    }
+    .result-box {
+      border-left: 5px solid #fbbc04;
+    }
+    .feature-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      border-color: #4285f4;
+      box-shadow: 0 5px 15px rgba(66, 133, 244, 0.2);
+    }
+    .feature-card h4 {
+      color: #4285f4;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    ul.detail-list {
+      padding-left: 20px;
+    }
+    ul.detail-list li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <!-- <h1 class="logo"><a href="index.html">DevFolio</a></h1> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="logo"><img src="assets/img/bw-logo.png" alt="" class="img-fluid"></a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/index.html#hero">Home</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <li><a class="nav-link scrollto" href="/index.html#about">About Me</a></li>
+          <li><a class="nav-link scrollto " href="/index.html#portfolio">My Work</a></li>
+          <li><a class="nav-link scrollto" href="/index.html#contact">Contact Me</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <div class="hero hero-single route bg-image" style="background-image: url(assets/img/background-metrics-min.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="hero-title mb-4" style="margin-top: 1.5rem;">GCP Network Re-architecture</h2>
+          <ol class="breadcrumb d-flex justify-content-center">
+            <li class="breadcrumb-item">
+              <a href="index.html#portfolio">Home</a>
+            </li>
+            <li class="breadcrumb-item active">GCP Rearchitecture Details</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- Project Content -->
+    <section class="portfolio-details">
+      <div class="container">
+
+        
+        <!-- Project Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h2 class="mb-4">GCP Network Re-architecture</h2>
+            <p class="lead">
+              Designed and implemented a greenfield GCP network infrastructure from the ground up, establishing a modern, scalable, and secure foundation for enterprise workloads. This comprehensive re-architecture leveraged Google Cloud's Network Connectivity Center for multi-region connectivity, deployed autoscaling Palo Alto Networks firewalls for zero-trust network segmentation, and implemented intrusion detection systems for comprehensive visibility into intra-VPC traffic. The project established new organizational standards for GCP project hierarchy, IAM least privilege access, and host/consumer project separation patterns.
+            </p>
+
+          </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="row" style="margin-top: 30px;">
+          <div class="col-lg-12">
+            <h2 class="section-title">Key Metrics</h2>
+          </div>
+          <div class="col-md-3">
+            <div class="metric-card">
+              <div class="metric-number">Multi-Region</div>
+              <div class="metric-label">Network Connectivity Center</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="metric-card">
+              <div class="metric-number">Zero-Trust</div>
+              <div class="metric-label">Network Segmentation</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="metric-card">
+              <div class="metric-number">2 Months</div>
+              <div class="metric-label">Design to Production</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="metric-card">
+              <div class="metric-number">100%</div>
+              <div class="metric-label">Infrastructure as Code</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge -->
+        <div class="row" style="margin-top: 30px;">
+          <div class="col-lg-12">
+            <h2 class="section-title">The Challenge</h2>
+            <div class="challenge-box">
+              <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 15px;">
+                ReliaQuest's existing GCP infrastructure had evolved organically over several years, resulting in inconsistent networking patterns, security gaps, and operational complexity. The legacy environment lacked centralized network management, proper segmentation between workloads, and visibility into east-west traffic flows.
+              </p>
+              <ul class="detail-list">
+                <li><strong>No Centralized Connectivity:</strong> VPC peering relationships created a complex mesh topology that was difficult to manage and troubleshoot across multiple regions</li>
+                <li><strong>Insufficient Security Controls:</strong> Lack of next-generation firewall capabilities meant limited ability to enforce microsegmentation and zero-trust networking principles</li>
+                <li><strong>Limited Visibility:</strong> No intrusion detection systems monitoring intra-VPC traffic, creating blind spots for security and compliance teams</li>
+                <li><strong>Inconsistent IAM Patterns:</strong> Projects had varying levels of access control with overly permissive service accounts and unclear ownership boundaries</li>
+                <li><strong>Poor Resource Organization:</strong> Flat project hierarchy made it difficult to apply consistent policies, budgets, and compliance controls across environments</li>
+                <li><strong>Manual Provisioning:</strong> Network infrastructure changes required significant manual effort, increasing deployment time and risk of configuration drift</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="section-title">The Solution</h2>
+            <div class="solution-box">
+              <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 15px;">
+                Architected and deployed a comprehensive greenfield GCP network infrastructure that established enterprise-grade connectivity, security, and organizational standards. The solution leveraged modern GCP networking services and industry best practices to create a scalable foundation for current and future workloads.
+              </p>
+              <ul class="detail-list">
+                <li><strong>Network Connectivity Center:</strong> Implemented multi-region hub-and-spoke topology replacing complex VPC peering mesh, centralizing routing and simplifying network management</li>
+                <li><strong>Autoscaling Firewalls:</strong> Deployed Palo Alto Networks VM-Series firewalls with autoscaling groups, providing next-generation firewall capabilities with application-level visibility and control</li>
+                <li><strong>Zero-Trust Architecture:</strong> Designed microsegmentation strategy enforcing least-privilege network access between workloads using firewall policies and Identity-Aware Proxy</li>
+                <li><strong>Intrusion Detection Systems:</strong> Integrated IDS solutions monitoring intra-VPC traffic flows, providing security teams with visibility into lateral movement and anomalous behavior</li>
+                <li><strong>Host/Consumer Project Separation:</strong> Established Shared VPC architecture with centralized network management in host projects and workload isolation in consumer projects</li>
+                <li><strong>IAM Hierarchy Redesign:</strong> Created new organization structure with folders for environments (dev/staging/prod), implemented least-privilege IAM bindings at appropriate hierarchy levels</li>
+                <li><strong>Infrastructure as Code:</strong> Built entire network infrastructure using Terraform with modular, reusable configurations enabling consistent, repeatable deployments</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="section-title">Technical Implementation</h2>
+          </div>
+
+          <div class="col-md-6">
+            <div class="feature-card">
+              <h4><i class="bi bi-diagram-3"></i> Network Connectivity Center</h4>
+              <ul style="font-size: 0.95rem; color: #666; margin: 0; padding-left: 20px;">
+                <li>Multi-region hub deployment across us-central1, us-east4, and us-west1</li>
+                <li>Centralized routing and policy enforcement eliminating VPC peering complexity</li>
+                <li>Network appliance integration for traffic inspection and filtering</li>
+                <li>Route propagation and dynamic routing with Cloud Router</li>
+                <li>Hybrid connectivity preparation for future on-premises integration</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="feature-card">
+              <h4><i class="bi bi-shield-check"></i> Firewall Architecture</h4>
+              <ul style="font-size: 0.95rem; color: #666; margin: 0; padding-left: 20px;">
+                <li>Palo Alto VM-Series deployed in autoscaling managed instance groups</li>
+                <li>Active/active high availability with health check-based failover</li>
+                <li>Threat prevention, URL filtering, and WildFire malware analysis</li>
+                <li>Application-level visibility and control with App-ID technology</li>
+                <li>Centralized policy management with Panorama integration</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="feature-card">
+              <h4><i class="bi bi-lock"></i> Zero-Trust Networking</h4>
+              <ul style="font-size: 0.95rem; color: #666; margin: 0; padding-left: 20px;">
+                <li>Microsegmentation policies enforcing least-privilege access between workloads</li>
+                <li>Identity-Aware Proxy for application-level access control without VPN</li>
+                <li>Service perimeter boundaries with VPC Service Controls for sensitive data</li>
+                <li>Private Google Access eliminating public IP exposure for GCP APIs</li>
+                <li>Binary Authorization for container image verification before deployment</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="feature-card">
+              <h4><i class="bi bi-eye"></i> Intrusion Detection</h4>
+              <ul style="font-size: 0.95rem; color: #666; margin: 0; padding-left: 20px;">
+                <li>IDS sensors monitoring intra-VPC east-west traffic flows</li>
+                <li>VPC Flow Logs integration for network traffic analysis and forensics</li>
+                <li>Packet mirroring for deep packet inspection of suspicious traffic</li>
+                <li>Threat intelligence feed integration for known malicious indicators</li>
+                <li>SIEM integration with Cloud Logging for centralized alert management</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="feature-card">
+              <h4><i class="bi bi-folder2-open"></i> Project Hierarchy</h4>
+              <ul style="font-size: 0.95rem; color: #666; margin: 0; padding-left: 20px;">
+                <li>Organization-level folder structure separating environments and teams</li>
+                <li>Shared VPC host projects for centralized network management</li>
+                <li>Consumer service projects for workload isolation and ownership</li>
+                <li>Consistent naming conventions and labeling standards for resource tagging</li>
+                <li>Policy inheritance from organization to folders to projects</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="feature-card">
+              <h4><i class="bi bi-person-lock"></i> IAM & Security</h4>
+              <ul style="font-size: 0.95rem; color: #666; margin: 0; padding-left: 20px;">
+                <li>Least-privilege IAM bindings at appropriate hierarchy levels</li>
+                <li>Workload Identity for secure service-to-service authentication</li>
+                <li>Service account impersonation for controlled privilege escalation</li>
+                <li>Organization policy constraints preventing risky configurations</li>
+                <li>Custom IAM roles aligned with specific job functions and responsibilities</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="row" style="margin-top: 20px;">
+          <div class="col-lg-12">
+            <h2 class="section-title">Technology Stack</h2>
+            <div style="margin-top: 20px;">
+              <span class="tech-tag">Network Connectivity Center</span>
+              <span class="tech-tag">Palo Alto Networks</span>
+              <span class="tech-tag">Shared VPC</span>
+              <span class="tech-tag">Cloud Router</span>
+              <span class="tech-tag">VPC Flow Logs</span>
+              <span class="tech-tag">Identity-Aware Proxy</span>
+              <span class="tech-tag">VPC Service Controls</span>
+              <span class="tech-tag">Cloud Armor</span>
+              <span class="tech-tag">Terraform</span>
+              <span class="tech-tag">Cloud Logging</span>
+              <span class="tech-tag">Cloud Monitoring</span>
+              <span class="tech-tag">Packet Mirroring</span>
+              <span class="tech-tag">Workload Identity</span>
+              <span class="tech-tag">Organization Policy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="row" style="margin-top: 40px;">
+          <div class="col-lg-12">
+            <h2 class="section-title">Results & Impact</h2>
+            <div class="result-box">
+              <ul class="detail-list">
+                <li><strong>Simplified Network Topology:</strong> Reduced network complexity by replacing mesh VPC peering with centralized hub-and-spoke architecture, cutting inter-region routing paths by 70%+</li>
+                <li><strong>Enhanced Security Posture:</strong> Achieved zero-trust network segmentation with application-level firewall policies, eliminating broad network access between workloads</li>
+                <li><strong>Complete Traffic Visibility:</strong> Gained comprehensive visibility into intra-VPC traffic flows through IDS integration and VPC Flow Logs, closing previous security blind spots</li>
+                <li><strong>Reduced IAM Risk:</strong> Established least-privilege access patterns with custom IAM roles and Workload Identity, removing hundreds of overly permissive service account bindings</li>
+                <li><strong>Accelerated Provisioning:</strong> Enabled network infrastructure deployment in minutes through Terraform automation, reducing provisioning time from days to under an hour</li>
+                <li><strong>Improved Compliance Readiness:</strong> Created audit-ready network architecture with centralized logging, policy enforcement, and clear organizational boundaries</li>
+                <li><strong>Scalable Foundation:</strong> Established patterns and standards that can scale to support future multi-cloud and hybrid connectivity requirements</li>
+                <li><strong>Operational Excellence:</strong> Reduced network troubleshooting time by 60% through simplified topology and centralized monitoring/logging</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="row" style="margin-top: 20px;">
+          <div class="col-lg-12">
+            <h2 class="section-title">Lessons Learned</h2>
+            <div class="feature-card">
+              <ul class="detail-list">
+                <li><strong>Greenfield Opportunity:</strong> Building from scratch allowed implementation of best practices without technical debt, but required careful migration planning for existing workloads</li>
+                <li><strong>Centralized Network Management:</strong> Network Connectivity Center dramatically simplified routing and connectivity compared to traditional VPC peering mesh architectures</li>
+                <li><strong>Zero-Trust Investment:</strong> Implementing zero-trust networking principles from day one required more upfront design effort but paid dividends in security and compliance</li>
+                <li><strong>Automation from Start:</strong> Building infrastructure as code from the beginning ensured consistency and enabled rapid iteration during design phase</li>
+                <li><strong>Organizational Alignment:</strong> Success required alignment between networking, security, and application teams on new standards and separation of responsibilities</li>
+                <li><strong>Documentation Critical:</strong> Comprehensive documentation of architectural decisions, runbooks, and troubleshooting guides was essential for team adoption and long-term maintainability</li>
+                <li><strong>Phased Migration:</strong> Parallel operation of old and new environments during transition period reduced risk but required careful traffic management and cost monitoring</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="copyright-box">
+            <p class="copyright">&copy; Copyright <strong>Benjamin Warren</strong>. All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

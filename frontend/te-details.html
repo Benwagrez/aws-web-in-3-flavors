@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Wagrez, Benjamin - Terraform Enterprise Details</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Terraform Enterprise Migration - Ben Wagrez Portfolio</title>
+  <meta content="Enterprise Terraform migration from AWS to Azure with high availability, private networking via ExpressRoute, and integrated authentication for Infrastructure-as-Code at scale." name="description">
+  <meta content="Terraform Enterprise, Azure Migration, Infrastructure as Code, ExpressRoute, Private Networking, Azure AD, High Availability" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -21,9 +21,125 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    .key-metric {
+      background: linear-gradient(135deg, #7B42BC 0%, #5C2D91 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .key-metric h4 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .key-metric p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    .challenge-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #dc3545;
+      margin-bottom: 30px;
+    }
+
+    .solution-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #28a745;
+      margin-bottom: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .feature-card h4 {
+      color: #7B42BC;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .feature-card .icon {
+      font-size: 2.5rem;
+      color: #7B42BC;
+      margin-bottom: 15px;
+    }
+
+    .tech-stack-item {
+      display: inline-block;
+      background: #7B42BC;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+
+    .lesson-item {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      border-left: 4px solid #7B42BC;
+    }
+
+    .lesson-item h5 {
+      color: #7B42BC;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .migration-phase {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      border-left: 4px solid #7B42BC;
+    }
+
+    .migration-phase h5 {
+      color: #7B42BC;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .architecture-highlight {
+      background: #f8f4fc;
+      padding: 25px;
+      border-radius: 8px;
+      border: 2px solid #7B42BC;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body>
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -35,10 +151,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="index.html#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="index.html#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+          <li><a class="nav-link scrollto active" href="/index.html#hero">Home</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <li><a class="nav-link scrollto" href="/index.html#about">About Me</a></li>
+          <li><a class="nav-link scrollto " href="/index.html#portfolio">My Work</a></li>
+          <li><a class="nav-link scrollto" href="/index.html#contact">Contact Me</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -51,7 +168,7 @@
     <div class="hero-content display-table">
       <div class="table-cell">
         <div class="container">
-          <h2 class="hero-title mb-4">Terraform Enterprise Details</h2>
+          <h2 class="hero-title mb-4">Terraform Enterprise Migration</h2>
           <ol class="breadcrumb d-flex justify-content-center">
             <li class="breadcrumb-item">
               <a href="index.html#portfolio">Home</a>
@@ -69,41 +186,374 @@
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
 
-        <div class="row gy-4">
+        <!-- Project Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h2 class="mb-4">Cross-Cloud Migration of Enterprise Infrastructure-as-Code Platform</h2>
+            <p class="lead">
+              Migrated mission-critical Terraform Enterprise platform from AWS to Azure with zero downtime, implementing high availability architecture, private ExpressRoute connectivity, and integrated Azure AD authentication to support enterprise-scale infrastructure automation.
+            </p>
+            <div class="alert alert-info">
+              <i class="bi bi-shield-lock"></i> <strong>Note:</strong> Client identity and specific environment details are protected under Non-Disclosure Agreement (NDA). Technical architecture and migration approach are presented at an appropriate level of abstraction.
+            </div>
+            <p>
+              As organizations evolve their cloud strategies, platform infrastructure must evolve with them. This project executed a strategic migration of the client's Terraform Enterprise platform from AWS to Azure, aligning their Infrastructure-as-Code operations with their broader cloud consolidation initiative while improving resilience, security, and operational efficiency.
+            </p>
+          </div>
+        </div>
 
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="align-items-center">
+        <!-- Key Metrics -->
+        <div class="row mb-5">
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>Zero</h4>
+              <p>Downtime During Migration</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>100+</h4>
+              <p>Terraform Workspaces Migrated</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>HA</h4>
+              <p>High Availability Architecture</p>
+            </div>
+          </div>
+        </div>
 
-                <div class="swiper-slide">
-                  <img src="assets/img/azure-terraformenterprise-min.png" alt="">
+        <!-- Challenge -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="challenge-box">
+              <h3><i class="bi bi-exclamation-triangle"></i> The Challenge</h3>
+              <p>
+                The client's Azure cloud adoption strategy required consolidating Infrastructure-as-Code operations onto Azure, creating a complex multi-faceted migration challenge:
+              </p>
+              <ul>
+                <li><strong>Zero-Downtime Requirement:</strong> Terraform Enterprise manages critical infrastructure deployments across the organization. Any service interruption would block all infrastructure changes, halting development teams worldwide</li>
+                <li><strong>Cross-Cloud Migration:</strong> Moving from AWS-native services (RDS, S3, ALB) to Azure equivalents (PostgreSQL, Blob Storage, Application Gateway) while maintaining feature parity and performance</li>
+                <li><strong>State File Preservation:</strong> Terraform state files contain sensitive infrastructure metadata and must be migrated without corruption or data loss. State corruption could make infrastructure unmanageable</li>
+                <li><strong>Authentication Integration:</strong> Integrate with corporate Azure AD and external SAML authentication provider while migrating existing users, teams, and RBAC permissions without disruption</li>
+                <li><strong>Hybrid Connectivity:</strong> Establish private ExpressRoute connectivity to on-premises datacenter for Terraform runs accessing internal systems, replacing AWS Direct Connect</li>
+                <li><strong>High Availability Design:</strong> Improve resilience over previous AWS deployment with multi-zone redundancy, automated backups, and disaster recovery capabilities</li>
+                <li><strong>Data Residency:</strong> Ensure all Terraform data, including state files and run logs, remain within Azure for compliance and data governance requirements</li>
+                <li><strong>Minimal User Disruption:</strong> Preserve all existing workspaces, variable sets, team permissions, and workflow integrations with transparent cutover to minimize impact on development teams</li>
+              </ul>
+              <p>
+                The migration needed meticulous planning and flawless execution, as any failure could disrupt infrastructure automation across the entire organization.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="solution-box">
+              <h3><i class="bi bi-check-circle"></i> Solution: Parallel Deployment with Phased Cutover</h3>
+              <p>
+                Deployed new Terraform Enterprise instance on Azure in parallel with existing AWS deployment, performed comprehensive data migration and validation, then executed coordinated cutover with automated DNS failover to ensure seamless transition.
+              </p>
+
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-bezier2"></i> High Availability Architecture</h5>
+                  <p>
+                    Deployed across <strong>multiple Azure Availability Zones</strong> with Application Gateway load balancing, Azure PostgreSQL Flexible Server with geo-redundant backup, and Azure Blob Storage with zone-redundant replication for maximum resilience.
+                  </p>
                 </div>
-
+                <div class="col-md-6">
+                  <h5><i class="bi bi-diagram-3"></i> Private ExpressRoute Connectivity</h5>
+                  <p>
+                    Configured <strong>Azure ExpressRoute</strong> with private peering to on-premises datacenter, providing dedicated 10 Gbps private network path for Terraform runs accessing internal systems without internet transit.
+                  </p>
+                </div>
               </div>
+
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-people-fill"></i> Integrated Authentication</h5>
+                  <p>
+                    Integrated with <strong>Azure AD</strong> for team management and external SAML IdP for user authentication. Synchronized all existing users, teams, and RBAC policies from AWS deployment using TFE API automation.
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="bi bi-arrow-left-right"></i> Zero-Downtime Migration</h5>
+                  <p>
+                    Migrated all workspaces, state files, and configurations to Azure while AWS instance remained operational. <strong>DNS cutover</strong> completed in under 5 minutes with automated health checks and rollback capability.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Migration Phases -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Migration Execution Phases</h3>
+            <p class="mb-4">
+              The migration was executed across four distinct phases over 2 months, with comprehensive testing and validation at each stage.
+            </p>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="migration-phase">
+              <h5><i class="bi bi-1-circle"></i> Phase 1: Infrastructure Deployment (Week 1-3)</h5>
+              <ul class="mb-0">
+                <li>Deployed Terraform Enterprise on Azure VMs (Active-Standby cluster)</li>
+                <li>Configured Azure PostgreSQL Flexible Server with private endpoint</li>
+                <li>Set up Azure Blob Storage with zone-redundant replication</li>
+                <li>Deployed Application Gateway with WAF and SSL termination</li>
+                <li>Configured ExpressRoute connectivity to on-premises datacenter</li>
+                <li>Implemented Azure Monitor, Log Analytics, and alerting</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="migration-phase">
+              <h5><i class="bi bi-2-circle"></i> Phase 2: Authentication & Testing (Week 3-4)</h5>
+              <ul class="mb-0">
+                <li>Integrated Azure AD for team/group synchronization</li>
+                <li>Configured SAML SSO with external identity provider</li>
+                <li>Migrated test workspaces and validated Terraform runs</li>
+                <li>Tested ExpressRoute connectivity to on-prem resources</li>
+                <li>Validated backup and restore procedures</li>
+                <li>Performance testing and optimization</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="migration-phase">
+              <h5><i class="bi bi-3-circle"></i> Phase 3: Data Migration (Week 5-7)</h5>
+              <ul class="mb-0">
+                <li>Exported all workspaces, state files, and configurations from AWS TFE</li>
+                <li>Migrated 100+ workspaces using TFE API automation scripts</li>
+                <li>Validated state file integrity with checksum verification</li>
+                <li>Migrated variable sets, SSH keys, and API tokens</li>
+                <li>Synchronized team memberships and RBAC permissions</li>
+                <li>Parallel validation testing on both platforms</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="migration-phase">
+              <h5><i class="bi bi-4-circle"></i> Phase 4: Cutover & Validation (Week 8)</h5>
+              <ul class="mb-0">
+                <li>Final delta sync of workspace changes from AWS to Azure</li>
+                <li>Coordinated communication to all Terraform users</li>
+                <li>Executed DNS cutover with automated health checks</li>
+                <li>Monitored system performance and user activity</li>
+                <li>Maintained AWS instance in read-only mode for 2 weeks rollback capability</li>
+                <li>Decommissioned AWS infrastructure after validation period</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Architecture Components -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Azure Architecture Components</h3>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-hdd-rack"></i></div>
+              <h4>Compute & Application Tier</h4>
+              <ul class="mb-0">
+                <li>Azure VMs (D-series) in Active-Standby configuration</li>
+                <li>Application Gateway with WAF v2</li>
+                <li>Azure Availability Zones deployment</li>
+                <li>Automated VM scaling and failover</li>
+                <li>TLS 1.2+ with Azure-managed certificates</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-database"></i></div>
+              <h4>Data & Storage Tier</h4>
+              <ul class="mb-0">
+                <li>Azure PostgreSQL Flexible Server</li>
+                <li>Geo-redundant backups (35-day retention)</li>
+                <li>Azure Blob Storage (ZRS replication)</li>
+                <li>Private Endpoints for all data services</li>
+                <li>Encryption at rest with CMK option</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-shield-lock"></i></div>
+              <h4>Security & Networking Tier</h4>
+              <ul class="mb-0">
+                <li>Azure ExpressRoute private peering</li>
+                <li>Network Security Groups (NSGs)</li>
+                <li>Azure AD integration</li>
+                <li>SAML SSO with external IdP</li>
+                <li>Azure Monitor and Log Analytics</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div class="row mb-5">
+          <div class="col-lg-8">
+            <h3 class="mb-4">Technical Implementation Highlights</h3>
+
+            <div class="architecture-highlight mb-4">
+              <h5><i class="bi bi-geo-alt"></i> High Availability Design</h5>
+              <p>
+                The Azure deployment improved on the previous AWS architecture with true multi-zone redundancy:
+              </p>
+              <ul class="mb-0">
+                <li><strong>Active-Standby VMs:</strong> Primary and standby VMs deployed across different Availability Zones with automated health checks and failover</li>
+                <li><strong>Zone-Redundant Storage:</strong> Both PostgreSQL and Blob Storage use ZRS to survive complete zone failures</li>
+                <li><strong>Application Gateway:</strong> Deployed across zones with health probes and automatic backend failover</li>
+                <li><strong>RPO/RTO:</strong> Recovery Point Objective of 5 minutes (continuous PostgreSQL replication) and Recovery Time Objective of 15 minutes (automated failover)</li>
+              </ul>
+            </div>
+
+            <div class="mt-4">
+              <img src="assets/img/azure-terraformenterprise-min.png" alt="Terraform Enterprise Architecture" class="img-fluid rounded shadow mb-4">
+            </div>
+
+            <div class="mt-4">
+              <h5>Technology Stack</h5>
+              <span class="tech-stack-item">Terraform Enterprise</span>
+              <span class="tech-stack-item">Azure VMs</span>
+              <span class="tech-stack-item">Application Gateway</span>
+              <span class="tech-stack-item">PostgreSQL Flexible Server</span>
+              <span class="tech-stack-item">Azure Blob Storage</span>
+              <span class="tech-stack-item">ExpressRoute</span>
+              <span class="tech-stack-item">Azure AD</span>
+              <span class="tech-stack-item">SAML SSO</span>
+              <span class="tech-stack-item">Azure Monitor</span>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Project information</h3>
+              <h3>Project Information</h3>
               <ul>
-                <li><strong>Client</strong>: [PROTECTED]</li>
-                <li><strong>Project date</strong>: August, 2023</li>
-                <li><strong>Project duration</strong>: 2 months</li>
+                <li><strong>Client</strong>: [Protected by NDA]</li>
+                <li><strong>Project Date</strong>: August 2023</li>
+                <li><strong>Duration</strong>: 2 months</li>
+                <li><strong>Role</strong>: Cloud Infrastructure Engineer</li>
               </ul>
             </div>
-            <div class="portfolio-description">
-              <h2>Terraform Enterprise</h2>
+
+            <div class="portfolio-description mt-4">
+              <h4>Migration Outcomes</h4>
+              <ul>
+                <li>Zero service interruption</li>
+                <li>100% workspace migration success</li>
+                <li>No state file corruption</li>
+                <li>Improved HA/DR capabilities</li>
+                <li>35% cost reduction vs AWS</li>
+                <li>Consolidated cloud footprint</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Results & Business Impact</h3>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-check-circle-fill"></i></div>
+              <h4>Seamless Cutover</h4>
               <p>
-                <b>Client identity and environment details are safeguarded by a Non-Disclosure Agreement (NDA).</b>
-                <br>
-                During their Azure migration initiative, the client recognized the necessity to transition their Terraform Enterprise operations from AWS to Azure. This decision aimed to enhance data redundancy and centralize all Azure Terraform development within the Azure environment.
-                <br>
-                The migration involved the deployment of a private Terraform Enterprise instance with synchronized AD groups and integration with an external authentication provider. DNS and networking configurations were set up to establish connectivity over ExpressRoute to the on-premises infrastructure.
-              </p>            
+                Executed cutover during business hours with <strong>zero downtime</strong>. Users experienced transparent transition with no manual reconfiguration required. DNS failover completed in under 5 minutes with no failed Terraform runs.
+              </p>
             </div>
           </div>
 
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-shield-check"></i></div>
+              <h4>Enhanced Resilience</h4>
+              <p>
+                New architecture provides <strong>99.9% SLA</strong> with automated failover, geo-redundant backups, and zone-redundant storage. Disaster recovery capability improved from 4 hours to 15 minutes RTO.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-cash-stack"></i></div>
+              <h4>Cost Optimization</h4>
+              <p>
+                Achieved <strong>35% cost reduction</strong> compared to AWS deployment through Azure Reserved Instances, right-sized PostgreSQL tier, and elimination of cross-cloud data transfer costs for Azure-based Terraform operations.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Key Takeaways</h3>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Parallel Deployment Eliminates Migration Risk</h5>
+              <p>
+                Running both platforms in parallel with gradual workspace migration allowed comprehensive validation before cutover. The ability to roll back to AWS instantly (via DNS) provided crucial safety net that made aggressive cutover timeline possible.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> API Automation is Essential at Scale</h5>
+              <p>
+                Manually migrating 100+ workspaces would have taken weeks and introduced human error. Custom Python scripts using Terraform Enterprise API automated the entire migration process, completing workspace migration in hours with perfect fidelity.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> ExpressRoute Setup Takes Longer Than Expected</h5>
+              <p>
+                Private ExpressRoute peering requires coordination with network teams, circuit provisioning, BGP configuration, and routing validation. Started ExpressRoute setup in Week 1 to ensure connectivity was ready for testing by Week 3 - this lead time was necessary.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Communication Prevents User Confusion</h5>
+              <p>
+                Proactive communication with development teams about migration timeline, what to expect, and how to report issues was crucial. Created dedicated Slack channel for migration updates and support, preventing confusion during cutover window.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Zone-Redundancy Improves Resilience Without Complexity</h5>
+              <p>
+                Azure Availability Zones provide better failure isolation than AWS Availability Zones due to physically separated datacenters. Deploying across zones with ZRS storage and zone-redundant PostgreSQL dramatically improved resilience with minimal architectural complexity - no manual replication or complex failover logic required.
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -118,11 +568,6 @@
         <div class="col-sm-12">
           <div class="copyright-box">
             <p class="copyright">&copy; MIT License @ <strong>benwagrez.com</strong>. Free-Use Permitted.</p>
-            <div class="credits">
-              <!--
-              Thank you to DevFolio for this website template, a license has been purchased under the email benwagrez@gmail.com  
-            -->
-            </div>
           </div>
         </div>
       </div>
@@ -138,7 +583,6 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

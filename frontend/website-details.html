@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Wagrez, Benjamin - Website Details</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Web Hosting on AWS - Ben Wagrez Portfolio</title>
+  <meta content="Comparative analysis of three AWS web hosting architectures: S3+CloudFront, ECS containers, and EC2 VMs for cost-effective, scalable static site delivery." name="description">
+  <meta content="AWS, Web Hosting, S3, CloudFront, ECS, EC2, Static Sites, Cloud Architecture, Cost Optimization" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -21,9 +21,152 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    .key-metric {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .key-metric h4 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .key-metric p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    .challenge-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #dc3545;
+      margin-bottom: 30px;
+    }
+
+    .solution-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #28a745;
+      margin-bottom: 30px;
+    }
+
+    .architecture-card {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .architecture-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .architecture-card.selected {
+      border: 3px solid #28a745;
+      position: relative;
+    }
+
+    .architecture-card.selected::before {
+      content: "SELECTED";
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #28a745;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
+    .architecture-card h4 {
+      color: #667eea;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .architecture-card .cost {
+      font-size: 1.5rem;
+      color: #28a745;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .pros-cons {
+      margin-top: 15px;
+    }
+
+    .pros-cons ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pros-cons li {
+      padding: 5px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .pros-cons li.pro::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .pros-cons li.con::before {
+      content: "✗";
+      position: absolute;
+      left: 0;
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    .tech-stack-item {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+
+    .lesson-item {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      border-left: 4px solid #667eea;
+    }
+
+    .lesson-item h5 {
+      color: #667eea;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -35,10 +178,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="index.html#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="index.html#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+          <li><a class="nav-link scrollto active" href="/index.html#hero">Home</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <li><a class="nav-link scrollto" href="/index.html#about">About Me</a></li>
+          <li><a class="nav-link scrollto " href="/index.html#portfolio">My Work</a></li>
+          <li><a class="nav-link scrollto" href="/index.html#contact">Contact Me</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -56,7 +200,7 @@
             <li class="breadcrumb-item">
               <a href="index.html#portfolio">Home</a>
             </li>
-            <li class="breadcrumb-item active">Web Details</li>
+            <li class="breadcrumb-item active">Web Hosting Details</li>
           </ol>
         </div>
       </div>
@@ -69,53 +213,338 @@
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
 
-        <div class="row gy-4">
+        <!-- Project Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h2 class="mb-4">Choosing the Right Web Hosting Architecture</h2>
+            <p class="lead">
+              A comparative analysis of three AWS hosting solutions for static websites, evaluating cost, scalability, and operational complexity to determine the optimal architecture for personal portfolio sites.
+            </p>
+            <p>
+              When launching my personal portfolio website, I took the opportunity to explore and compare three distinct AWS hosting architectures: serverless with S3+CloudFront, containerized with ECS, and traditional VM-based with EC2. This hands-on comparison provided valuable insights into the trade-offs between simplicity, cost, and scalability for different web hosting use cases.
+            </p>
+          </div>
+        </div>
 
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/website-min.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/S3WebDiagram-min.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/ContainerDiagram.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/VMWebDiagram.png" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
+        <!-- Key Metrics -->
+        <div class="row mb-5">
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>$0/mo</h4>
+              <p>Hosting Cost (Free Tier)</p>
             </div>
           </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Project date</strong>: July, 2023</li>
-                <li><strong>Project duration</strong>: 1 week</li>
-                <li><strong>Project URL</strong>: <a href="#">www.benwagrez.com</a></li>
-                <li><strong>Project repo</strong>: <a href="#">https://github.com/Benwagrez/aws-web-in-3-flavors</a></li>
-              </ul>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>3</h4>
+              <p>Architectures Evaluated</p>
             </div>
-            <div class="portfolio-description">
-              <h2>Simple, Scalable, and Free</h2>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>Global</h4>
+              <p>CDN Distribution</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="challenge-box">
+              <h3><i class="bi bi-exclamation-triangle"></i> The Challenge</h3>
               <p>
-                To host both this website and the original version depicted in the first image, three web hosting architectures were meticulously generated and tested to determine the optimal fit.
-                <br>
-                While each solution proved viable and demonstrated effective scalability, the selected solution was S3 + CloudFront. This decision is attributed to its alignment with AWS' free-tier usage, resulting in reduced costs near 0. Moreover, this solution stands out for its simplicity, ease of maintenance, and global delivery.
-              </p>            
+                Hosting a static portfolio website seems straightforward, but choosing the right architecture requires balancing several competing factors:
+              </p>
+              <ul>
+                <li><strong>Cost Optimization:</strong> Minimizing ongoing operational costs, especially for low-traffic personal sites</li>
+                <li><strong>Scalability:</strong> Ensuring the solution can handle traffic spikes without manual intervention</li>
+                <li><strong>Global Performance:</strong> Delivering fast load times to visitors worldwide</li>
+                <li><strong>Operational Simplicity:</strong> Reducing maintenance overhead and complexity</li>
+                <li><strong>Learning Opportunity:</strong> Understanding the practical differences between serverless, containerized, and VM-based hosting</li>
+              </ul>
+              <p>
+                Rather than simply choosing the "obvious" solution, I wanted to implement all three approaches to gain hands-on experience with their respective strengths and weaknesses.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Architecture Comparison -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Architecture Comparison</h3>
+            <p class="mb-4">
+              Each architecture was fully implemented and tested with Infrastructure-as-Code using CloudFormation and Terraform to ensure reproducibility and consistency.
+            </p>
+          </div>
+
+          <!-- S3 + CloudFront (Selected) -->
+          <div class="col-lg-4 mb-4">
+            <div class="architecture-card selected">
+              <h4><i class="bi bi-cloud-upload"></i> S3 + CloudFront</h4>
+              <p><strong>Serverless Static Hosting</strong></p>
+              <div class="cost">~$0/month</div>
+              <p class="text-muted">Free tier eligible</p>
+
+              <div class="pros-cons">
+                <h6>Advantages:</h6>
+                <ul>
+                  <li class="pro">Zero operational overhead - no servers to manage</li>
+                  <li class="pro">Extremely low cost (free tier covers most personal sites)</li>
+                  <li class="pro">Global CDN distribution out of the box</li>
+                  <li class="pro">Automatic scaling to handle any traffic volume</li>
+                  <li class="pro">Simple deployment (just upload files)</li>
+                  <li class="pro">Built-in SSL/TLS with ACM</li>
+                </ul>
+
+                <h6 class="mt-3">Trade-offs:</h6>
+                <ul>
+                  <li class="con">Static content only (no server-side processing)</li>
+                  <li class="con">Requires Route 53 for custom domains</li>
+                </ul>
+              </div>
+
+              <div class="mt-3">
+                <strong>Tech Stack:</strong><br>
+                <span class="tech-stack-item">S3</span>
+                <span class="tech-stack-item">CloudFront</span>
+                <span class="tech-stack-item">Route 53</span>
+                <span class="tech-stack-item">ACM</span>
+              </div>
             </div>
           </div>
 
+          <!-- ECS Container -->
+          <div class="col-lg-4 mb-4">
+            <div class="architecture-card">
+              <h4><i class="bi bi-box"></i> ECS Fargate</h4>
+              <p><strong>Containerized Hosting</strong></p>
+              <div class="cost">~$15-30/month</div>
+              <p class="text-muted">Fargate task pricing</p>
+
+              <div class="pros-cons">
+                <h6>Advantages:</h6>
+                <ul>
+                  <li class="pro">Serverless container execution (no EC2 management)</li>
+                  <li class="pro">Can handle dynamic content with web servers</li>
+                  <li class="pro">Easy integration with ALB for load balancing</li>
+                  <li class="pro">Docker-based workflow for consistency</li>
+                  <li class="pro">Auto-scaling based on metrics</li>
+                </ul>
+
+                <h6 class="mt-3">Trade-offs:</h6>
+                <ul>
+                  <li class="con">Higher cost than S3 for static content</li>
+                  <li class="con">More complex deployment pipeline</li>
+                  <li class="con">Requires container registry (ECR)</li>
+                  <li class="con">Overkill for simple static sites</li>
+                </ul>
+              </div>
+
+              <div class="mt-3">
+                <strong>Tech Stack:</strong><br>
+                <span class="tech-stack-item">ECS Fargate</span>
+                <span class="tech-stack-item">ECR</span>
+                <span class="tech-stack-item">ALB</span>
+                <span class="tech-stack-item">Nginx</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- EC2 VM -->
+          <div class="col-lg-4 mb-4">
+            <div class="architecture-card">
+              <h4><i class="bi bi-server"></i> EC2 + ALB</h4>
+              <p><strong>Virtual Machine Hosting</strong></p>
+              <div class="cost">~$20-40/month</div>
+              <p class="text-muted">t3.small + ALB</p>
+
+              <div class="pros-cons">
+                <h6>Advantages:</h6>
+                <ul>
+                  <li class="pro">Full control over server environment</li>
+                  <li class="pro">Can run any web server or application</li>
+                  <li class="pro">Familiar Linux/Apache/Nginx workflow</li>
+                  <li class="pro">Supports complex server-side logic</li>
+                  <li class="pro">Can be cost-effective with reserved instances</li>
+                </ul>
+
+                <h6 class="mt-3">Trade-offs:</h6>
+                <ul>
+                  <li class="con">Highest operational overhead (OS patching, security)</li>
+                  <li class="con">Higher cost for always-on instances</li>
+                  <li class="con">Manual scaling configuration required</li>
+                  <li class="con">Need to manage load balancer separately</li>
+                  <li class="con">Overkill for static websites</li>
+                </ul>
+              </div>
+
+              <div class="mt-3">
+                <strong>Tech Stack:</strong><br>
+                <span class="tech-stack-item">EC2</span>
+                <span class="tech-stack-item">ALB</span>
+                <span class="tech-stack-item">Apache</span>
+                <span class="tech-stack-item">Auto Scaling</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution & Results -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="solution-box">
+              <h3><i class="bi bi-check-circle"></i> Selected Solution: S3 + CloudFront</h3>
+              <p>
+                After implementing and testing all three architectures, the S3 + CloudFront solution emerged as the clear winner for hosting static portfolio sites. The decision was driven by several key factors:
+              </p>
+
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-piggy-bank"></i> Cost Efficiency</h5>
+                  <p>
+                    With AWS Free Tier, the hosting cost is effectively <strong>$0/month</strong> for typical portfolio site traffic (5 GB storage, 15 GB transfer, 1M HTTP requests). Even exceeding free tier limits results in minimal costs (pennies per month).
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="bi bi-speedometer2"></i> Performance</h5>
+                  <p>
+                    CloudFront's global CDN distributes content across 400+ edge locations worldwide, providing <strong>sub-100ms latency</strong> for most users. No custom caching configuration needed.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-arrow-up-right"></i> Infinite Scalability</h5>
+                  <p>
+                    The architecture automatically handles traffic spikes from <strong>10 to 10,000+ concurrent users</strong> without any configuration changes or performance degradation.
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="bi bi-tools"></i> Zero Maintenance</h5>
+                  <p>
+                    No servers to patch, no containers to update, no SSL certificates to renew manually. AWS manages all infrastructure, allowing focus on content rather than operations.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <h5><i class="bi bi-lightning"></i> Simple Deployment</h5>
+                  <p>
+                    Deployment is a single command: <code>aws s3 sync ./build s3://bucket-name</code>. CloudFront invalidation ensures updates propagate globally within minutes. The entire process integrates seamlessly with CI/CD pipelines.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Implementation Details -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Implementation Highlights</h3>
+
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="portfolio-details-slider swiper">
+                  <div class="swiper-wrapper align-items-center">
+                    <div class="swiper-slide">
+                      <img src="assets/img/website-min.png" alt="Portfolio Website Screenshot">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/S3WebDiagram-min.png" alt="S3 + CloudFront Architecture">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/ContainerDiagram.png" alt="ECS Container Architecture">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/VMWebDiagram.png" alt="EC2 VM Architecture">
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="portfolio-info">
+                  <h3>Project Information</h3>
+                  <ul>
+                    <li><strong>Project Date</strong>: July 2023</li>
+                    <li><strong>Duration</strong>: 1 week</li>
+                    <li><strong>Live Site</strong>: <a href="https://www.benwagrez.com" target="_blank">www.benwagrez.com</a></li>
+                    <li><strong>Repository</strong>: <a href="https://github.com/Benwagrez/aws-web-in-3-flavors" target="_blank">GitHub Repo</a></li>
+                  </ul>
+                </div>
+
+                <div class="portfolio-description mt-4">
+                  <h4>Infrastructure as Code</h4>
+                  <p>
+                    All three architectures were implemented using Infrastructure-as-Code (IaC) to ensure consistency, reproducibility, and easy comparison:
+                  </p>
+                  <ul>
+                    <li>CloudFormation templates for S3+CloudFront</li>
+                    <li>Terraform modules for ECS Fargate setup</li>
+                    <li>Terraform for EC2 Auto Scaling Groups</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Key Takeaways</h3>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Match Architecture to Use Case</h5>
+              <p>
+                The "best" architecture depends entirely on your requirements. For static content, serverless S3+CloudFront is unbeatable. For dynamic applications with complex backends, containers or VMs make more sense despite higher costs.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Operational Complexity Has Hidden Costs</h5>
+              <p>
+                While EC2 instances may seem cheaper upfront, the time spent on OS patching, security hardening, monitoring, and troubleshooting adds significant "invisible" costs. Managed services like S3 eliminate this overhead.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> CDN Performance Matters Globally</h5>
+              <p>
+                CloudFront's edge locations dramatically improve load times for international visitors. A single-region EC2 instance may be fast for local users but slow for global audiences. CDN caching is essential for worldwide reach.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Infrastructure as Code Enables Experimentation</h5>
+              <p>
+                Using IaC made it trivial to spin up, test, and tear down all three architectures without risk. This approach enables safe experimentation and rapid iteration when evaluating different solutions.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Free Tier Can Host Production Workloads</h5>
+              <p>
+                AWS Free Tier is often viewed as just for learning, but it's powerful enough for real production sites. My portfolio has served thousands of visitors at zero cost, proving that small-scale production workloads can leverage free tier effectively.
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -130,11 +559,6 @@
         <div class="col-sm-12">
           <div class="copyright-box">
             <p class="copyright">&copy; MIT License @ <strong>benwagrez.com</strong>. Free-Use Permitted.</p>
-            <div class="credits">
-              <!--
-              Thank you to DevFolio for this website template, a license has been purchased under the email benwagrez@gmail.com  
-            -->
-            </div>
           </div>
         </div>
       </div>
@@ -150,7 +574,6 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

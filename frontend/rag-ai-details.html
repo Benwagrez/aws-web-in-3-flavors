@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>RAG AI Proxy API - Ben Wagrez Portfolio</title>
+  <meta content="Enterprise RAG-enabled AI proxy API integrating multiple LLM backends (GCP Vertex AI, Azure OpenAI, AWS Bedrock) with company documentation enrichment and secure employee access." name="description">
+  <meta content="RAG, AI, LLM, OpenAI API, Vertex AI, Azure OpenAI, AWS Bedrock, Multi-Cloud AI, Python, Tauri, Rust" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/favicon.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    .key-metric {
+      background: linear-gradient(135deg, #10a37f 0%, #0d8a6b 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .key-metric h4 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .key-metric p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    .challenge-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #dc3545;
+      margin-bottom: 30px;
+    }
+
+    .solution-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #28a745;
+      margin-bottom: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .feature-card h4 {
+      color: #10a37f;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .feature-card .icon {
+      font-size: 2.5rem;
+      color: #10a37f;
+      margin-bottom: 15px;
+    }
+
+    .tech-stack-item {
+      display: inline-block;
+      background: #10a37f;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+
+    .lesson-item {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      border-left: 4px solid #10a37f;
+    }
+
+    .lesson-item h5 {
+      color: #10a37f;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .architecture-highlight {
+      background: #f0fdf4;
+      padding: 25px;
+      border-radius: 8px;
+      border: 2px solid #10a37f;
+      margin-bottom: 20px;
+    }
+
+    .backend-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      border-left: 4px solid #10a37f;
+    }
+
+    .backend-card h5 {
+      color: #10a37f;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <!-- <h1 class="logo"><a href="index.html">DevFolio</a></h1> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="logo"><img src="assets/img/bw-logo.png" alt="" class="img-fluid"></a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/index.html#hero">Home</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <li><a class="nav-link scrollto" href="/index.html#about">About Me</a></li>
+          <li><a class="nav-link scrollto " href="/index.html#portfolio">My Work</a></li>
+          <li><a class="nav-link scrollto" href="/index.html#contact">Contact Me</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <div class="hero hero-single route bg-image" style="background-image: url(assets/img/background-metrics-min.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="hero-title mb-4" style="margin-top: 1.5rem;">RAG AI Proxy API</h2>
+          <ol class="breadcrumb d-flex justify-content-center">
+            <li class="breadcrumb-item">
+              <a href="index.html#portfolio">Home</a>
+            </li>
+            <li class="breadcrumb-item active">RAG AI Details</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <!-- Project Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h2 class="mb-4">Enterprise RAG-Enabled AI Platform with Multi-Cloud LLM Integration</h2>
+            <p class="lead">
+              Built OpenAI-compatible proxy API that routes employee queries across multiple cloud LLM backends (GCP Vertex AI, Azure OpenAI, AWS Bedrock) while enriching responses with Retrieval Augmented Generation from company documentation, infrastructure metadata, and security scanner findings.
+            </p>
+            <p>
+              As AI adoption accelerates across enterprises, organizations face challenges balancing employee productivity with data security, cost control, and vendor lock-in. This project delivered a centralized AI platform that provides secure, compliant access to multiple LLM providers while enhancing responses with proprietary company knowledge through RAG, enabling employees to leverage AI without exposing sensitive data to external APIs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="row mb-5">
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>3</h4>
+              <p>Cloud LLM Backends Integrated</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>OpenAI</h4>
+              <p>API Compatible Interface</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>RAG</h4>
+              <p>Context-Enriched Responses</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="challenge-box">
+              <h3><i class="bi bi-exclamation-triangle"></i> The Challenge</h3>
+              <p>
+                Employees needed access to powerful AI capabilities while the organization required strict controls over data security, cost, and vendor dependencies:
+              </p>
+              <ul>
+                <li><strong>Data Security & Compliance:</strong> Sensitive infrastructure details, security findings, and proprietary documentation cannot be sent to external LLM APIs without proper controls and audit trails</li>
+                <li><strong>Multi-Cloud Strategy:</strong> Avoid vendor lock-in by leveraging multiple LLM providers (GCP Vertex AI, Azure OpenAI, AWS Bedrock) based on cost, performance, and availability requirements</li>
+                <li><strong>Knowledge Gap:</strong> General-purpose LLMs lack context about company-specific infrastructure, internal tools, security policies, and operational procedures, limiting their usefulness for technical tasks</li>
+                <li><strong>User Experience:</strong> Employees expect OpenAI-compatible API interfaces and familiar chat experiences - custom proprietary APIs create adoption friction</li>
+                <li><strong>Cost Control:</strong> Uncontrolled API usage across teams leads to unpredictable costs and inefficient spend on expensive model calls</li>
+                <li><strong>Specialized Use Cases:</strong> Network engineers need AI-powered tools for device discovery and vulnerability validation that integrate with existing security scanners (Tenable, Wiz, InsightVM, SentinelOne)</li>
+                <li><strong>Secure Frontend:</strong> Existing open-source AI chat interfaces lacked enterprise security standards and needed refactoring to meet company compliance requirements</li>
+              </ul>
+              <p>
+                The solution needed to democratize AI access while maintaining security, providing intelligent routing across LLM backends, and enriching responses with company-specific knowledge through RAG.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="solution-box">
+              <h3><i class="bi bi-check-circle"></i> Solution: RAG-Enabled AI Proxy with Multi-Cloud Backend Routing</h3>
+              <p>
+                Developed OpenAI-compatible API proxy that intelligently routes requests across multiple cloud LLM providers while enriching queries with relevant company documentation and metadata through Retrieval Augmented Generation.
+              </p>
+
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-diagram-3"></i> Multi-Cloud LLM Routing</h5>
+                  <p>
+                    Single API endpoint routes requests to <strong>GCP Vertex AI</strong>, <strong>Azure OpenAI</strong>, or <strong>AWS Bedrock</strong> based on model selection, availability, and cost policies. Automatic failover ensures 99.9% uptime despite provider outages.
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="bi bi-search"></i> RAG Knowledge Enrichment</h5>
+                  <p>
+                    Vector database stores company documentation, infrastructure metadata, and security findings. User queries trigger <strong>semantic search</strong> to retrieve relevant context before LLM inference, dramatically improving response accuracy.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-shield-check"></i> Enterprise Security Controls</h5>
+                  <p>
+                    All API calls authenticated via <strong>OAuth 2.0 with Azure AD</strong>, logged to centralized SIEM, and filtered for PII/secrets before reaching external LLMs. Rate limiting and usage quotas prevent cost overruns.
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="bi bi-robot"></i> AI-Powered Network Tools</h5>
+                  <p>
+                    Built specialized SSH tool using LLM-powered network device discovery and <strong>automated vulnerability validation</strong> against scanner findings from Tenable, Wiz, InsightVM, and SentinelOne.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LLM Backend Integration -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Multi-Cloud LLM Backend Architecture</h3>
+            <p class="mb-4">
+              The proxy supports intelligent routing across three major cloud LLM platforms, each offering unique model capabilities and pricing:
+            </p>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="backend-card">
+              <h5><i class="bi bi-google"></i> GCP Vertex AI</h5>
+              <p><strong>Models:</strong> Gemini Pro, Gemini Ultra, PaLM 2</p>
+              <ul class="mb-0">
+                <li>Best for multimodal inputs (text, images, code)</li>
+                <li>Strong code generation and technical reasoning</li>
+                <li>Pay-per-token pricing with no base fees</li>
+                <li>Native integration with GCP services</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="backend-card">
+              <h5><i class="bi bi-microsoft"></i> Azure OpenAI</h5>
+              <p><strong>Models:</strong> GPT-4, GPT-4 Turbo, GPT-3.5 Turbo</p>
+              <ul class="mb-0">
+                <li>Enterprise SLA and data residency guarantees</li>
+                <li>Best overall reasoning and instruction following</li>
+                <li>Higher cost but superior quality for complex tasks</li>
+                <li>Integrated with Azure AD for authentication</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="backend-card">
+              <h5><i class="bi bi-cloud"></i> AWS Bedrock</h5>
+              <p><strong>Models:</strong> Claude 3, Titan, Llama 2</p>
+              <ul class="mb-0">
+                <li>Best for long-context tasks (200K+ tokens)</li>
+                <li>Strong safety and refusal of harmful requests</li>
+                <li>Lowest cost for high-volume use cases</li>
+                <li>Managed security and compliance controls</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- RAG Architecture -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Retrieval Augmented Generation (RAG) Implementation</h3>
+
+            <div class="architecture-highlight">
+              <h5><i class="bi bi-database"></i> RAG Knowledge Sources</h5>
+              <p>
+                The system maintains multiple vector databases, each optimized for different knowledge domains:
+              </p>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h6>Infrastructure Documentation</h6>
+                  <ul>
+                    <li><strong>Terraform/IaC modules:</strong> Infrastructure patterns, reusable components, and deployment procedures</li>
+                    <li><strong>Runbooks and playbooks:</strong> Incident response procedures and operational guides</li>
+                    <li><strong>Architecture diagrams:</strong> Network topology, service dependencies, and deployment architectures</li>
+                    <li><strong>API documentation:</strong> Internal service APIs, authentication methods, and integration guides</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h6>Security & Compliance Data</h6>
+                  <ul>
+                    <li><strong>Vulnerability scanner findings:</strong> Real-time data from Tenable, Wiz, InsightVM, SentinelOne</li>
+                    <li><strong>Security policies:</strong> Access control requirements, compliance standards, and security baselines</li>
+                    <li><strong>Audit logs:</strong> Historical incidents, changes, and security events for pattern analysis</li>
+                    <li><strong>Asset inventory:</strong> Device metadata, ownership, criticality, and patch status</li>
+                  </ul>
+                </div>
+              </div>
+              <p class="mt-3">
+                <strong>RAG Workflow:</strong> User query → Embedding generation → Vector similarity search → Context injection → LLM inference → Response synthesis
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div class="row mb-5">
+          <div class="col-lg-8">
+            <h3 class="mb-4">Technical Architecture</h3>
+
+            <div class="feature-card mb-4">
+              <h4><i class="bi bi-code-square"></i> OpenAI-Compatible API</h4>
+              <p>
+                Implemented full OpenAI Chat Completions API compatibility, allowing existing tools and SDKs to work without modification:
+              </p>
+              <ul class="mb-0">
+                <li><strong>Chat Completions endpoint:</strong> <code>/v1/chat/completions</code> with streaming support</li>
+                <li><strong>Function calling:</strong> Tool/function calling interface for agent workflows</li>
+                <li><strong>Model aliasing:</strong> Route <code>gpt-4</code> requests to best available backend</li>
+                <li><strong>Token counting:</strong> Accurate usage tracking across different providers</li>
+              </ul>
+            </div>
+
+            <div class="feature-card mb-4">
+              <h4><i class="bi bi-terminal"></i> AI-Powered SSH Network Tool</h4>
+              <p>
+                Developed specialized tool for network engineers that combines SSH automation with LLM intelligence:
+              </p>
+              <ul class="mb-0">
+                <li><strong>Automated device discovery:</strong> LLM analyzes network configs to discover connected devices</li>
+                <li><strong>Vulnerability validation:</strong> Cross-references scanner findings with actual device state via SSH</li>
+                <li><strong>Remediation suggestions:</strong> AI generates fix commands based on device type and CVE details</li>
+                <li><strong>Audit trail:</strong> All SSH sessions logged with commands executed and results obtained</li>
+              </ul>
+            </div>
+
+            <div class="mt-4">
+              <h5>Technology Stack</h5>
+              <span class="tech-stack-item">Python</span>
+              <span class="tech-stack-item">FastAPI</span>
+              <span class="tech-stack-item">LangChain</span>
+              <span class="tech-stack-item">Vertex AI</span>
+              <span class="tech-stack-item">Azure OpenAI</span>
+              <span class="tech-stack-item">AWS Bedrock</span>
+              <span class="tech-stack-item">Pinecone/ChromaDB</span>
+              <span class="tech-stack-item">OAuth 2.0</span>
+              <span class="tech-stack-item">Docker</span>
+              <span class="tech-stack-item">Kubernetes</span>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Company</strong>: ReliaQuest</li>
+                <li><strong>Project Date</strong>: February 2025</li>
+                <li><strong>Status</strong>: In Production</li>
+                <li><strong>Role</strong>: Technical Lead</li>
+              </ul>
+            </div>
+
+            <div class="portfolio-description mt-4">
+              <h4>Secure Frontend</h4>
+              <p>
+                Refactored open-source Tauri Rust + Express application to meet enterprise security standards:
+              </p>
+              <ul>
+                <li>Removed unauthenticated endpoints</li>
+                <li>Integrated Azure AD OAuth</li>
+                <li>Added audit logging</li>
+                <li>Implemented CSP headers</li>
+                <li>Containerized for k8s deployment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Results & Business Impact</h3>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="feature-card h-100">
+              <div class="icon"><i class="bi bi-people-fill"></i></div>
+              <h4>Organization-Wide Adoption</h4>
+              <p>
+                Deployed to <strong>200+ employees</strong> across engineering, security, and operations teams. Became primary AI interface for technical queries, code generation, and documentation assistance.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="feature-card h-100">
+              <div class="icon"><i class="bi bi-graph-up-arrow"></i></div>
+              <h4>70% Better Accuracy</h4>
+              <p>
+                RAG enrichment improved response accuracy from <strong>30% to 100%</strong> for company-specific queries. LLMs now answer questions about internal tools, infrastructure, and security policies correctly.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="feature-card h-100">
+              <div class="icon"><i class="bi bi-shield-fill-check"></i></div>
+              <h4>Zero Security Incidents</h4>
+              <p>
+                <strong>100% audit compliance</strong> with all queries logged, PII filtered, and secrets redacted before reaching external LLMs. Zero data leakage incidents since production deployment.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Key Takeaways</h3>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> RAG Transforms Generic LLMs Into Domain Experts</h5>
+              <p>
+                Without RAG, even GPT-4 hallucinated answers to company-specific questions 70% of the time. Vector search retrieval of relevant documentation before inference made responses accurate and actionable, turning the LLM into an instant expert on internal systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Multi-Cloud Prevents Vendor Lock-In</h5>
+              <p>
+                Supporting multiple LLM backends (GCP, Azure, AWS) provided flexibility to route based on cost, availability, and model capabilities. When Azure OpenAI hit rate limits during peak usage, automatic failover to Bedrock maintained service without user impact.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> OpenAI API Compatibility Drives Adoption</h5>
+              <p>
+                Implementing OpenAI-compatible endpoints meant existing tools (Cursor, Continue, ChatGPT desktop app) worked immediately with simple base URL change. Proprietary APIs would have required rewriting integrations and training users on new interfaces.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Vector Database Quality > Quantity</h5>
+              <p>
+                Indexing everything creates noise. Curated, high-quality documentation with metadata tags (service, team, criticality) improved retrieval precision dramatically. Better to have 1000 well-maintained docs than 10,000 outdated ones polluting search results.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Security Tooling Integration Unlocks New Use Cases</h5>
+              <p>
+                Integrating LLMs with security scanners (Tenable, Wiz, etc.) enabled novel workflows like automated vulnerability triage, remediation planning, and impact analysis. AI excels at correlating scanner findings with asset metadata and prioritizing based on business context - tasks that previously required manual analyst effort.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="copyright-box">
+            <p class="copyright">&copy; MIT License @ <strong>benwagrez.com</strong>. Free-Use Permitted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

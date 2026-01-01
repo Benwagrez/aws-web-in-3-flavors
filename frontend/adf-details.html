@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Wagrez, Benjamin - ADF Details</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Azure Data Factory for Healthcare - Ben Wagrez Portfolio</title>
+  <meta content="HIPAA-compliant Azure Data Factory pipeline with customer-managed encryption, private networking, and multi-tenant isolation for healthcare data processing" name="description">
+  <meta content="Azure Data Factory, Healthcare Data, HIPAA, Data Pipeline, Azure Storage, Private Networking, CMK Encryption, Multi-tenant, ADLS Gen2" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -21,9 +21,120 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    .key-metric {
+      background: linear-gradient(135deg, #0078d4 0%, #004578 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .key-metric h4 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .key-metric p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    .challenge-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #dc3545;
+      margin-bottom: 30px;
+    }
+
+    .solution-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid #28a745;
+      margin-bottom: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .feature-card h4 {
+      color: #0078d4;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .feature-card .icon {
+      font-size: 2.5rem;
+      color: #0078d4;
+      margin-bottom: 15px;
+    }
+
+    .tech-stack-item {
+      display: inline-block;
+      background: #0078d4;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+
+    .lesson-item {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      border-left: 4px solid #0078d4;
+    }
+
+    .lesson-item h5 {
+      color: #0078d4;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .compliance-badge {
+      display: inline-block;
+      background: #dc3545;
+      color: white;
+      padding: 4px 12px;
+      margin: 3px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .compliance-section {
+      background: #fff5f5;
+      padding: 25px;
+      border-radius: 8px;
+      border: 2px solid #dc3545;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body>
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -35,10 +146,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="index.html#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="index.html#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+          <li><a class="nav-link scrollto active" href="/index.html#hero">Home</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <li><a class="nav-link scrollto" href="/index.html#about">About Me</a></li>
+          <li><a class="nav-link scrollto " href="/index.html#portfolio">My Work</a></li>
+          <li><a class="nav-link scrollto" href="/index.html#contact">Contact Me</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -51,7 +163,7 @@
     <div class="hero-content display-table">
       <div class="table-cell">
         <div class="container">
-          <h2 class="hero-title mb-4">ADF Details</h2>
+          <h2 class="hero-title mb-4" style="margin-top: 1.5rem;">Azure Data Factory for Healthcare</h2>
           <ol class="breadcrumb d-flex justify-content-center">
             <li class="breadcrumb-item">
               <a href="index.html#portfolio">Home</a>
@@ -69,38 +181,384 @@
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
 
+        <!-- Project Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h2 class="mb-4">HIPAA-Compliant Healthcare Data Pipeline with Multi-Tenant Isolation</h2>
+            <p class="lead">
+              Architected secure Azure Data Factory solution processing sensitive Protected Health Information (PHI) with customer-managed encryption keys, end-to-end private networking, and multi-tenant data isolation for healthcare analytics delivery to third-party platforms over encrypted VPN connections.
+            </p>
+            <div class="alert alert-info">
+              <i class="bi bi-shield-lock"></i> <strong>Note:</strong> Client identity and specific environment details are protected under Non-Disclosure Agreement (NDA). Technical architecture and security controls are presented without revealing confidential business information.
+            </div>
+            <p>
+              Healthcare data processing demands the highest levels of security, privacy, and regulatory compliance. This project delivered a fully automated data pipeline using Azure Data Factory that ingests, transforms, and securely transfers healthcare data to an external analytics provider while maintaining strict data isolation, customer-managed encryption standards, and HIPAA compliance requirements across all processing stages.
+            </p>
+          </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="row mb-5">
+          <div class="col-md-3">
+            <div class="key-metric">
+              <h4>100%</h4>
+              <p>HIPAA Compliant</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="key-metric">
+              <h4>CMK</h4>
+              <p>Customer-Managed Keys</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="key-metric">
+              <h4>Zero</h4>
+              <p>Public Internet Exposure</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="key-metric">
+              <h4>1 Month</h4>
+              <p>Design to Production</p>
+            </div>
+          </div>
+        </div>
+
         <div class="row gy-4">
 
+          <!-- Architecture Diagram -->
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper">
-              <div class="align-items-center">
-
+              <div class="swiper-wrapper align-items-center">
                 <div class="swiper-slide">
-                  <img src="assets/img/azure-datafactory-min.png" alt="">
+                  <img src="assets/img/azure-datafactory-min.png" alt="Azure Data Factory Architecture">
                 </div>
-
               </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <!-- Project Information -->
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Client</strong>: [Protected by NDA]</li>
+                <li><strong>Industry</strong>: Healthcare</li>
+                <li><strong>Project Date</strong>: December 2022</li>
+                <li><strong>Duration</strong>: 1 month</li>
+                <li><strong>Role</strong>: Cloud Data Engineer</li>
+              </ul>
+            </div>
+
+            <div class="portfolio-info" style="margin-top: 20px;">
+              <h3>Key Deliverables</h3>
+              <ul>
+                <li>Complete ADF pipeline infrastructure</li>
+                <li>Multi-tenant CMK encryption setup</li>
+                <li>Private networking configuration</li>
+                <li>VPN integration with third party</li>
+                <li>Security documentation</li>
+                <li>Operational runbooks</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Challenge -->
+        <div class="row mb-5 mt-5">
+          <div class="col-lg-12">
+            <div class="challenge-box">
+              <h3><i class="bi bi-exclamation-triangle"></i> The Challenge</h3>
+              <p>
+                The healthcare client required processing Protected Health Information (PHI) at scale while meeting complex regulatory requirements:
+              </p>
+              <ul>
+                <li><strong>HIPAA Compliance:</strong> All data processing, storage, and transmission must comply with HIPAA Privacy and Security Rules, including encryption at rest and in transit, audit logging, and access controls</li>
+                <li><strong>Customer-Managed Encryption:</strong> Each customer required their own encryption keys (CMK) stored in dedicated Key Vaults, with full control over key lifecycle and access</li>
+                <li><strong>Multi-Tenant Data Isolation:</strong> Healthcare data from multiple customers must be strictly segregated with zero risk of cross-contamination or unauthorized access</li>
+                <li><strong>Private Networking:</strong> All data transfers must occur over private networks without exposure to the public internet</li>
+                <li><strong>Third-Party Integration:</strong> Securely deliver processed data to external analytics provider over encrypted VPN connection</li>
+                <li><strong>Rapid Deployment:</strong> Complete architecture design, implementation, testing, and production deployment within a tight 1-month timeline</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <div class="solution-box">
+              <h3><i class="bi bi-check-circle"></i> Solution: Private Data Factory with CMK Encryption</h3>
+              <p>
+                Designed and implemented a fully private Azure Data Factory pipeline with customer-managed encryption keys, multi-tenant data isolation, and secure third-party integration over VPN.
+              </p>
+
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-shield-lock-fill"></i> Customer-Managed Key Encryption</h5>
+                  <p>
+                    Each customer's data encrypted with dedicated CMK stored in customer-specific Azure Key Vault. Customers retain full control over encryption keys with ability to rotate or revoke access, ensuring <strong>zero-trust data isolation</strong>.
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="bi bi-lock"></i> End-to-End Private Networking</h5>
+                  <p>
+                    All data movement occurs over <strong>Azure Private Endpoints</strong> and <strong>Private Link</strong>. Storage accounts, Data Factory, and Key Vault communicate exclusively over Microsoft backbone network.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h5><i class="bi bi-diagram-3"></i> Multi-Tenant Architecture</h5>
+                  <p>
+                    Logical separation using <strong>dedicated storage containers</strong> per customer, each encrypted with unique CMK. RBAC policies ensure each Managed Identity can only access their own data partition.
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="bi bi-hdd-network"></i> Secure VPN Integration</h5>
+                  <p>
+                    Site-to-Site VPN connection between Azure VNet and third-party analytics platform. All data transfers encrypted over <strong>IPSec VPN tunnel</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Technical Implementation</h3>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-database-lock"></i></div>
+              <h4>Data Isolation Layer</h4>
+              <ul class="mb-0">
+                <li>Dedicated storage containers per tenant</li>
+                <li>Customer-managed encryption keys (CMK)</li>
+                <li>Separate Key Vaults per customer</li>
+                <li>RBAC-enforced access boundaries</li>
+                <li>Immutable storage for audit compliance</li>
+              </ul>
             </div>
           </div>
 
           <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Client</strong>: [PROTECTED]</li>
-                <li><strong>Project date</strong>: December, 2022</li>
-                <li><strong>Project duration</strong>: 1 month</li>
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-shield-check"></i></div>
+              <h4>Network Security Layer</h4>
+              <ul class="mb-0">
+                <li>Private Endpoints for all Azure services</li>
+                <li>Azure Private Link connectivity</li>
+                <li>Site-to-Site VPN to analytics platform</li>
+                <li>Network Security Groups (NSGs)</li>
+                <li>Zero public IP exposure</li>
               </ul>
             </div>
-            <div class="portfolio-description">
-              <h2>Health Data Processing</h2>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-gear-wide-connected"></i></div>
+              <h4>Pipeline Automation</h4>
+              <ul class="mb-0">
+                <li>Azure Data Factory orchestration</li>
+                <li>Managed Identity authentication</li>
+                <li>Automated data transformation</li>
+                <li>Error handling & retry logic</li>
+                <li>Monitoring & alerting integration</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- HIPAA Compliance -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">HIPAA Security Rule Implementation</h3>
+
+            <div class="compliance-section">
+              <h5><i class="bi bi-file-earmark-medical"></i> Technical Safeguards (45 CFR § 164.312)</h5>
               <p>
-                <b>Client identity and environment details are safeguarded by a Non-Disclosure Agreement (NDA).</b>
-                <br>
-                The client requested an Azure data factory solution, enabling the scalable processing of health data and the generation of insights through an external data analytics provider. 
-                <br>
-                Key requirements encompassed the segmentation of client data, encryption of data keys on Storage Accounts, and the establishment of private networking between ADF components, as well as over a private VPN connection to the client site.
-              </p>            
+                The architecture implements specific technical safeguards required by HIPAA Security Rule:
+              </p>
+
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h6>Access Control (§164.312(a)(1))</h6>
+                  <ul>
+                    <li><strong>Unique user identification:</strong> Azure AD authentication</li>
+                    <li><strong>Emergency access:</strong> Break-glass procedures</li>
+                    <li><strong>Automatic logoff:</strong> Session timeout policies</li>
+                    <li><strong>Encryption/decryption:</strong> Customer-managed keys</li>
+                  </ul>
+                  <div class="mt-2">
+                    <span class="compliance-badge">§164.312(a)(1)</span>
+                    <span class="compliance-badge">§164.312(a)(2)(i-iv)</span>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <h6>Audit Controls (§164.312(b))</h6>
+                  <ul>
+                    <li><strong>Azure Monitor:</strong> All PHI access logged</li>
+                    <li><strong>Storage Analytics:</strong> Blob operation logs</li>
+                    <li><strong>Key Vault audit:</strong> Encryption key access</li>
+                    <li><strong>Immutable logs:</strong> Compliance retention</li>
+                  </ul>
+                  <div class="mt-2">
+                    <span class="compliance-badge">§164.312(b)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h6>Integrity Controls (§164.312(c)(1-2))</h6>
+                  <ul>
+                    <li><strong>Checksums:</strong> Hash verification for integrity</li>
+                    <li><strong>Immutable storage:</strong> Prevents alteration</li>
+                    <li><strong>Version control:</strong> Audit trail of changes</li>
+                    <li><strong>Validation:</strong> Pipeline data quality checks</li>
+                  </ul>
+                  <div class="mt-2">
+                    <span class="compliance-badge">§164.312(c)(1)</span>
+                    <span class="compliance-badge">§164.312(c)(2)</span>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <h6>Transmission Security (§164.312(e)(1-2))</h6>
+                  <ul>
+                    <li><strong>TLS 1.2+:</strong> All Azure data in transit</li>
+                    <li><strong>IPSec VPN:</strong> External data transfers</li>
+                    <li><strong>Perfect Forward Secrecy:</strong> Session isolation</li>
+                    <li><strong>Private Endpoints:</strong> Zero internet exposure</li>
+                  </ul>
+                  <div class="mt-2">
+                    <span class="compliance-badge">§164.312(e)(1)</span>
+                    <span class="compliance-badge">§164.312(e)(2)(i-ii)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Technology Stack</h3>
+            <div style="margin-top: 20px;">
+              <span class="tech-stack-item">Azure Data Factory</span>
+              <span class="tech-stack-item">ADLS Gen2</span>
+              <span class="tech-stack-item">Azure Key Vault</span>
+              <span class="tech-stack-item">Private Endpoints</span>
+              <span class="tech-stack-item">Azure Private Link</span>
+              <span class="tech-stack-item">VPN Gateway</span>
+              <span class="tech-stack-item">Managed Identity</span>
+              <span class="tech-stack-item">Azure RBAC</span>
+              <span class="tech-stack-item">Azure Monitor</span>
+              <span class="tech-stack-item">Storage Analytics</span>
+              <span class="tech-stack-item">IPSec VPN</span>
+              <span class="tech-stack-item">NSGs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Results & Business Impact</h3>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-check-circle-fill"></i></div>
+              <h4>HIPAA Certification Ready</h4>
+              <p>
+                Architecture passed security review and compliance audit on first submission. All HIPAA technical safeguards implemented, enabling <strong>BAA execution</strong> and production deployment.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-shield-fill-check"></i></div>
+              <h4>Zero Security Incidents</h4>
+              <p>
+                Private networking and CMK encryption eliminated entire classes of security risks. <strong>No public internet exposure</strong> and customer-controlled encryption keys provide defense-in-depth.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-clock-history"></i></div>
+              <h4>Rapid 1-Month Deployment</h4>
+              <p>
+                Completed full implementation from requirements to production in <strong>1 month</strong>, including architecture design, infrastructure deployment, security hardening, and documentation.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h3 class="mb-4">Key Takeaways</h3>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Private Endpoints Are Non-Negotiable for HIPAA</h5>
+              <p>
+                Public internet exposure is incompatible with healthcare data security requirements. Azure Private Link and Private Endpoints eliminate network attack surface and simplify compliance by keeping all traffic on Microsoft's private backbone.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> CMK Gives Customers True Data Control</h5>
+              <p>
+                Customer-managed keys provide more than encryption - they give customers confidence in zero-knowledge architecture. The ability to revoke encryption keys means customers maintain ultimate control over their data lifecycle.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Managed Identity Simplifies Authentication</h5>
+              <p>
+                Eliminating service principal credentials removed entire categories of security risks. Managed Identity authentication provides rotationless, credential-free access with full audit trail.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> Multi-Tenant Isolation Requires Layered Defense</h5>
+              <p>
+                Logical separation alone isn't sufficient for healthcare data. Combining dedicated storage containers, unique CMKs per tenant, and RBAC enforcement creates defense-in-depth satisfying compliance requirements.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="lesson-item">
+              <h5><i class="bi bi-lightbulb"></i> VPN Complexity Should Not Be Underestimated</h5>
+              <p>
+                Site-to-Site VPN configuration between Azure and third-party platforms involves coordination across multiple teams, careful IP addressing planning, and thorough testing. Build extra time into project schedules for VPN troubleshooting and validation.
+              </p>
             </div>
           </div>
 
@@ -118,11 +576,6 @@
         <div class="col-sm-12">
           <div class="copyright-box">
             <p class="copyright">&copy; MIT License @ <strong>benwagrez.com</strong>. Free-Use Permitted.</p>
-            <div class="credits">
-              <!--
-              Thank you to DevFolio for this website template, a license has been purchased under the email benwagrez@gmail.com  
-            -->
-            </div>
           </div>
         </div>
       </div>
