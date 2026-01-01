@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Wagrez, Benjamin - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Wagrez, Benjamin - Cloud Architect</title>
+  <meta content="Ben Wagrez - DevOps Engineer, Cloud Architect, and FinOps Advocate based in Dublin, Ireland. AWS and GCP certified professional specializing in secure, scalable cloud solutions." name="description">
+  <meta content="DevOps Engineer, Cloud Architect, AWS, GCP, Azure, FinOps, Kubernetes, Terraform, Pulumi, Network Engineering, Cybersecurity, Ben Wagrez, Benjamin Wagrez" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -21,6 +21,19 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Portfolio Image Styling -->
+  <style>
+    .work-img img {
+      filter: grayscale(100%);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+
+    .work-box:hover .work-img img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 
 <body>
@@ -51,10 +64,11 @@
   <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/background-min.JPEG)">
     <div class="overlay-itro"></div>
     <div class="hero-content display-table">
-      <div class="table-cell">
+      <div class="table-cell" style="vertical-align: top; padding-top: 15vh;">
         <div class="container">
           <h1 class="hero-title mb-4">Ben Wagrez</h1>
           <p class="hero-subtitle"><span class="typed" data-typed-items="DevOps Engineer, Cloud Architect, FinOps Advocate, Network Engineer"></span></p>
+          <p class="hero-tagline mt-3" style="font-size: 1.2rem; color: #f5f5f5; max-width: 700px; margin: 1rem auto 0;">Designing secure, scalable cloud solutions with expertise in AWS, Azure, and GCP</p>
         </div>
       </div>
     </div>
@@ -62,46 +76,146 @@
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
+    <!-- ======= Call to Action Section ======= -->
+    <section class="services-mf pt-5 pb-5 route" style="background-color: #181A18;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;">Let's Build Something Together</h2>
+            <p style="color: #f5f5f5; font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px;">
+              I'm currently available for cloud architecture consulting, FinOps assessments, and infrastructure modernization projects.
+              Whether you need help migrating to the cloud, optimizing costs, or implementing best practices, let's discuss how I can help.
+            </p>
+            <div style="margin-top: 30px;">
+              <a href="#contact" style="background: white; color: #181A18; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 600; margin: 10px; display: inline-block; transition: all 0.3s;">Get In Touch</a>
+              <a href="https://www.linkedin.com/in/benwagrez/" target="_blank" style="background: transparent; color: white; padding: 15px 40px; border: 2px solid white; border-radius: 30px; text-decoration: none; font-weight: 600; margin: 10px; display: inline-block; transition: all 0.3s;">View LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Call to Action Section -->
+
+    <!-- ======= Experience Section ======= -->
     <section id="about" class="services-mf pt-5 route">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
             <div class="title-box text-center">
               <h3 class="title-a">
-                About
+                Professional Experience
               </h3>
               <p class="subtitle-a">
-                A little about me.
+                My career journey in cloud architecture and DevOps.
               </p>
               <div class="line-mf"></div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-md">
-            <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 700px; margin: 0 auto; padding: 20px;">
-              <p style="text-indent: 2em;">
-                Hey, I’m <strong>Ben Wagrez</strong> — a cloud architect who’s passionate about designing unique solutions and architectures that solve real-world problems.
-              </p>
-            
-              <p style="text-indent: 2em;">
-                I’ve spent years working in the <strong>cybersecurity space</strong>, building secure, scalable systems that hold up under pressure. That hands-on experience continues to shape the way I approach modern cloud environments — always with a sharp eye on risk, resilience, and performance.
-              </p>
-            
-              <p style="text-indent: 2em;">
-                Lately, I’ve been diving into the world of <strong>FinOps</strong> — looking at how cloud infrastructure ties into cost optimization, financial visibility, and long-term sustainability. I’m especially interested in bridging the gap between engineering and finance to help businesses make smarter, more informed decisions.
-              </p>
-            
-              <p style="text-indent: 2em;">
-                My journey into tech started when I built a website for my highschool hosted on AWS. This fed into my studies at <strong>Purdue</strong>, where I studied Network Engineering and explored <strong>Kubernetes security</strong> in depth, eventually publishing research along the way. These days, I’m still just as curious — always looking for smarter ways to build.
-              </p>
-            </div>            
+          <div class="col-md-12">
+            <div class="timeline" style="max-width: 900px; margin: 0 auto; padding: 20px; position: relative;">
+              <div class="timeline-progress" style="position: absolute; left: 21px; top: 25px; width: 2px; height: 0; background: linear-gradient(to bottom, #181A18, #4e4e4e); transition: height 0.3s ease; z-index: 3; margin-left: -1px;"></div>
+
+              <!-- ReliaQuest - Senior Cloud Network Engineer -->
+              <div class="timeline-item" style="position: relative; padding-left: 40px; padding-bottom: 40px; border-left: 2px solid #e0e0e0;">
+                <div class="timeline-marker" style="position: absolute; left: -8px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: #181A18; border: 3px solid #181A18; opacity: 0; transition: opacity 0.3s ease; z-index: 4;"></div>
+                <div class="timeline-content" style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); opacity: 0; transform: translateX(-30px); transition: all 0.6s ease;">
+                  <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; margin-bottom: 10px;">
+                    <h4 style="margin: 0; color: #181A18;">Senior Cloud Network Engineer</h4>
+                    <span style="color: #666; font-size: 0.9rem;">Aug 2024 - Present</span>
+                  </div>
+                  <p style="margin: 5px 0; color: #181A18; font-weight: 600;">ReliaQuest</p>
+                  <p style="margin: 5px 0 15px 0; color: #666; font-size: 0.95rem;">Tampa, Florida</p>
+                  <ul style="margin: 0; padding-left: 20px; color: #4e4e4e; line-height: 1.8;">
+                    <li>Lead cloud architecture and network engineering for FedRAMP-compliant deployments, ensuring adherence to FIPS Moderate and CMMC regulations</li>
+                    <li>Designed and deployed a net-new GCP environment across 9 regions, integrated with an existing large-scale AWS environment and 7 global operating centers</li>
+                    <li>Conducted comprehensive AWS audit, remediating technical debt and refactoring infrastructure, lowering AWS costs by >$250,000/year</li>
+                    <li>Standardized production network architecture, cutting network latency costs by 20% and reducing DNS query response time by 60%</li>
+                    <li>Incorporated AI into Infrastructure Automation tools, including a RAG-augmented chatbot fed with infrastructure documentation</li>
+                  </ul>
+                  <div style="margin-top: 15px;">
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">AWS</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">GCP</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">FedRAMP</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">Multi-Cloud</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">FinOps</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">AI/RAG</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- West Monroe - Experienced Consultant -->
+              <div class="timeline-item" style="position: relative; padding-left: 40px; padding-bottom: 40px; border-left: 2px solid #e0e0e0;">
+                <div class="timeline-marker" style="position: absolute; left: -8px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: #181A18; border: 3px solid #181A18; opacity: 0; transition: opacity 0.3s ease; z-index: 4;"></div>
+                <div class="timeline-content" style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); opacity: 0; transform: translateX(-30px); transition: all 0.6s ease;">
+                  <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; margin-bottom: 10px;">
+                    <h4 style="margin: 0; color: #181A18;">Cloud & Infrastructure Experienced Consultant</h4>
+                    <span style="color: #666; font-size: 0.9rem;">Mar 2023 - Aug 2024</span>
+                  </div>
+                  <p style="margin: 5px 0; color: #181A18; font-weight: 600;">West Monroe</p>
+                  <ul style="margin: 0; padding-left: 20px; color: #4e4e4e; line-height: 1.8;">
+                    <li>Delivered cloud transformation projects for Fortune 500 clients across energy, manufacturing, finance, and healthcare industries</li>
+                    <li>Designed and deployed cloud infrastructure using Terraform, Kubernetes, and CI/CD pipelines</li>
+                    <li>Partnered with executives to define cloud strategy, migration roadmaps, and governance standards</li>
+                    <li>Led cost optimization assessments, reducing monthly cloud spend by 20-40% through right-sizing and reserved instances</li>
+                    <li>Developed IaC standards and reusable modules improving deployment speed and compliance consistency</li>
+                  </ul>
+                  <div style="margin-top: 15px;">
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">AWS</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">Azure</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">Terraform</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">Kubernetes</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">FinOps</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- West Monroe - Consultant -->
+              <div class="timeline-item" style="position: relative; padding-left: 40px; padding-bottom: 40px; border-left: 2px solid #e0e0e0;">
+                <div class="timeline-marker" style="position: absolute; left: -8px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: #181A18; border: 3px solid #181A18; opacity: 0; transition: opacity 0.3s ease; z-index: 4;"></div>
+                <div class="timeline-content" style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); opacity: 0; transform: translateX(-30px); transition: all 0.6s ease;">
+                  <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; margin-bottom: 10px;">
+                    <h4 style="margin: 0; color: #181A18;">Cloud & Infrastructure Consultant</h4>
+                    <span style="color: #666; font-size: 0.9rem;">Feb 2022 - Mar 2023</span>
+                  </div>
+                  <p style="margin: 5px 0; color: #181A18; font-weight: 600;">West Monroe</p>
+                  <ul style="margin: 0; padding-left: 20px; color: #4e4e4e; line-height: 1.8;">
+                    <li>Supported cloud migration and modernization initiatives for enterprise clients</li>
+                    <li>Implemented infrastructure automation and DevOps best practices</li>
+                    <li>Developed cloud governance frameworks and security controls</li>
+                  </ul>
+                  <div style="margin-top: 15px;">
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">Cloud Migration</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">DevOps</span>
+                    <span style="display: inline-block; background: #f0f0f0; padding: 5px 12px; margin: 3px; border-radius: 15px; font-size: 0.85rem; color: #333;">IaC</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Education -->
+              <div class="timeline-item" style="position: relative; padding-left: 40px;">
+                <div class="timeline-marker" style="position: absolute; left: -6px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: #181A18; border: 3px solid #181A18; opacity: 0; transition: opacity 0.3s ease; z-index: 4;"></div>
+                <div class="timeline-content" style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); opacity: 0; transform: translateX(-30px); transition: all 0.6s ease;">
+                  <h4 style="margin: 0 0 10px 0; color: #181A18;">Education</h4>
+                  <p style="margin: 5px 0; color: #181A18; font-weight: 600;">Purdue University</p>
+                  <p style="margin: 5px 0; color: #4e4e4e;">Bachelor of Technology - Network Engineering Technology</p>
+                  <p style="margin: 5px 0 15px 0; color: #666; font-size: 0.9rem;">Jan 2018 - Dec 2021 | GPA: 3.92</p>
+                  <ul style="margin: 0; padding-left: 20px; color: #4e4e4e; line-height: 1.8;">
+                    <li>Honors College - Interdisciplinary coursework and research</li>
+                    <li>Published research on Kubernetes security and container orchestration</li>
+                    <li>CCDC (Collegiate Cyber Defense Competition) participant</li>
+                    <li>Student Council representative and Cyber Forensics Club member</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- End About Section -->
+    <!-- End Experience Section -->
 
     <!-- ======= Services Section ======= -->
     <!-- <section id="services" class="services-mf pt-5 route">
@@ -181,7 +295,7 @@
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box counter-box pt-4 pt-md-0">
               <div class="counter-ico">
-                <a href="https://www.credly.com/badges/f2d61602-d5df-44a4-a0d4-4682b8eaddfa/public_url"><img src="assets/img/aws-certified-solutions-architect-professional-min.png" alt="" class="img-fluid"></a>
+                <a href="https://www.credly.com/badges/f2d61602-d5df-44a4-a0d4-4682b8eaddfa/public_url"><img src="assets/img/aws-certified-solutions-architect-professional-min.png" alt="AWS Certified Solutions Architect Professional badge" class="img-fluid"></a>
               </div>
               <div class="counter-num">
                 <span class="counter-text"><b>CERTIFIED AWS SOLUTIONS ARCHITECT - PROFESSIONAL</b></span>
@@ -191,7 +305,7 @@
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
               <div class="counter-ico">
-                <a href="https://www.credly.com/badges/649d3e01-af70-44f3-9dee-79bd0f284688/public_url"><img src="assets/img/professional-cloud-architect-certification.png" alt="" class="img-fluid"></a>
+                <a href="https://www.credly.com/badges/649d3e01-af70-44f3-9dee-79bd0f284688/public_url"><img src="assets/img/professional-cloud-architect-certification.png" alt="GCP Professional Cloud Architect certification badge" class="img-fluid"></a>
               </div>
               <div class="counter-num">
                 <span class="counter-text"><b>CERTIFIED PROFESSIONAL CLOUD ARCHITECT</b></span>
@@ -201,7 +315,7 @@
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
               <div class="counter-ico">
-                <a href="https://www.credly.com/badges/7cea3216-63d1-40e0-b883-a51576b53d63/public_url"><img src="assets/img/finops-certified-practitioner.3.png" alt="" class="img-fluid"></a>
+                <a href="https://www.credly.com/badges/7cea3216-63d1-40e0-b883-a51576b53d63/public_url"><img src="assets/img/finops-certified-practitioner.3.png" alt="FinOps Certified Practitioner badge" class="img-fluid"></a>
               </div>
               <div class="counter-num">
                 <span class="counter-text"><b>CERTIFIED FINOPS PRACTITIONER</b></span>
@@ -210,11 +324,14 @@
           </div>
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <a href="https://www.credly.com/badges/f3f47fc6-6c9b-4867-85d0-c5b3d2b89c54/public_url"><img src="assets/img/cka-certified-kubernetes-administrator-min.png" alt="" class="img-fluid"></a>
+              <div class="counter-ico" style="display: flex; align-items: center; justify-content: center; height: 100%; min-height: 120px;">
+                <a href="https://www.credly.com/users/benwagrez" target="_blank" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold; transition: all 0.3s ease;">
+                  <i class="bi bi-plus-circle" style="display: block; margin-bottom: 10px;"></i>
+                  <span style="font-size: 1.2rem; display: block;">View More</span>
+                </a>
               </div>
               <div class="counter-num">
-                <span class="counter-text"><b>CERTIFIED KUBERNETES ADMINISTRATOR</b></span>
+                <span class="counter-text"><b>10+ MORE CERTIFICATIONS</b></span>
               </div>
             </div>
           </div>
@@ -241,9 +358,9 @@
         <div class="row">
           <div class="col-md-4">
             <div class="work-box">
-              <a href="assets/img/city-watch.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <a href="etl-details.html">
                 <div class="work-img">
-                  <img src="assets/img/city-watch.png" alt="" class="img-fluid">
+                  <img src="assets/img/city-watch.png" alt="ETL Pipeline architecture diagram showing AWS Lambda, S3, and data processing flow" class="img-fluid">
                 </div>
               </a>
               <div class="work-content">
@@ -260,14 +377,20 @@
                     </div>
                   </div>
                 </div>
+                <div style="margin-top: 10px;">
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">AWS</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Lambda</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">S3</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Python</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="work-box">
-              <a href="assets/img/website-min.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <a href="website-details.html">
                 <div class="work-img">
-                  <img src="assets/img/website-min.png" alt="" class="img-fluid">
+                  <img src="assets/img/website-min.png" alt="Static website hosting architecture with AWS S3, CloudFront CDN, and Route 53" class="img-fluid">
                 </div>
               </a>
               <div class="work-content">
@@ -284,14 +407,20 @@
                     </div>
                   </div>
                 </div>
+                <div style="margin-top: 10px;">
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">AWS</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">S3</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">CloudFront</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Terraform</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="work-box">
-              <a href="assets/img/azure-policy-min.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <a href="guardrails-details.html">
                 <div class="work-img">
-                  <img src="assets/img/azure-policy-min.png" alt="" class="img-fluid">
+                  <img src="assets/img/azure-policy-min.png" alt="Azure Policy governance framework with compliance and guardrails implementation" class="img-fluid">
                 </div>
               </a>
               <div class="work-content">
@@ -308,14 +437,20 @@
                     </div>
                   </div>
                 </div>
+                <div style="margin-top: 10px;">
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Azure</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Policy</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Governance</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Terraform</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="work-box">
-              <a href="assets/img/azure-datafactory-min.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <a href="adf-details.html">
                 <div class="work-img">
-                  <img src="assets/img/azure-datafactory-min.png" alt="" class="img-fluid">
+                  <img src="assets/img/azure-datafactory-min.png" alt="Azure Data Factory ETL pipeline architecture with data transformation workflows" class="img-fluid">
                 </div>
               </a>
               <div class="work-content">
@@ -332,14 +467,20 @@
                     </div>
                   </div>
                 </div>
+                <div style="margin-top: 10px;">
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Azure</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Data Factory</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">ETL</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Terraform</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="work-box">
-              <a href="assets/img/aws-vault-min.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <a href="vault-details.html">
                 <div class="work-img">
-                  <img src="assets/img/aws-vault-min.png" alt="" class="img-fluid">
+                  <img src="assets/img/aws-vault-min.png" alt="HashiCorp Vault deployment on AWS with high availability and secrets management" class="img-fluid">
                 </div>
               </a>
               <div class="work-content">
@@ -356,14 +497,20 @@
                     </div>
                   </div>
                 </div>
+                <div style="margin-top: 10px;">
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">AWS</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Vault</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Security</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Terraform</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="work-box">
-              <a href="assets/img/azure-terraformenterprise-min.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <a href="te-details.html">
                 <div class="work-img">
-                  <img src="assets/img/azure-terraformenterprise-min.png" alt="" class="img-fluid">
+                  <img src="assets/img/azure-terraformenterprise-min.png" alt="Terraform Enterprise deployment on Azure with automated infrastructure workflows" class="img-fluid">
                 </div>
               </a>
               <div class="work-content">
@@ -380,6 +527,12 @@
                     </div>
                   </div>
                 </div>
+                <div style="margin-top: 10px;">
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Azure</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">Terraform Enterprise</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">IaC</span>
+                  <span style="display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px; border-radius: 10px; font-size: 0.75rem; color: #333;">DevOps</span>
+                </div>
               </div>
             </div>
           </div>
@@ -388,7 +541,7 @@
       </div>
     </section><!-- End Portfolio Section -->
 
-    <!-- ======= Testimonials Section ======= 
+    <!-- ======= Testimonials Section =======
     <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/overlay-bg.jpg)">
       <div class="overlay-mf"></div>
       <div class="container">
@@ -457,8 +610,8 @@
                         Please feel free to reach out!
                       </p>
                       <ul class="list-ico">
-                        <li><span class="bi bi-geo-alt"></span> Dublin, IR</li>
-                        <li><span class="bi bi-envelope"></span> benwagrez@gmail.com</li>
+                        <li><span class="bi bi-geo-alt"></span> Dublin, Ireland</li>
+                        <li><span class="bi bi-envelope"></span> <a href="mailto:benwagrez@gmail.com" style="color: inherit; text-decoration: none;">benwagrez@gmail.com</a></li>
                       </ul>
                     </div>
                     <div class="socials">
@@ -509,6 +662,106 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Timeline Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      const timeline = document.querySelector('.timeline');
+      const timelineProgress = document.querySelector('.timeline-progress');
+
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -25% 0px'  // Trigger when item reaches 75% down the viewport
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Fade in marker smoothly (no jump animation)
+            const marker = entry.target.querySelector('.timeline-marker');
+            if (marker) {
+              marker.style.opacity = '1';
+              marker.style.transform = 'scale(1.2)';
+              setTimeout(() => {
+                marker.style.transform = 'scale(1)';
+              }, 300);
+            }
+
+            // Slide in and expand content
+            const content = entry.target.querySelector('.timeline-content');
+            if (content) {
+              // Slide in from left
+              content.style.opacity = '1';
+              content.style.transform = 'translateX(0)';
+
+              // Add hover effect (only once)
+              if (!content.hasAttribute('data-hover-added')) {
+                content.setAttribute('data-hover-added', 'true');
+                content.addEventListener('mouseenter', function() {
+                  this.style.transform = 'translateY(-5px) scale(1.02)';
+                  this.style.boxShadow = '0 12px 24px rgba(0,0,0,0.15)';
+                });
+                content.addEventListener('mouseleave', function() {
+                  this.style.transform = 'translateY(0) scale(1)';
+                  this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+                });
+              }
+            }
+
+            // Update progress bar when item becomes visible
+            updateProgressBar();
+          }
+        });
+      }, observerOptions);
+
+      // Observe all timeline items
+      timelineItems.forEach(item => {
+        observer.observe(item);
+      });
+
+      // Progress bar animation on scroll
+      function updateProgressBar() {
+        if (!timeline || !timelineProgress || timelineItems.length === 0) return;
+
+        const windowHeight = window.innerHeight;
+        const triggerPoint = windowHeight * 0.75; // 75% down the screen
+        const timelineRect = timeline.getBoundingClientRect();
+
+        // Get first and last markers for boundaries
+        const firstMarker = timelineItems[0]?.querySelector('.timeline-marker');
+        const lastMarker = timelineItems[timelineItems.length - 1]?.querySelector('.timeline-marker');
+
+        if (!firstMarker || !lastMarker) return;
+
+        const firstMarkerRect = firstMarker.getBoundingClientRect();
+        const lastMarkerRect = lastMarker.getBoundingClientRect();
+
+        // Calculate positions relative to timeline
+        const firstMarkerTop = firstMarkerRect.top - timelineRect.top;
+        const lastMarkerTop = lastMarkerRect.top - timelineRect.top;
+
+        // Calculate how far we've scrolled into the timeline
+        const scrolledPastFirst = triggerPoint - firstMarkerRect.top;
+        const totalDistance = lastMarkerTop - firstMarkerTop + 7; // +7 to reach center of last marker
+
+        // Calculate progress
+        let progressHeight = 0;
+
+        if (scrolledPastFirst > 0) {
+          // We've started scrolling past the first item
+          progressHeight = Math.min(scrolledPastFirst, totalDistance);
+        }
+
+        timelineProgress.style.height = progressHeight + 'px';
+      }
+
+      // Update progress bar on scroll
+      window.addEventListener('scroll', updateProgressBar);
+      updateProgressBar(); // Initial call
+    });
+  </script>
 
 </body>
 

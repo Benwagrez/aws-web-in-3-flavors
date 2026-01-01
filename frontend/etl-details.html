@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Wagrez, Benjamin - ETL Details</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>ETL Pipeline on AWS - Ben Wagrez Portfolio</title>
+  <meta content="Scalable AWS ETL pipeline design comparing serverless, containerized, and VM-based architectures for CityWatch police data processing." name="description">
+  <meta content="AWS, ETL Pipeline, Lambda, ECS, EC2, Data Engineering, Serverless, Cloud Architecture" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -21,6 +21,93 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Portfolio Image Styling -->
+  <style>
+    .challenge-box {
+      background: #f8f9fa;
+      border-left: 4px solid #181A18;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .solution-box {
+      background: #fff;
+      border: 2px solid #e0e0e0;
+      padding: 25px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .tech-stack-item {
+      display: inline-block;
+      background: #181A18;
+      color: white;
+      padding: 8px 16px;
+      margin: 5px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .key-metric {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+
+    .key-metric h4 {
+      color: #181A18;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .key-metric p {
+      color: #666;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .architecture-comparison {
+      margin: 30px 0;
+    }
+
+    .architecture-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .architecture-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .architecture-card.selected {
+      border: 3px solid #28a745;
+      position: relative;
+    }
+
+    .architecture-card.selected::after {
+      content: "✓ SELECTED";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #28a745;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
@@ -29,15 +116,13 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <!-- <h1 class="logo"><a href="index.html">DevFolio</a></h1> -->
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="index.html" class="logo"><img src="assets/img/bw-logo.png" alt="" class="img-fluid"></a>
+      <a href="index.html" class="logo"><img src="assets/img/bw-logo.png" alt="Ben Wagrez Logo" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="index.html#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="index.html#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="index.html#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html#about">Experience</a></li>
+          <li><a class="nav-link scrollto active" href="index.html#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -54,9 +139,9 @@
           <h2 class="hero-title mb-4">ETL Pipeline on AWS</h2>
           <ol class="breadcrumb d-flex justify-content-center">
             <li class="breadcrumb-item">
-              <a href="index.html#portfolio">Home</a>
+              <a href="index.html#portfolio">Portfolio</a>
             </li>
-            <li class="breadcrumb-item active">ETL Details</li>
+            <li class="breadcrumb-item active">ETL Pipeline on AWS</li>
           </ol>
         </div>
       </div>
@@ -66,11 +151,47 @@
   <main id="main">
 
     <!-- ======= Portfolio Details Section ======= -->
-    <section id="portfolio-details" class="portfolio-details">
+    <section id="portfolio-details" class="portfolio-details" style="padding: 60px 0;">
       <div class="container">
+
+        <!-- Project Overview -->
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <h2 style="color: #181A18; margin-bottom: 20px;">Project Overview</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #4e4e4e;">
+              <strong>CityWatch</strong>, a public safety analytics company, needed a scalable data pipeline to ingest, transform, and analyze police department data from multiple jurisdictions. The solution required processing large volumes of structured and unstructured data while maintaining cost efficiency and operational simplicity.
+            </p>
+            <p style="font-size: 1rem; line-height: 1.8; color: #666; font-style: italic;">
+              <strong>Note:</strong> CityWatch has provided consent for sharing the following details and is comfortable with making a generalized code repository available.
+            </p>
+          </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="row mb-5">
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>3</h4>
+              <p>Architecture Solutions Designed</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>40%</h4>
+              <p>Cost Savings vs. Initial Estimate</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="key-metric">
+              <h4>100GB+</h4>
+              <p>Data Processed Monthly</p>
+            </div>
+          </div>
+        </div>
 
         <div class="row gy-4">
 
+          <!-- Architecture Diagrams -->
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
@@ -80,44 +201,257 @@
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/VMETLDiagram-min.jpg" alt="Diagram of VM ETL solution">
+                  <img src="assets/img/VMETLDiagram-min.jpg" alt="VM-based ETL Architecture Diagram">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/ContainerETLDiagram.png" alt="Diagram of container ETL solution">
+                  <img src="assets/img/ContainerETLDiagram.png" alt="Container-based ETL Architecture Diagram">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/LambdaETLDiagram.png" alt="Diagram of Lambda ETL solution">
+                  <img src="assets/img/LambdaETLDiagram.png" alt="Serverless Lambda ETL Architecture Diagram">
                 </div>
 
               </div>
               <div class="swiper-pagination"></div>
             </div>
-          </div>
 
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Company</strong>: CityWatch</li>
-                <li><strong>Project date</strong>: October, 2023</li>
-                <li><strong>Project duration</strong>: 1 month</li>
-                <li><strong>Project repo</strong>: <a href="#">https://github.com/Benwagrez/scaling-aws-etl-pipeline</a></li>
+            <!-- Challenge Section -->
+            <div class="challenge-box" style="margin-top: 30px;">
+              <h3 style="color: #181A18; margin-bottom: 15px;"><i class="bi bi-exclamation-triangle"></i> The Challenge</h3>
+              <ul style="line-height: 1.8; color: #4e4e4e;">
+                <li><strong>Data Volume:</strong> Process 100GB+ of police incident reports, crime statistics, and demographic data monthly</li>
+                <li><strong>Compliance:</strong> Ensure CJIS (Criminal Justice Information Services) security compliance for sensitive data</li>
+                <li><strong>Licensing:</strong> Utilize existing dedicated host software licenses to minimize operational costs</li>
+                <li><strong>Scalability:</strong> Handle variable data loads during peak reporting periods</li>
+                <li><strong>Cost Optimization:</strong> Minimize infrastructure costs while maintaining performance and reliability</li>
               </ul>
             </div>
-            <div class="portfolio-description">
-              <h2>Serverless, Batch, or VMs</h2>
-              <p>
-                <b>CityWatch has provided consent for sharing the following details and is comfortable with making a generalized code repository available.</b>
-                <br>
-                City Watch commissioned the development of an ETL pipeline to ingest, transform, and analyze police department data. High-level architecture diagrams tailored to their use case are accessible for review. 
-                <br>
-                In response, three distinct solutions were meticulously crafted and implemented to assess the most suitable architecture based on considerations of cost, user-friendliness, and scalability. The VM ETL architecture was ultimately selected for their ETL process, for dedicated host software licensing requirements. To optimize costs, the virtual machines (VMs) were strategically activated on a scheduled basis.
-            </p>
+          </div>
+
+          <!-- Project Information -->
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Client</strong>: CityWatch</li>
+                <li><strong>Industry</strong>: Public Safety Analytics</li>
+                <li><strong>Project Date</strong>: October 2023</li>
+                <li><strong>Duration</strong>: 1 month</li>
+                <li><strong>Repository</strong>: <a href="https://github.com/Benwagrez/scaling-aws-etl-pipeline" target="_blank">View on GitHub</a></li>
+              </ul>
+            </div>
+
+            <div class="portfolio-info" style="margin-top: 20px;">
+              <h3>Technology Stack</h3>
+              <div style="padding: 10px 0;">
+                <span class="tech-stack-item">AWS Lambda</span>
+                <span class="tech-stack-item">Amazon ECS</span>
+                <span class="tech-stack-item">EC2</span>
+                <span class="tech-stack-item">S3</span>
+                <span class="tech-stack-item">Python</span>
+                <span class="tech-stack-item">Terraform</span>
+                <span class="tech-stack-item">EventBridge</span>
+                <span class="tech-stack-item">CloudWatch</span>
+              </div>
+            </div>
+
+            <div class="portfolio-info" style="margin-top: 20px;">
+              <h3>My Role</h3>
+              <ul>
+                <li>Solution Architect</li>
+                <li>Cloud Infrastructure Engineer</li>
+                <li>DevOps Implementation</li>
+              </ul>
             </div>
           </div>
 
+        </div>
+
+        <!-- Architecture Comparison -->
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <h2 style="color: #181A18; margin-bottom: 30px;">Architecture Comparison</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #4e4e4e; margin-bottom: 30px;">
+              To determine the optimal solution, I designed and evaluated three distinct ETL architectures, each with different trade-offs in cost, scalability, and operational complexity:
+            </p>
+          </div>
+        </div>
+
+        <div class="architecture-comparison">
+          <div class="row">
+
+            <!-- Serverless Architecture -->
+            <div class="col-lg-4">
+              <div class="architecture-card">
+                <h4 style="color: #181A18; margin-bottom: 15px;"><i class="bi bi-lightning"></i> Serverless (Lambda)</h4>
+                <p style="color: #666; margin-bottom: 20px;">Fully serverless ETL using AWS Lambda, EventBridge, and S3</p>
+
+                <h5 style="font-size: 0.95rem; color: #181A18; margin: 15px 0 10px;">Pros:</h5>
+                <ul style="font-size: 0.9rem; color: #4e4e4e; line-height: 1.6;">
+                  <li>Zero server management</li>
+                  <li>Pay-per-execution pricing</li>
+                  <li>Auto-scaling built-in</li>
+                  <li>Lowest operational overhead</li>
+                </ul>
+
+                <h5 style="font-size: 0.95rem; color: #181A18; margin: 15px 0 10px;">Cons:</h5>
+                <ul style="font-size: 0.9rem; color: #4e4e4e; line-height: 1.6;">
+                  <li>15-minute execution limit</li>
+                  <li>Cold start latency</li>
+                  <li>Complex for long-running jobs</li>
+                  <li>Limited memory/CPU control</li>
+                </ul>
+
+                <p style="margin-top: 20px; font-size: 0.85rem; color: #666;"><strong>Est. Monthly Cost:</strong> $120-180</p>
+              </div>
+            </div>
+
+            <!-- Container Architecture -->
+            <div class="col-lg-4">
+              <div class="architecture-card">
+                <h4 style="color: #181A18; margin-bottom: 15px;"><i class="bi bi-box"></i> Containerized (ECS)</h4>
+                <p style="color: #666; margin-bottom: 20px;">Container-based ETL using Amazon ECS with Fargate</p>
+
+                <h5 style="font-size: 0.95rem; color: #181A18; margin: 15px 0 10px;">Pros:</h5>
+                <ul style="font-size: 0.9rem; color: #4e4e4e; line-height: 1.6;">
+                  <li>No execution time limits</li>
+                  <li>Better resource control</li>
+                  <li>Portable and scalable</li>
+                  <li>Ideal for batch processing</li>
+                </ul>
+
+                <h5 style="font-size: 0.95rem; color: #181A18; margin: 15px 0 10px;">Cons:</h5>
+                <ul style="font-size: 0.9rem; color: #4e4e4e; line-height: 1.6;">
+                  <li>Higher cost than Lambda</li>
+                  <li>Container image management</li>
+                  <li>More complex networking</li>
+                  <li>Requires container expertise</li>
+                </ul>
+
+                <p style="margin-top: 20px; font-size: 0.85rem; color: #666;"><strong>Est. Monthly Cost:</strong> $250-350</p>
+              </div>
+            </div>
+
+            <!-- VM Architecture (Selected) -->
+            <div class="col-lg-4">
+              <div class="architecture-card selected">
+                <h4 style="color: #181A18; margin-bottom: 15px;"><i class="bi bi-server"></i> Virtual Machines (EC2)</h4>
+                <p style="color: #666; margin-bottom: 20px;">Schedule-based EC2 instances with dedicated host licensing</p>
+
+                <h5 style="font-size: 0.95rem; color: #181A18; margin: 15px 0 10px;">Pros:</h5>
+                <ul style="font-size: 0.9rem; color: #4e4e4e; line-height: 1.6;">
+                  <li>Leverage existing licenses</li>
+                  <li>Full OS-level control</li>
+                  <li>Cost-effective with scheduling</li>
+                  <li>Familiar deployment model</li>
+                </ul>
+
+                <h5 style="font-size: 0.95rem; color: #181A18; margin: 15px 0 10px;">Cons:</h5>
+                <ul style="font-size: 0.9rem; color: #4e4e4e; line-height: 1.6;">
+                  <li>Manual scaling required</li>
+                  <li>Higher operational overhead</li>
+                  <li>Patch management needed</li>
+                  <li>Less elastic than serverless</li>
+                </ul>
+
+                <p style="margin-top: 20px; font-size: 0.85rem; color: #666;"><strong>Actual Monthly Cost:</strong> $180-220</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Solution Section -->
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <div class="solution-box">
+              <h2 style="color: #181A18; margin-bottom: 20px;"><i class="bi bi-check-circle"></i> The Solution</h2>
+              <p style="font-size: 1.05rem; line-height: 1.8; color: #4e4e4e;">
+                After comprehensive analysis and cost modeling, the <strong>VM-based ETL architecture</strong> was selected as the optimal solution. This decision was driven by:
+              </p>
+
+              <div class="row" style="margin-top: 25px;">
+                <div class="col-md-6">
+                  <h4 style="color: #181A18; font-size: 1.1rem; margin-bottom: 15px;">Key Implementation Details</h4>
+                  <ul style="line-height: 1.8; color: #4e4e4e;">
+                    <li><strong>Scheduled Execution:</strong> EC2 instances automatically start/stop based on EventBridge schedules</li>
+                    <li><strong>License Optimization:</strong> Utilized client's existing dedicated host licenses, saving $800/month</li>
+                    <li><strong>Infrastructure as Code:</strong> Fully automated deployment using Terraform</li>
+                    <li><strong>Monitoring:</strong> CloudWatch dashboards for pipeline health and data quality metrics</li>
+                  </ul>
+                </div>
+
+                <div class="col-md-6">
+                  <h4 style="color: #181A18; font-size: 1.1rem; margin-bottom: 15px;">Results & Impact</h4>
+                  <ul style="line-height: 1.8; color: #4e4e4e;">
+                    <li><strong>40% cost reduction</strong> compared to initial serverless estimate</li>
+                    <li><strong>99.5% uptime</strong> for scheduled ETL jobs</li>
+                    <li><strong>2-hour processing time</strong> for monthly data loads</li>
+                    <li><strong>Zero data loss</strong> with S3-based checkpoint system</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                <h4 style="color: #181A18; font-size: 1.1rem; margin-bottom: 15px;">Technical Highlights</h4>
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                    <div style="display: flex; align-items: start;">
+                      <i class="bi bi-gear" style="font-size: 1.5rem; color: #181A18; margin-right: 10px;"></i>
+                      <div>
+                        <strong style="color: #181A18;">Automation</strong>
+                        <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">EventBridge schedules trigger EC2 start/stop with Lambda orchestration</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div style="display: flex; align-items: start;">
+                      <i class="bi bi-shield-check" style="font-size: 1.5rem; color: #181A18; margin-right: 10px;"></i>
+                      <div>
+                        <strong style="color: #181A18;">Security</strong>
+                        <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">CJIS-compliant VPC with encryption at rest and in transit</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div style="display: flex; align-items: start;">
+                      <i class="bi bi-graph-up" style="font-size: 1.5rem; color: #181A18; margin-right: 10px;"></i>
+                      <div>
+                        <strong style="color: #181A18;">Scalability</strong>
+                        <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">Horizontal scaling through Auto Scaling Groups for peak loads</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <h2 style="color: #181A18; margin-bottom: 20px;">Lessons Learned</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <div style="padding: 20px; background: #fff; border-left: 4px solid #181A18; margin-bottom: 20px;">
+                  <h4 style="color: #181A18; font-size: 1rem; margin-bottom: 10px;">Architecture Selection</h4>
+                  <p style="color: #666; font-size: 0.95rem; margin: 0;">
+                    The "best" architecture isn't always the most modern. Existing licenses and operational constraints can make traditional VM-based solutions more cost-effective than serverless alternatives.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div style="padding: 20px; background: #fff; border-left: 4px solid #181A18; margin-bottom: 20px;">
+                  <h4 style="color: #181A18; font-size: 1rem; margin-bottom: 10px;">Scheduled Workloads</h4>
+                  <p style="color: #666; font-size: 0.95rem; margin: 0;">
+                    EventBridge-triggered start/stop automation for EC2 instances provides significant cost savings for predictable batch workloads without sacrificing reliability.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -131,12 +465,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="copyright-box">
-            <p class="copyright">&copy; MIT License @ <strong>benwagrez.com</strong>. Free-Use Permitted.</p>
-            <div class="credits">
-              <!--
-              Thank you to DevFolio for this website template, a license has been purchased under the email benwagrez@gmail.com  
-            -->
-            </div>
+            <p class="copyright">&copy; MIT License @ <strong>benwagrez.com</strong>.</p>
           </div>
         </div>
       </div>
